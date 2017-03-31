@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Pages.MenuPage"
+             Title="Menu" BackgroundColor="{StaticResource BackgroundColorMenu}"
+	         BindingContext="{Binding Main, Source={StaticResource Locator}}"
+	         Icon="ic_menu.png">
+
+    <StackLayout Orientation="Vertical" Padding="0,40,0,0" BackgroundColor="{StaticResource BackgroundColorMenu}">
+
+        <StackLayout BackgroundColor="#000000"
+                     HeightRequest="75">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+
+                <Image HorizontalOptions="Center" VerticalOptions="Center" 
+				Source="{StaticResource imageContactSmall}"
+					Grid.Row="0" Grid.Column="0"
+				/>
+
+                <StackLayout Grid.Column="1" 
+						Grid.Row="0" 
+						VerticalOptions="Center"
+						HorizontalOptions="Start"
+						>
+                    <Label Text="Santiago Fernandez Zapata"
+					FontSize="13"
+					VerticalOptions="CenterAndExpand"
+					TextColor="#ffffff"
+					HorizontalTextAlignment="Start"
+					VerticalTextAlignment="Center"
+					FontAttributes="Bold"
+					/>
+
+                    <Label Text="FULL NATIONAL EXECUTIVE"
+					FontSize="12"
+					VerticalOptions="CenterAndExpand"
+					TextColor="#ffffff"
+					HorizontalTextAlignment="Start"
+					VerticalTextAlignment="Center"
+					FontAttributes="Bold"
+					/>
+
+
+                </StackLayout>
+
+            </Grid>
+
+
+
+        </StackLayout>
+
+
+        <ListView ItemsSource="{Binding Menu}" HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
+
+
+
+
+            <ListView.SeparatorColor>
+                <OnPlatform x:TypeArguments="Color" Android="#444444" iOS="{StaticResource BackgroundColorMenu}" WinPhone="#444444"/>
+            </ListView.SeparatorColor>
+
+
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10,40,0,10">
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}" NumberOfTapsRequired="1">
+                                    </TapGestureRecognizer>
+                                </Grid.GestureRecognizers>
+
+
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image  Grid.Column="0" 
+								WidthRequest="20" 
+								HeightRequest="20" 
+								Source="{Binding Icon}"></Image>
+
+                                <Label  Grid.Column="1" 
+								FontSize="15" 
+								TextColor="#ffffff" 
+								Text="{Binding Title}"></Label>
+
+
+
+                            </Grid>
+
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+    </StackLayout>
+    
+    
+</ContentPage>

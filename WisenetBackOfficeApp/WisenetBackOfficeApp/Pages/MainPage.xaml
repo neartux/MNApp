@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Pages.MainPage"
+             BackgroundImage="bgBlackTexture.jpg"
+	         BindingContext="{Binding MenuDist, Source={StaticResource LocatorDist}}">
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+        <ScrollView>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+
+                <Image HorizontalOptions="Center" Source="{StaticResource imageContact}"/>
+
+                <Label Text="FULL NATIONAL EXECUTIVE"
+				FontSize="16"
+				VerticalOptions="Center"
+				TextColor="#ffffff"
+				FontAttributes="Bold"
+				HorizontalOptions="Center"
+				HorizontalTextAlignment="Center"
+			/>
+
+
+                <Label Text="Santiago Fernandez Zapata"
+				FontSize="16"
+				VerticalOptions="Center"
+				TextColor="#ffffff"
+				FontAttributes="Bold"
+				HorizontalOptions="Center"
+				HorizontalTextAlignment="Center"
+			/>
+
+
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <Grid Padding="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label  
+					Grid.Row="0" 
+					Grid.Column="1"
+					Text="1367"
+					FontSize="15"
+					VerticalOptions="Center"
+					TextColor="#ffffff"
+					VerticalTextAlignment="Center"
+					HorizontalTextAlignment="Center"
+					FontAttributes="Bold"
+					BackgroundColor="#ff6624"
+					
+
+				/>
+                    </Grid>
+                </StackLayout>
+
+                <!-- AGREGANDO ZONA DE FECHA Y SPONSOR      -->
+
+
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10,0,10,0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView BackgroundColor="#ff6624" Grid.Row="0" Grid.Column="0" Opacity="0.3"/>
+                        <BoxView BackgroundColor="#ffa834" Grid.Row="0" Grid.Column="1" Opacity="0.3"/>
+
+
+                        <StackLayout Grid.Column="0" 
+						Grid.Row="0" 
+						VerticalOptions="Center"
+						>
+
+                            <Label Text="02/09/2016" 
+							Font="Bold,16" 
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							TextColor="#ffffff"
+							VerticalTextAlignment="Center"
+							HorizontalTextAlignment="Center"
+						/>
+
+                            <Label Text="Fecha Registro" 
+							Font="13" 
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							TextColor="#ffffff"
+							VerticalTextAlignment="Center"
+							HorizontalTextAlignment="Center"
+						/>
+
+
+
+
+                        </StackLayout>
+
+
+
+                        <StackLayout Grid.Column="1" 
+						Grid.Row="0" 
+						VerticalOptions="Center"
+						>
+
+                            <Label Text="1948" 
+							Font="16" 
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							TextColor="#ffffff"
+							VerticalTextAlignment="Center"
+							HorizontalTextAlignment="Center"
+						/>
+
+                            <Label Text="Sponsor" 
+							Font="13" 
+							VerticalOptions="Center"
+							HorizontalOptions="Center"
+							TextColor="#ffffff"
+							VerticalTextAlignment="Center"
+							HorizontalTextAlignment="Center"
+						/>
+
+
+
+
+                        </StackLayout>
+
+
+
+
+                    </Grid>
+                </StackLayout>
+
+
+
+
+
+                <!--Zona de menu del distribuidor-->
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0">
+
+                    <ListView x:Name="MenuDist"  ItemsSource="{Binding MenuDist}" HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
+                        <ListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" Android="#444444" iOS="{StaticResource BackgroundColorMenu}" WinPhone="#444444"/>
+                        </ListView.SeparatorColor>
+
+
+
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Grid>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="52" />
+                                            </Grid.RowDefinitions>
+
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="35"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="25"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <BoxView BackgroundColor="#444444" Grid.Row="0" Grid.ColumnSpan="3" Opacity="0.2"/>
+
+                                            <StackLayout Padding="5,5,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+
+                                                <Image  Grid.Row="0" Grid.Column="0" 
+								WidthRequest="20" 
+								HeightRequest="20" 
+								Source="{Binding Icon_d}"
+								VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                                            </StackLayout>
+
+                                            <Label  Grid.Row="0"  Grid.Column="1" 
+								Text="{Binding Title_d}"
+								Font="13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+                                            <Image  Grid.Row="0" Grid.Column="2" 
+								WidthRequest="20" 
+								HeightRequest="20" 
+								Source="{StaticResource iconGoTo}"
+								VerticalOptions="Center" HorizontalOptions="Center"
+											></Image>
+
+
+
+
+
+                                        </Grid>
+
+                                    </StackLayout>
+                                </ViewCell>
+
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+
+
+                    </ListView>
+                </StackLayout>
+
+
+
+
+
+
+
+            </StackLayout>
+
+
+
+        </ScrollView>
+
+
+
+
+
+    </ContentView>
+    
+    
+</ContentPage>

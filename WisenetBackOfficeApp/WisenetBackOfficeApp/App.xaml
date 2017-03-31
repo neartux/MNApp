@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.App"
+             xmlns:infra="clr-namespace:WisenetBackOfficeApp.Infrastructure;assembly=WisenetBackOfficeApp">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColor">#232323</Color>
+            <Color x:Key="BackgroundColorMenu">#232323</Color>
+            <Color x:Key="FontColor">#ffffff</Color>
+            <!--Image x:Key="BackgroundImageTemplate">bgBlackTexture.jpg</Image-->
+
+            <!--Locator-->
+            <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+            <infra:InstanceLocatorMenuDist x:Key="LocatorDist"></infra:InstanceLocatorMenuDist>
+
+
+            <ControlTemplate x:Key="BarOrange">
+                <StackLayout Spacing="10">
+                    <BoxView Color="#ffa834" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <ContentPresenter />
+                </StackLayout>
+
+            </ControlTemplate>
+
+            <OnPlatform x:Key="imageContact" 
+                      x:TypeArguments="ImageSource"
+                      iOS="user120.png"
+                      Android="userbig.png"
+                      />
+
+            <OnPlatform x:Key="iconGoTo" 
+                      x:TypeArguments="ImageSource"
+                      iOS="ic_arrow_right.png"
+                      Android="ic_arrow_right.png"
+                      />
+
+
+            <OnPlatform x:Key="imageContactSmall" 
+                      x:TypeArguments="ImageSource"
+                      iOS="user50.png"
+                      Android="usersmall.png"
+                      />
+
+
+
+        </ResourceDictionary>
+
+	</Application.Resources>
+</Application>
