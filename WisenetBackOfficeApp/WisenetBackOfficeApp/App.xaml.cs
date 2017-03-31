@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WisenetBackOfficeApp.Pages;
+using WisenetBackOfficeApp.Views;
 using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp
@@ -17,7 +18,8 @@ namespace WisenetBackOfficeApp
             InitializeComponent();
 
             //MainPage = new WisenetBackOfficeApp.MainPage();
-            MainPage = new MasterPage();
+            //MainPage = new MasterPage();
+            MainPage = new Login();
         }
 
         protected override void OnStart()

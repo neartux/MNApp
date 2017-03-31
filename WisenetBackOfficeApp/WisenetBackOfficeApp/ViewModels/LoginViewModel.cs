@@ -8,6 +8,7 @@ using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Login;
+using WisenetBackOfficeApp.Pages;
 using WisenetBackOfficeApp.Services;
 using Xamarin.Forms;
 
@@ -50,6 +51,7 @@ namespace WisenetBackOfficeApp.ViewModels
                 if (response.Success)
                 {
                     Debug.WriteLine("se redirecciona a otra pagina");
+                    App.Navigator.PushAsync(new MasterPage());
                 }
                 else
                 {

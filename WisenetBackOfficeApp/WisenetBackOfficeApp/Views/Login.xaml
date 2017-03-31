@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WisenetBackOfficeApp.Helpers.Behaviors;assembly=WisenetBackOfficeApp"
+             x:Class="WisenetBackOfficeApp.Views.Login"
+             BackgroundImage="fgv_bg.jpg">
+
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+
+            <local:BooleanToObjectConverter x:Key="boolToStyleAge" x:TypeArguments="Style">
+                <local:BooleanToObjectConverter.FalseObject>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="#F44336" />
+                        <Setter Property="Text" Value="Enter numeric values" />
+                    </Style>
+                </local:BooleanToObjectConverter.FalseObject>
+
+                --><!--<local:BooleanToObjectConverter.TrueObject>
+                    <Style TargetType="Label" >
+                        <Setter Property="TextColor" Value="#4CAF50" />
+                        <Setter Property="Text" Value="You are very young" />
+                    </Style>
+                </local:BooleanToObjectConverter.TrueObject>--><!--
+
+            </local:BooleanToObjectConverter>
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="0,70,0,0" Spacing="10">
+
+        <Image Source="fgv_logo.png" />
+
+        <StackLayout Padding="0,70,0,0" Spacing="10">
+            <Entry Text="{Binding User.UserName}" Placeholder="User" TextColor="White">
+                <Entry.Behaviors>
+                    <local:NumberValidatorBehavior x:Name="ageValidator"/>
+                    <local:MaxLengthValidatorBehavior  MaxLength="6"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Style="{Binding Source={x:Reference ageValidator}, Path=IsValid, Converter={StaticResource boolToStyleAge}}" />
+        </StackLayout>
+
+        <StackLayout Padding="0,30,0,0" Spacing="10">
+            <Entry IsPassword="True" Text="{Binding User.Password}" Placeholder="Password" TextColor="White"/>
+        </StackLayout>
+
+        <StackLayout Padding="0,50,0,0" Spacing="10">
+            <Button Text="Login" x:Name="ButtonLogin" Command="{Binding DoLoginCommand}"
+            BackgroundColor="#000000" FontAttributes="Bold" HorizontalOptions="Center"
+            TextColor="White"
+            IsVisible="{Binding !IsLoading, Mode=OneWay}"/>
+        </StackLayout>
+
+        <StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsLoading, Mode=OneWay}"/>
+        </StackLayout>
+
+    </StackLayout>-->
+    
+</ContentPage>
