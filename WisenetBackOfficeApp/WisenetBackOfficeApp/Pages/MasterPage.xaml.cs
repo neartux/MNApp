@@ -17,11 +17,11 @@ namespace WisenetBackOfficeApp.Pages
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            App.Master = this;
-            App.Navigator = this.Navigator;
-        }
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    App.Master = this;
+        //    App.Navigator = this.Navigator;
+        //}
     }
 }

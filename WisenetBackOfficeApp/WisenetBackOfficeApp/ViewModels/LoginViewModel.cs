@@ -26,6 +26,9 @@ namespace WisenetBackOfficeApp.ViewModels
             DoLoginCommand = new Command(() => DoLogin());
         }
 
+        public static NavigationPage Navigator { get; internal set; }
+        public static MasterPage Master { get; internal set; }
+
         public User User
         {
             get { return _user; }
@@ -46,12 +49,13 @@ namespace WisenetBackOfficeApp.ViewModels
 
             if (ValidateLoginForm())
             {
-                ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName.ToString()), _user.Password)).Result;
+                ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(1001, "demo")).Result;
                 Debug.WriteLine("ya obteniendo respuesta = " + response);
                 if (response.Success)
                 {
                     Debug.WriteLine("se redirecciona a otra pagina");
-                    App.Navigator.PushAsync(new MasterPage());
+                    //App.Navigator.PushAsync(new MasterPage());
+                    App.Navigator.PushAsync(new MasterPage(), true);
                 }
                 else
                 {

@@ -16,31 +16,25 @@
                     </Style>
                 </local:BooleanToObjectConverter.FalseObject>
 
-                --><!--<local:BooleanToObjectConverter.TrueObject>
+                <local:BooleanToObjectConverter.TrueObject>
                     <Style TargetType="Label" >
                         <Setter Property="TextColor" Value="#4CAF50" />
                         <Setter Property="Text" Value="You are very young" />
                     </Style>
-                </local:BooleanToObjectConverter.TrueObject>--><!--
+                </local:BooleanToObjectConverter.TrueObject>
 
             </local:BooleanToObjectConverter>
 
 
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentPage.Resources>-->
 
     <StackLayout Padding="0,70,0,0" Spacing="10">
 
         <Image Source="fgv_logo.png" />
 
         <StackLayout Padding="0,70,0,0" Spacing="10">
-            <Entry Text="{Binding User.UserName}" Placeholder="User" TextColor="White">
-                <Entry.Behaviors>
-                    <local:NumberValidatorBehavior x:Name="ageValidator"/>
-                    <local:MaxLengthValidatorBehavior  MaxLength="6"/>
-                </Entry.Behaviors>
-            </Entry>
-            <Label Style="{Binding Source={x:Reference ageValidator}, Path=IsValid, Converter={StaticResource boolToStyleAge}}" />
+            <Entry Text="{Binding User.UserName}" Placeholder="Usuario" TextColor="White"/>
         </StackLayout>
 
         <StackLayout Padding="0,30,0,0" Spacing="10">
@@ -48,7 +42,7 @@
         </StackLayout>
 
         <StackLayout Padding="0,50,0,0" Spacing="10">
-            <Button Text="Login" x:Name="ButtonLogin" Command="{Binding DoLoginCommand}"
+            <Button Text="Login" x:Name="ButtonLogin" Command="{Binding DoLoginCommand} "
             BackgroundColor="#000000" FontAttributes="Bold" HorizontalOptions="Center"
             TextColor="White"
             IsVisible="{Binding !IsLoading, Mode=OneWay}"/>
@@ -58,6 +52,6 @@
             <ActivityIndicator IsRunning="{Binding IsLoading, Mode=OneWay}"/>
         </StackLayout>
 
-    </StackLayout>-->
+    </StackLayout>
     
 </ContentPage>

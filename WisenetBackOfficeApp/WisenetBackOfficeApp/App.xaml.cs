@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using WisenetBackOfficeApp.Pages;
-using WisenetBackOfficeApp.Views;
+﻿using WisenetBackOfficeApp.Pages;
 using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp
@@ -19,7 +14,8 @@ namespace WisenetBackOfficeApp
 
             //MainPage = new WisenetBackOfficeApp.MainPage();
             //MainPage = new MasterPage();
-            MainPage = new Login();
+            MainPage = new Views.Login();
+            //MainPage = new NavigationPage(new Views.Login());
         }
 
         protected override void OnStart()
