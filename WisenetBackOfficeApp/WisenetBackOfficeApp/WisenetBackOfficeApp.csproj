@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="Infrastructure\InstanceLocator.cs" />
     <Compile Include="Infrastructure\InstanceLocatorMenuDist.cs" />
+    <Compile Include="Models\Login\User.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
