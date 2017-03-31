@@ -77,6 +77,8 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\UpdatePersonalInformationViewModel.cs" />
+    <Compile Include="ViewModels\UpdateShippinInformationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
