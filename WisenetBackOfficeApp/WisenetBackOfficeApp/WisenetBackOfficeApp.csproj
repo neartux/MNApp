@@ -38,6 +38,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Behaviors\EmailValidatorBehavior.cs" />
+    <Compile Include="Helpers\Behaviors\InitBehavior.cs" />
+    <Compile Include="Helpers\Behaviors\MaxLengthValidatorBehavior.cs" />
+    <Compile Include="Helpers\Behaviors\NumberValidatorBehavior.cs" />
+    <Compile Include="Helpers\Controls\BindablePicker.cs" />
+    <Compile Include="Helpers\Converters\BooleanToObjectConverter.cs" />
+    <Compile Include="Helpers\Keys\Keys.cs" />
+    <Compile Include="Helpers\Keys\WebServicesKeys.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Infrastructure\InstanceLocator.cs" />
