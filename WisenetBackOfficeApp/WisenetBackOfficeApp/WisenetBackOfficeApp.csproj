@@ -48,6 +48,7 @@
     <Compile Include="Helpers\Keys\WebServicesKeys.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
+    <Compile Include="Helpers\Utils\DateUtil.cs" />
     <Compile Include="Infrastructure\InstanceLocator.cs" />
     <Compile Include="Infrastructure\InstanceLocatorMenuDist.cs" />
     <Compile Include="Models\Common\CatalogoTO.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="Helpers\AppManager.cs" />
     <Compile Include="ViewModels\UpdatePersonalInformationViewModel.cs" />
     <Compile Include="ViewModels\UpdateShippinInformationViewModel.cs" />
     <Compile Include="Views\Login.xaml.cs">
@@ -98,6 +100,9 @@
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v7.1\Mono.Android.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.1\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>

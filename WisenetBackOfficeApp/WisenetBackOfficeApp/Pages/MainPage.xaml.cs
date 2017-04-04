@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using WisenetBackOfficeApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +12,8 @@ namespace WisenetBackOfficeApp.Pages
             InitializeComponent();
             var sLogo = "logo-45.png";
             NavigationPage.SetTitleIcon(this, sLogo);
+
+            BindingContext = new MainViewModel();
         }
     }
 }

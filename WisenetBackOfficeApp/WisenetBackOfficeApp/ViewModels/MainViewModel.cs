@@ -1,24 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WisenetBackOfficeApp.Helpers;
+using WisenetBackOfficeApp.Helpers.Utils;
+using WisenetBackOfficeApp.Models.Distributor;
 
-namespace WisenetBackOfficeApp.ViewModels
-{
-    class MainViewModel
-    {
-        public MainViewModel()
-        {
+namespace WisenetBackOfficeApp.ViewModels {
+    class MainViewModel {
+        private DistributorTO _Distributor;
+        public MainViewModel() {
             LoadMenu();
             LoadMenuDist();
+
+            var _AppManager = AppManager.Instance;
+            _Distributor = _AppManager.GetDistributor();
+
+            if(_Distributor.FechaRegistro > 0)
+            {
+                FechaRegistro = DateUtil.UnixDateToDateTime(_Distributor.FechaRegistro);   
+            }
 
         }
 
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
         public ObservableCollection<MenuItemDataDistributorViewModel> MenuDist { get; set; }
+        public DistributorTO Distributor
+        {
+            get { return _Distributor; }
+            set { _Distributor = value; }
+        }
+
+        public DateTime FechaRegistro { get; set; }
 
         private void LoadMenu()
         {

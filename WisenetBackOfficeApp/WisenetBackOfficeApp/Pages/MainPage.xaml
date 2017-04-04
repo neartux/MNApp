@@ -12,7 +12,7 @@
 
                 <Image HorizontalOptions="Center" Source="{StaticResource imageContact}"/>
 
-                <Label Text="FULL NATIONAL EXECUTIVE"
+                <Label Text="{Binding Distributor.Calificacion}"
 				FontSize="16"
 				VerticalOptions="Center"
 				TextColor="#ffffff"
@@ -22,7 +22,7 @@
 			/>
 
 
-                <Label Text="Santiago Fernandez Zapata"
+                <Label Text="{ Binding Distributor.NombreCompleto }"
 				FontSize="16"
 				VerticalOptions="Center"
 				TextColor="#ffffff"
@@ -49,7 +49,7 @@
                         <Label  
 					Grid.Row="0" 
 					Grid.Column="1"
-					Text="1367"
+					Text="{ Binding Distributor.IdDistributor }"
 					FontSize="15"
 					VerticalOptions="Center"
 					TextColor="#ffffff"
@@ -87,7 +87,7 @@
 						VerticalOptions="Center"
 						>
 
-                            <Label Text="02/09/2016" 
+                            <Label Text="{ Binding FechaRegistro, StringFormat='{0:dd/MM/yyyy}' }" 
 							Font="Bold,16" 
 							VerticalOptions="Center"
 							HorizontalOptions="Center"
@@ -117,7 +117,7 @@
 						VerticalOptions="Center"
 						>
 
-                            <Label Text="1948" 
+                            <Label Text="{ Binding Distributor.Patrocinador }" 
 							Font="16" 
 							VerticalOptions="Center"
 							HorizontalOptions="Center"

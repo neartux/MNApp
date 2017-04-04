@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
@@ -25,9 +21,6 @@ namespace WisenetBackOfficeApp.ViewModels
         {
             DoLoginCommand = new Command(() => DoLogin());
         }
-
-        public static NavigationPage Navigator { get; internal set; }
-        public static MasterPage Master { get; internal set; }
 
         public User User
         {
@@ -54,8 +47,13 @@ namespace WisenetBackOfficeApp.ViewModels
                 if (response.Success)
                 {
                     Debug.WriteLine("se redirecciona a otra pagina");
-                    //App.Navigator.PushAsync(new MasterPage());
-                    App.Navigator.PushAsync(new MasterPage(), true);
+
+                    var _AppManager = AppManager.Instance;
+                    _AppManager.SetDistributor(response.DistributorTO);
+
+                    Application.Current.MainPage = new MasterPage();
+
+                    
                 }
                 else
                 {

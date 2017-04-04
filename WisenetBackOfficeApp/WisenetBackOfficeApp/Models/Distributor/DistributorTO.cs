@@ -2,7 +2,7 @@
 
 namespace WisenetBackOfficeApp.Models.Distributor
 {
-    class DistributorTO
+    public class DistributorTO
     {
         [JsonProperty(PropertyName = "idDistribuidor")]
         public long IdDistributor { get; set; }
@@ -12,6 +12,18 @@ namespace WisenetBackOfficeApp.Models.Distributor
 
         [JsonProperty(PropertyName = "apellidos")]
         public string Apellidos { get; set; }
+
+        [JsonProperty(PropertyName = "nombreCompleto")]
+        public string NombreCompleto { get; set; }
+
+        [JsonProperty(PropertyName = "patrocinador")]
+        public string Patrocinador { get; set; }
+
+        [JsonProperty(PropertyName = "fechaRegistro")]
+        public long FechaRegistro { get; set; } 
+
+        [JsonProperty(PropertyName = "calificacion")]
+        public string Calificacion { get; set; }
 
         [JsonProperty(PropertyName = "direccion")]
         public string Direccion { get; set; }
@@ -90,6 +102,9 @@ namespace WisenetBackOfficeApp.Models.Distributor
                 "\n Celular =  " + Celular +
                 "\n Fax =  " + Fax +
                 "\n Email = " + Email +
+                "\n Calificacion = " + Calificacion +
+                "\n Patrocinador = " + Patrocinador +
+                "\n FechaRegistro = " + FechaRegistro +
                 "}";
         }
     }

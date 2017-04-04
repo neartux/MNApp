@@ -12,6 +12,7 @@
 
     <MasterDetailPage.Detail>
         <NavigationPage x:Name="Navigator" BarBackgroundColor="Black">
+            
             <x:Arguments>
                 <pages:MainPage>
                 </pages:MainPage>
