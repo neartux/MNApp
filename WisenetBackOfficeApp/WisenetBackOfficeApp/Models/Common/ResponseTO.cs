@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace WisenetBackOfficeApp.Models.Common
-{
-    class ResponseTO
-    {
+namespace WisenetBackOfficeApp.Models.Common {
+    class ResponseTO {
+
         [JsonProperty(PropertyName = "id")]
         public long Id { get; set; }
 
@@ -13,8 +12,7 @@ namespace WisenetBackOfficeApp.Models.Common
         [JsonProperty(PropertyName = "success")]
         public bool Success { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return "ResponseVO: { \n Id = " + Id + " \n Message = " + Message + " \n Success = " + Success + " }";
         }
     }

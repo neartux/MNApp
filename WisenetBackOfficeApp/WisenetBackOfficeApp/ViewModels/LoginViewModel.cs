@@ -36,13 +36,7 @@ namespace WisenetBackOfficeApp.ViewModels
             IsLoading = true;
 
             if (ValidateLoginForm()) {
-
-                
-                
-                
-
                 ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password)).Result;
-                Debug.WriteLine("ya obteniendo respuesta = " + response);
                 if (response.Success) {
 
                     var _AppManager = AppManager.Instance;
@@ -62,7 +56,9 @@ namespace WisenetBackOfficeApp.ViewModels
 
         private bool ValidateLoginForm() {
             //Debug.WriteLine("USUARIO = " + usuario.UserName + " PASSWORD = " + usuario.Password+ " LENGTH USER = "+ usuario.UserName.Trim().Length);
-            if (_user.UserName == null || _user.UserName.Trim().Length.Equals(Keys.NUMBER_ZERO)) {
+            int n;
+            bool isNumeric = int.TryParse(_user.UserName, out n);
+            if (_user.UserName == null || _user.UserName.Trim().Length.Equals(Keys.NUMBER_ZERO) || !isNumeric) {
                 Application.Current.MainPage.DisplayAlert("Info", "User name is required", "Aceptar");
                 return false;
             }

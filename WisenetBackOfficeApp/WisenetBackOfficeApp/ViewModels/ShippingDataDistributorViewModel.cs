@@ -32,7 +32,17 @@ namespace WisenetBackOfficeApp.ViewModels
         {
             get
             {
-                return _Distributor.Celular + Keys.SLASH + _Distributor.Telefono + Keys.SLASH + _Distributor.Fax;
+                var _Ubicaciones = "";
+                if(_Distributor.Celular.Length > Keys.NUMBER_ZERO) {
+                    _Ubicaciones = _Distributor.Celular;
+                }
+                if(_Distributor.Telefono.Length > Keys.NUMBER_ZERO) {
+                    _Ubicaciones += Keys.SLASH + _Distributor.Telefono;
+                }
+                if(_Distributor.Fax.Length > Keys.NUMBER_ZERO) {
+                    _Ubicaciones += Keys.SLASH + _Distributor.Fax;
+                }
+                return _Ubicaciones;
             }
         }
     }

@@ -10,8 +10,7 @@ namespace WisenetBackOfficeApp.Models.Common
         [JsonProperty(PropertyName = "descripcion")]
         public string Descripcion { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return "CatalogoTO:{ " +
                 "\n Id = " + Id +
                 "\n Descripcion = " + Descripcion +

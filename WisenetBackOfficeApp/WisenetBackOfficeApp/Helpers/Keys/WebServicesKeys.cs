@@ -9,5 +9,6 @@
         public static string URL_FIND_STATES_BY_COUNTRY = URL_HOST_WEB_SERVICE + "distribuidor/findStatesByCountry/";
         public static string URL_FIND_CITIES_BY_STATE = URL_HOST_WEB_SERVICE + "distribuidor/findCitiesByState/";
         public static string URL_UPDATE_BIRTH_DATE = URL_HOST_WEB_SERVICE + "distribuidor/updateBirthDay";
+        public static string URL_FIND_ORDERS_BY_DISTRIBUTOR = URL_HOST_WEB_SERVICE + "distribuidor/findOrderListByDistributor/";
     }
 }

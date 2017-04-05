@@ -1,18 +1,10 @@
 ﻿using System;
 using Newtonsoft.Json;
+using WisenetBackOfficeApp.Models.Common;
 
 namespace WisenetBackOfficeApp.Models.Distributor
 {
-    class ResponseDistributor : DistributorTO
-    {
-        [JsonProperty(PropertyName = "id")]
-        public long Id { get; set; }
-
-        [JsonProperty(PropertyName = "message")]
-        public String Message { get; set; }
-
-        [JsonProperty(PropertyName = "success")]
-        public bool Success { get; set; }
+    class ResponseDistributor : ResponseTO {
 
         [JsonProperty(PropertyName = "object")]
         public DistributorTO DistributorTO { get; set; }

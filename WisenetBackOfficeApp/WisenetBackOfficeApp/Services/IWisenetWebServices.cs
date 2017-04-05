@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Models.Common;
 using WisenetBackOfficeApp.Models.Distributor;
+using WisenetBackOfficeApp.Models.Ordenes;
 
 namespace WisenetBackOfficeApp.Services
 {
@@ -12,6 +13,8 @@ namespace WisenetBackOfficeApp.Services
         Task<ResponseTO> UpdateShippingInformation(DistributorTO distributorTO);
 
         Task<ResponseTO> UpdateBirthDateDistributor(long idDistributor, string birthDate);
+
+        Task<ResponseVenta> FindOrdersByDistributor(long idDistributor);
 
         Task<List<CatalogoTO>> FindUbicaciones(string url);
     }

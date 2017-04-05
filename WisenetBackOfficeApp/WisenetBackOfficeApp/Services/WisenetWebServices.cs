@@ -8,39 +8,29 @@ using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Common;
 using WisenetBackOfficeApp.Models.Distributor;
+using WisenetBackOfficeApp.Models.Ordenes;
 
 namespace WisenetBackOfficeApp.Services
 {
-    class WisenetWebServices : IWisenetWebServices
-    {
+    class WisenetWebServices : IWisenetWebServices {
         HttpClient client;
 
-        public WisenetWebServices()
-        {
+        public WisenetWebServices() {
             client = new HttpClient();
         }
 
-        public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password)
-        {
+        public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password) {
             ResponseDistributor responseVO = new ResponseDistributor();
-            Debug.WriteLine("A buscar datos y validar");
-            try
-            {
+            try {
                 string url = WebServicesKeys.URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION + idDistributor + Keys.SLASH + password;
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
-                Debug.WriteLine("RESPONSE = " + response);
-                if (response.IsSuccessStatusCode)
-                {
+                if (response.IsSuccessStatusCode) {
 
                     var content = await response.Content.ReadAsStringAsync();
-                    Debug.WriteLine("CONTENT = " + content);
                     responseVO = JsonConvert.DeserializeObject<ResponseDistributor>(content);
-                    Debug.WriteLine("Final OBJ Response response VO = " + responseVO.ToString());
                 }
             }
-            catch (Exception e)
-            {
-                Debug.WriteLine("An exception has ocurred: " + e.Message);
+            catch (Exception e) {
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             }
@@ -135,6 +125,26 @@ namespace WisenetBackOfficeApp.Services
                 Debug.WriteLine("An error has ocurred " + e.Message);
             }
             return await Task.Run(() => responseTO);
+        }
+
+        public async Task<ResponseVenta> FindOrdersByDistributor(long idDistributor) {
+            
+            ResponseVenta responseVO = new ResponseVenta();
+            
+            try {
+                string url = WebServicesKeys.URL_FIND_ORDERS_BY_DISTRIBUTOR + idDistributor;
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                if (response.IsSuccessStatusCode) {
+
+                    var content = await response.Content.ReadAsStringAsync();
+                    responseVO = JsonConvert.DeserializeObject<ResponseVenta>(content);                    
+                }
+            }
+            catch (Exception e) {
+                responseVO.Success = false;
+                responseVO.Message = e.Message;
+            }
+            return await Task.Run(() => responseVO);
         }
 
         public async Task<List<CatalogoTO>> FindUbicaciones(string url)
