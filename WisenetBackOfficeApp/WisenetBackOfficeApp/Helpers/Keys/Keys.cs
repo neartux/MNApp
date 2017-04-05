@@ -7,6 +7,7 @@
 
 
         public static string SLASH = "/";
+        public static string DASH = "-";
         public static string CONTENT_TYPE_APPLICATION_JSON = "application/json";
     }
 }

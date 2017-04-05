@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;

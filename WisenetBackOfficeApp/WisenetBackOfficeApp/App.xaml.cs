@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using WisenetBackOfficeApp.Helpers;
-using WisenetBackOfficeApp.Models;
-using WisenetBackOfficeApp.Models.Distributor;
-using WisenetBackOfficeApp.Pages;
+﻿using WisenetBackOfficeApp.Pages;
 using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp

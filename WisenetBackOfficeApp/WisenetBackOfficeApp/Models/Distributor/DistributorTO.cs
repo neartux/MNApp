@@ -19,8 +19,17 @@ namespace WisenetBackOfficeApp.Models.Distributor
         [JsonProperty(PropertyName = "patrocinador")]
         public string Patrocinador { get; set; }
 
+        [JsonProperty(PropertyName = "nombrecompania")]
+        public string NombreCompania { get; set; }
+
+        [JsonProperty(PropertyName = "nombrePaquete")]
+        public string NombrePaquete { get; set; }
+
         [JsonProperty(PropertyName = "fechaRegistro")]
         public long FechaRegistro { get; set; } 
+
+        [JsonProperty(PropertyName = "fechaNacimiento")]
+        public long FechaNacimiento { get; set; }
 
         [JsonProperty(PropertyName = "calificacion")]
         public string Calificacion { get; set; }
@@ -34,11 +43,20 @@ namespace WisenetBackOfficeApp.Models.Distributor
         [JsonProperty(PropertyName = "idPais")]
         public long IdPais { get; set; }
 
+        [JsonProperty(PropertyName = "pais")]
+        public string Pais { get; set; }
+
         [JsonProperty(PropertyName = "idEstado")]
         public long IdEstado { get; set; }
 
+        [JsonProperty(PropertyName = "estado")]
+        public string Estado { get; set; }
+
         [JsonProperty(PropertyName = "idCiudad")]
         public int IdCiudad { get; set; }
+
+        [JsonProperty(PropertyName = "ciudad")]
+        public string Ciudad { get; set; }
 
         [JsonProperty(PropertyName = "telefono")]
         public string Telefono { get; set; }
@@ -65,11 +83,20 @@ namespace WisenetBackOfficeApp.Models.Distributor
         [JsonProperty(PropertyName = "idPaisEnvio")]
         public long IdPaisEnvio { get; set; }
 
+        [JsonProperty(PropertyName = "paisEnvio")]
+        public string PaisEnvio { get; set; }
+
         [JsonProperty(PropertyName = "idEstadoEnvio")]
         public long IdEstadoEnvio { get; set; }
 
         [JsonProperty(PropertyName = "idCiudadEnvio")]
         public long IdCiudadEnvio { get; set; }
+
+        [JsonProperty(PropertyName = "estadoEnvio")]
+        public string EstadoEnvio { get; set; }
+
+        [JsonProperty(PropertyName = "ciudadEnvio")]
+        public string CiudadEnvio { get; set; }
 
         [JsonProperty(PropertyName = "codigoPostalEnvio")]
         public string CodigoPostalEnvio { get; set; }

@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Views.PersonalDataDistributor"
+             BackgroundImage="bgBlackTexture.jpg">
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+
+                <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
+                    <Label TextColor="#FFFFFF" 
+				Text="DATOS PERSONALES" 
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="Center" 
+				VerticalTextAlignment="Center"
+				HorizontalTextAlignment="Center"	
+				FontSize="16"
+					
+				/>
+
+                </StackLayout>
+
+
+
+                <Image HorizontalOptions="Center" Source="{StaticResource imageContact}"/>
+
+                <Label Text="{ Binding Distributor.Calificacion }"
+				FontSize="16"
+				VerticalOptions="Center"
+				TextColor="#ffffff"
+				FontAttributes="Bold"
+				HorizontalOptions="Center"
+				HorizontalTextAlignment="Center"
+			/>
+
+
+                <Label Text="{ Binding Distributor.NombreCompleto }"
+				FontSize="16"
+				VerticalOptions="Center"
+				TextColor="#ffffff"
+				FontAttributes="Bold"
+				HorizontalOptions="Center"
+				HorizontalTextAlignment="Center"
+			/>
+
+
+
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Grid Padding="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label  
+					Grid.Row="0" 
+					Grid.Column="1"
+					Text="{ Binding Distributor.IdDistributor }"
+					FontSize="15"
+					VerticalOptions="Center"
+					TextColor="#ffffff"
+					VerticalTextAlignment="Center"
+					HorizontalTextAlignment="Center"
+					FontAttributes="Bold"
+					BackgroundColor="#ff6624"
+				/>
+                    </Grid>
+                </StackLayout>
+
+
+
+
+
+
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10,0,0,0" >
+
+
+                    <Grid>
+
+
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+
+
+
+                        </Grid.RowDefinitions>
+
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="25"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView BackgroundColor="#444444" Grid.Row ="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Opacity="0.2"/>
+                        <BoxView BackgroundColor="Gray" Grid.Row="2" Grid.ColumnSpan="3"/>
+
+                        <BoxView BackgroundColor="#444444" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3" Opacity="0.2"/>
+                        <BoxView BackgroundColor="Gray" Grid.Row="5" Grid.ColumnSpan="3"/>
+
+                        <BoxView BackgroundColor="#444444" Grid.Row="6" Grid.RowSpan="3" Grid.ColumnSpan="3" Opacity="0.2"/>
+                        <BoxView BackgroundColor="Gray" Grid.Row="8" Grid.ColumnSpan="3"/>
+
+                        <BoxView BackgroundColor="#444444" Grid.Row="9" Grid.RowSpan="3" Grid.ColumnSpan="3" Opacity="0.2"/>
+                        <BoxView BackgroundColor="Gray" Grid.Row="11" Grid.ColumnSpan="3"/>
+
+                        <BoxView BackgroundColor="#444444" Grid.Row="12" Grid.RowSpan="3" Grid.ColumnSpan="3" Opacity="0.2"/>
+                        <BoxView Grid.Row="14" Grid.ColumnSpan="3"/>
+
+
+
+                        <Label  Grid.Row="0"  Grid.ColumnSpan="3"
+								Text="{ Binding Distributor.NombrePaquete }"
+								Font="13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+                        <Label  Grid.Row="1" Grid.ColumnSpan="3"
+								Text="Paquete de Distribuidor"
+								Font="9" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffc581"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+
+                        <Label  Grid.Row="3"  Grid.ColumnSpan="3"
+								Text="{ Binding FechaInscripcion, StringFormat='{0:dd/MM/yyyy}' }"
+								Font="13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+                        <Label  Grid.Row="4"  Grid.ColumnSpan="3"
+								Text="Fecha de inscripción"
+								Font="9" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffc581"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+                        <Label  Grid.Row="6"  Grid.ColumnSpan="3"
+								Text="{ Binding FechaNacimiento, StringFormat='{0:dd/MM/yyyy}' }"
+								Font="13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+                        <Label  Grid.Row="7"  Grid.ColumnSpan="3"
+								Text="Fecha de Nacimiento"
+								Font="9" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffc581"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+
+                        <Label  Grid.Row="9"  Grid.ColumnSpan="3"
+								Text="{ Binding Distributor.Patrocinador }"
+								Font="13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+                        <Label  Grid.Row="10"  Grid.ColumnSpan="3"
+								Text="Patrocinador"
+								Font="9" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffc581"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+
+
+                        <Label  Grid.Row="12"  Grid.ColumnSpan="3"
+								Text="{ Binding Distributor.NombreCompania }"
+								Font="13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+                        <Label  Grid.Row="13"  Grid.ColumnSpan="3"
+								Text="Nombre Compañia"
+								Font="9" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffc581"
+								VerticalTextAlignment="Start"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+
+
+
+                    </Grid>
+
+
+
+
+                </StackLayout>
+
+
+
+
+
+
+
+
+
+
+            </StackLayout>
+
+
+
+        </ScrollView>
+    </ContentView>
+    
+    
+</ContentPage>

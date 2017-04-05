@@ -1,6 +1,8 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows.Input;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Utils;
 using WisenetBackOfficeApp.Models.Distributor;
@@ -81,14 +83,14 @@ namespace WisenetBackOfficeApp.ViewModels {
             {
                 Title_d = "Datos Facturación",
                 Icon_d = "ic_document_a",
-                PageName_d = "PersonalDataDistributor"
+                PageName_d = "BillingDataDistributor"
             });
 
             MenuDist.Add(new MenuItemDataDistributorViewModel()
             {
                 Title_d = "Datos Envío",
                 Icon_d = "ic_send",
-                PageName_d = "PersonalDataDistributor"
+                PageName_d = "ShippingDataDistributor"
             });
 
 

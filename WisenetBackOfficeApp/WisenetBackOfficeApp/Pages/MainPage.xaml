@@ -167,6 +167,11 @@
                                     <StackLayout>
                                         <Grid>
 
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding GoToCommandPersonalData}" NumberOfTapsRequired="1">
+                                                </TapGestureRecognizer>
+                                            </Grid.GestureRecognizers>
+
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="52" />
                                             </Grid.RowDefinitions>
