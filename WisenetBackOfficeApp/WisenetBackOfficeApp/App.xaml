@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WisenetBackOfficeApp.App"
              xmlns:infra="clr-namespace:WisenetBackOfficeApp.Infrastructure;assembly=WisenetBackOfficeApp">
-	<Application.Resources>
+    <Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <!-- Application resource dictionary -->
         <ResourceDictionary>
+
+            <x:String x:Key="BACKGROUND_BLACK_TEXTURE">bgBlackTexture.jpg</x:String>
+            
             <Color x:Key="BackgroundColor">#232323</Color>
             <Color x:Key="BackgroundColorMenu">#232323</Color>
             <Color x:Key="FontColor">#ffffff</Color>

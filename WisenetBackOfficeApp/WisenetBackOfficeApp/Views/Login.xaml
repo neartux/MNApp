@@ -34,7 +34,7 @@
         <Image Source="fgv_logo.png" />
 
         <StackLayout Padding="0,70,0,0" Spacing="10">
-            <Entry Text="{Binding User.UserName}" Placeholder="Usuario" TextColor="White"/>
+            <Entry Text="{Binding User.UserName }" Placeholder="Usuario" TextColor="White"/>
         </StackLayout>
 
         <StackLayout Padding="0,30,0,0" Spacing="10">

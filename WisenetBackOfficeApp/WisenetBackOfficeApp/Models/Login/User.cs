@@ -2,8 +2,8 @@
 {
     class User
     {
-        public int IdUsurio { get; set; }
-        public int? UserName { get; set; }
+        public long IdUsurio { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
         public string Nombres { get; set; }
     }

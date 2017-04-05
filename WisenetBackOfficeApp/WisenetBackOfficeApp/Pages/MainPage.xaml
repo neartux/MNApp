@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WisenetBackOfficeApp.Helpers.Keys;assembly=WisenetBackOfficeApp"
              x:Class="WisenetBackOfficeApp.Pages.MainPage"
-             BackgroundImage="bgBlackTexture.jpg"
+             BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}"
 	         BindingContext="{Binding MenuDist, Source={StaticResource LocatorDist}}">
 
     <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
