@@ -31,6 +31,9 @@ namespace WisenetBackOfficeApp.ViewModels
                     App.Navigator.PushAsync(new Pages.HomePage());
                     break;
 
+                case "OrderReport":
+                    App.Navigator.PushAsync(new Views.OrderReport());
+                    break;
 
                 default:
                     break;

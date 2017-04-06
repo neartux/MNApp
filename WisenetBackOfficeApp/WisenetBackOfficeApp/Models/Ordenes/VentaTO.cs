@@ -12,7 +12,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         public string Fecha { get; set; }
 
         [JsonProperty(PropertyName = "subTotal2")]
-        public Double subTotal { get; set; }
+        public Double SubTotal { get; set; }
 
         [JsonProperty(PropertyName = "impuesto")]
         public Double Impuesto { get; set; }
@@ -30,7 +30,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
             return "VentaTO:{ " +
                 "\n IdVenta = " + IdVenta +
                 "\n Fecha = " + Fecha +
-                "\n SubTotal = " + subTotal +
+                "\n SubTotal = " + SubTotal +
                 "\n Impuesto = " + Impuesto +
                 "\n GastoEnvio = " + GastoEnvio +
                 "\n Total = " + Total +

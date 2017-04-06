@@ -133,14 +133,15 @@ namespace WisenetBackOfficeApp.Services
             
             try {
                 string url = WebServicesKeys.URL_FIND_ORDERS_BY_DISTRIBUTOR + idDistributor;
+                Debug.WriteLine("URL = " + url);
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
                 if (response.IsSuccessStatusCode) {
-
+                    Debug.WriteLine("----------------------------------------------------------------------------------------");
                     var content = await response.Content.ReadAsStringAsync();
-                    responseVO = JsonConvert.DeserializeObject<ResponseVenta>(content);                    
+                    responseVO = JsonConvert.DeserializeObject<ResponseVenta>(content);
+                    Debug.WriteLine("CONTENT = " + content);
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             }

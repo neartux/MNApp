@@ -7,7 +7,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes
     class ResponseVenta : ResponseTO
     {
         [JsonProperty(PropertyName = "object")]
-        public IEnumerable<VentaTO> Ventas { get; set; }
+        public List<VentaTO> Ventas { get; set; }
 
         public override string ToString() {
             return "ResponseVO: { \n Ventas = " + Ventas + " \n " + " }";

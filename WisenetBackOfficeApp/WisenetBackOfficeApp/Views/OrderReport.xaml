@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Views.OrderReport">
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                <!--Inicio de encabezado-->
+                <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
+                    <Label TextColor="White" 
+				Text="ORDENES" 
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="Center" 
+				VerticalTextAlignment="Center"
+				HorizontalTextAlignment="Center"	
+				FontSize="16"
+					
+				/>
+
+                </StackLayout>
+                <!--Fin Encabezado-->
+
+
+                <!--Inicio tabla de ordenes				-->
+
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
+
+                    <ListView x:Name="OrderList" ItemsSource="{Binding OrderList}"  HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
+                        >
+                        <ListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" Android="#606060" iOS="#606060" WinPhone="#606060"/>
+                        </ListView.SeparatorColor>
+
+
+
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Grid>
+
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25" />
+                                                <RowDefinition Height="25" />
+
+                                            </Grid.RowDefinitions>
+
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="25"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+
+                                                <ColumnDefinition Width="150"></ColumnDefinition>
+
+
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="4" Opacity="0.5"/>
+
+                                            <!--ID-->
+
+                                            <Label  Grid.Row="0"  Grid.Column="0" 
+								Text="Id:"
+								Font="Bold, 10" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#F8C100"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="Start"
+												Margin="10,0,0,0"
+												
+							/>
+
+                                            <Label  Grid.Row="0"  Grid.Column="1" 
+								Text="{Binding IdVenta}"
+								Font="Bold, 13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+
+
+
+                                            <!--Fecha-->
+
+                                            <Label  Grid.Row="0"  Grid.Column="3" 
+								Text="{Binding Fecha}"
+								Font="Bold, 10" 
+								VerticalOptions="Center"
+								HorizontalOptions="End"
+								TextColor="#F8C100"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="End"
+												Margin="0,0,10,0"
+												
+							/>
+
+
+
+                                            <!--Total-->
+
+
+
+                                            <Label  Grid.Row="1"  Grid.Column="3" 
+								Text="{Binding Total}"
+								Font="Bold, 13" 
+								VerticalOptions="Center"
+								HorizontalOptions="End"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="End"
+												Margin="0,0,10,0"
+												
+							/>
+
+
+
+
+
+                                            <!--Puntos-->
+
+
+
+                                        </Grid>
+
+                                    </StackLayout>
+                                </ViewCell>
+
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+
+
+                    </ListView>
+                </StackLayout>
+
+
+                <!--Fin tabla de ordenes				-->
+
+
+
+            </StackLayout>
+
+
+
+        </ScrollView>
+
+    </ContentView>
+
+    
+</ContentPage>

@@ -48,6 +48,14 @@ namespace WisenetBackOfficeApp.ViewModels {
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "ic_genealogia",
+                Title = "Ordenes",
+                PageName = "OrderReport"
+
+            });
+
+            Menu.Add(new MenuItemViewModel()
+            {
+                Icon = "ic_genealogia",
                 Title = "Genealogia",
                 PageName = "HomePage"
 

@@ -56,7 +56,12 @@
     <Compile Include="Models\Distributor\DistributorTO.cs" />
     <Compile Include="Models\Distributor\ResponseDistributor.cs" />
     <Compile Include="Models\Login\User.cs" />
+    <Compile Include="Models\Ordenes\DatosEnvioDetalleTO.cs" />
+    <Compile Include="Models\Ordenes\FormaEnvioTO.cs" />
+    <Compile Include="Models\Ordenes\FormaPagoVentaTO.cs" />
+    <Compile Include="Models\Ordenes\ReporteVentaTO.cs" />
     <Compile Include="Models\Ordenes\ResponseVenta.cs" />
+    <Compile Include="Models\Ordenes\VentaDetalleTO.cs" />
     <Compile Include="Models\Ordenes\VentaTO.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -79,6 +84,7 @@
     <Compile Include="ViewModels\MenuItemDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="Helpers\AppManager.cs" />
+    <Compile Include="ViewModels\OrderReportViewModel.cs" />
     <Compile Include="ViewModels\PersonalDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\ShippingDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\UpdatePersonalInformationViewModel.cs" />
@@ -88,6 +94,9 @@
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderReport.xaml.cs">
+      <DependentUpon>OrderReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonalDataDistributor.xaml.cs">
       <DependentUpon>PersonalDataDistributor.xaml</DependentUpon>
@@ -187,6 +196,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ShippingDataDistributor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\OrderReport.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
