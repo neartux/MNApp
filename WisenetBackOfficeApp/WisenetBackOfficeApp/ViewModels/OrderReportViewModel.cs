@@ -23,7 +23,6 @@ namespace WisenetBackOfficeApp.ViewModels
             if(response.Success) {
                 orderList = response.Ventas;
             }
-           
         }
 
         public List<VentaTO> OrderList { get { return orderList; } }
