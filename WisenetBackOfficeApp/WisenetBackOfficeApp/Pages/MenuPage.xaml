@@ -32,7 +32,7 @@
 						VerticalOptions="Center"
 						HorizontalOptions="Start"
 						>
-                    <Label Text="Santiago Fernandez Zapata"
+                    <Label Text="{ Binding Distributor.NombreCompleto }"
 					FontSize="13"
 					VerticalOptions="CenterAndExpand"
 					TextColor="#ffffff"

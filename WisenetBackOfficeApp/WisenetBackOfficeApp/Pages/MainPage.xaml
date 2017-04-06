@@ -19,8 +19,7 @@
 				TextColor="#ffffff"
 				FontAttributes="Bold"
 				HorizontalOptions="Center"
-				HorizontalTextAlignment="Center"
-			/>
+				HorizontalTextAlignment="Center"/>
 
 
                 <Label Text="{ Binding Distributor.NombreCompleto }"
@@ -29,8 +28,7 @@
 				TextColor="#ffffff"
 				FontAttributes="Bold"
 				HorizontalOptions="Center"
-				HorizontalTextAlignment="Center"
-			/>
+				HorizontalTextAlignment="Center"/>
 
 
 

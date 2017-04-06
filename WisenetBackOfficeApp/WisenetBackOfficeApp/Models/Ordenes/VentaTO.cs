@@ -9,7 +9,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         public long IdVenta { get; set; }
 
         [JsonProperty(PropertyName ="fecha")]
-        public string Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
         [JsonProperty(PropertyName = "subTotal2")]
         public Double SubTotal { get; set; }
