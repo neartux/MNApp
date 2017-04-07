@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace WisenetBackOfficeApp.Models.Ordenes {
     class FormaEnvioTO {
@@ -10,7 +11,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         public string Nombre { get; set; }
 
         [JsonProperty(PropertyName = "direccion")]
-        public string Direccion;
+        public string Direccion { get; set; }
 
         [JsonProperty(PropertyName = "nombreEnvio")]
         public string NombreEnvio { get; set; }
@@ -28,7 +29,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         public string Usuario { get; set; }
 
         [JsonProperty(PropertyName = "fechaOrden")]
-        public string FechaOrden;
+        public DateTime FechaOrden { get; set; }
 
         [JsonProperty(PropertyName = "descripcion")]
         public string Descripcion { get; set; }
@@ -38,6 +39,24 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
 
         [JsonProperty(PropertyName = "commentReceptor")]
         public string ComentariosReceptor { get; set; }
+
+        public override string ToString()
+        {
+            return "FormaEnvioTO:{ " +
+             "\n TipoFormaEnvio = " + TipoFormaEnvio +
+             "\n Nombre = " + Nombre +
+             "\n Direccion = " + Direccion +
+             "\n NombreEnvio = " + NombreEnvio +
+             "\n DireccionEnvio = " + DireccionEnvio +
+             "\n Inventario = " + Inventario +
+             "\n Pais = " + Pais +
+             "\n Usuario = " + Usuario +
+             "\n FechaOrden = " + FechaOrden +
+             "\n Descripcion = " + Descripcion +
+             "\n Receptor = " + Receptor +
+             "\n ComentariosReceptor = " + ComentariosReceptor +
+             "\n}";
+        }
 
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Distributor;
@@ -32,7 +31,7 @@ namespace WisenetBackOfficeApp.ViewModels
 
         public Command DoLoginCommand { get; }
 
-        void DoLogin() {
+        private void DoLogin() {
             IsLoading = true;
 
             if (ValidateLoginForm()) {
@@ -42,7 +41,7 @@ namespace WisenetBackOfficeApp.ViewModels
                     var _AppManager = AppManager.Instance;
                     _AppManager.SetDistributor(response.DistributorTO);
 
-                    Application.Current.MainPage = new MasterPage();                    
+                    Application.Current.MainPage = new MasterPage();
                 }
                 else {
                     Application.Current.MainPage.DisplayAlert("Warning", response.Message, "aceptar");
@@ -55,7 +54,6 @@ namespace WisenetBackOfficeApp.ViewModels
 
 
         private bool ValidateLoginForm() {
-            //Debug.WriteLine("USUARIO = " + usuario.UserName + " PASSWORD = " + usuario.Password+ " LENGTH USER = "+ usuario.UserName.Trim().Length);
             int n;
             bool isNumeric = int.TryParse(_user.UserName, out n);
             if (_user.UserName == null || _user.UserName.Trim().Length.Equals(Keys.NUMBER_ZERO) || !isNumeric) {

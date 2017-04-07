@@ -16,6 +16,8 @@ namespace WisenetBackOfficeApp.Services
 
         Task<ResponseVenta> FindOrdersByDistributor(long idDistributor);
 
+        Task<ResponseVentaDetalle> FindVentaById(long idVenta);
+
         Task<List<CatalogoTO>> FindUbicaciones(string url);
     }
 }

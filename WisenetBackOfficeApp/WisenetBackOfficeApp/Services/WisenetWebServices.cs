@@ -148,6 +148,23 @@ namespace WisenetBackOfficeApp.Services
             return await Task.Run(() => responseVO);
         }
 
+        public async Task<ResponseVentaDetalle> FindVentaById(long idVenta) {
+            ResponseVentaDetalle responseVO = new ResponseVentaDetalle();
+            try {
+                string url = WebServicesKeys.URL_FIND_ORDER_BY_ID + idVenta;
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                if (response.IsSuccessStatusCode) {
+                    var content = await response.Content.ReadAsStringAsync();
+                    responseVO = JsonConvert.DeserializeObject<ResponseVentaDetalle>(content);
+                }
+            }
+            catch (Exception e) {
+                responseVO.Success = false;
+                responseVO.Message = e.Message;
+            }
+            return await Task.Run(() => responseVO);
+        }
+
         public async Task<List<CatalogoTO>> FindUbicaciones(string url)
         {
             Debug.WriteLine("Url de la peticion = " + url);

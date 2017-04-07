@@ -25,7 +25,6 @@ namespace WisenetBackOfficeApp.ViewModels
                     App.Navigator.PushAsync(new Pages.HomePage());
                     break;
 
-
                 case "MainPage":
                     App.Navigator.PopToRootAsync();
                     App.Navigator.PushAsync(new Pages.HomePage());
@@ -36,6 +35,7 @@ namespace WisenetBackOfficeApp.ViewModels
                     break;
 
                 default:
+                    Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
                     break;
             }
 

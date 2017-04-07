@@ -61,6 +61,7 @@
     <Compile Include="Models\Ordenes\FormaPagoVentaTO.cs" />
     <Compile Include="Models\Ordenes\ReporteVentaTO.cs" />
     <Compile Include="Models\Ordenes\ResponseVenta.cs" />
+    <Compile Include="Models\Ordenes\ResponseVentaDetalle.cs" />
     <Compile Include="Models\Ordenes\VentaDetalleTO.cs" />
     <Compile Include="Models\Ordenes\VentaTO.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">

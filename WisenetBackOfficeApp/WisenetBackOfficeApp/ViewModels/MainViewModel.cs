@@ -65,7 +65,7 @@ namespace WisenetBackOfficeApp.ViewModels {
             {
                 Icon = "ic_sesion",
                 Title = "Cerrar",
-                PageName = "HomePage"
+                PageName = "CloseApp"
 
             });
 

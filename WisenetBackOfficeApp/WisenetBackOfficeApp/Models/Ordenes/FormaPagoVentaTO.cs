@@ -26,5 +26,18 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
 
         [JsonProperty(PropertyName = "cantidad")]
         public double Cantidad { get; set; }
+
+        public override string ToString() {
+            return "FormaPagoVentaTO:{ " +
+             "\n FormaPago = " + FormaPago +
+             "\n NumeroTarjeta = " + NumeroTarjeta +
+             "\n FechaVencimiento = " + FechaVencimiento +
+             "\n Repetible = " + Repetible +
+             "\n NombreTitular = " + NombreTitular +
+             "\n Banco = " + Banco +
+             "\n Autorizacion = " + Autorizacion +
+             "\n Cantidad = " + Cantidad +
+             "\n}";
+        }
     }
 }

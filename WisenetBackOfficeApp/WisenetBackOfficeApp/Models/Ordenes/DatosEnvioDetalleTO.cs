@@ -14,5 +14,15 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
 
         [JsonProperty(PropertyName = "comentarios")]
         public string Comentarios { get; set; }
+
+        public override string ToString()
+        {
+            return "DatosEnvioDetalleTO:{ " +
+             "\n Caja = " + Caja +
+             "\n Abreviatura = " + Abreviatura +
+             "\n NumeroRastreo = " + NumeroRastreo +
+             "\n Comentarios = " + Comentarios +
+             "\n}";
+        }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using WisenetBackOfficeApp.Models.Common;
 
 namespace WisenetBackOfficeApp.Models.Ordenes {
-    class ReporteVentaTO : ResponseTO {
+    class ReporteVentaTO {
 
-        [JsonProperty(PropertyName = "idInventario")]
-        public string inventario { get; set; }
+        [JsonProperty(PropertyName = "inventario")]
+        public string Inventario { get; set; }
 
         [JsonProperty(PropertyName = "pais")]
         public string Pais { get; set; }
@@ -17,11 +17,14 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         [JsonProperty(PropertyName = "idDistribuidor")]
         public long IdDistribuidor { get; set; }
 
+        [JsonProperty(PropertyName = "nameDistribuidor")]
+        public string NombreDistribuidor { get; set; }
+
         [JsonProperty(PropertyName = "fechaComision")]
-        public string FechaComision { get; set; }
+        public DateTime FechaComision { get; set; }
 
         [JsonProperty(PropertyName = "fastart")]
-        public bool FastStart { get; set; }
+        public bool? FastStart { get; set; }
 
         [JsonProperty(PropertyName = "tipoOrden")]
         public string TipoOrden { get; set; }
@@ -41,14 +44,17 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         [JsonProperty(PropertyName = "impuesto")]
         public double Impuesto { get; set; }
 
-        [JsonProperty(PropertyName = "formaenvioTO")]
-        public FormaEnvioTO FormaEnvioTO { get; set; }
+        [JsonProperty(PropertyName = "total")]
+        public double Total { get; set; }
+
+        [JsonProperty(PropertyName = "ventadetalleTOs")]
+        public List<VentaDetalleTO> VentaDetalleList { get; set; }
 
         [JsonProperty(PropertyName = "formaPagoVentaTOs")]
         public List<FormaPagoVentaTO> FormaPagoVentaList { get; set; }
 
-        [JsonProperty(PropertyName = "ventadetalleTOs")]
-        public List<VentaDetalleTO> VentaDetalleList { get; set; }
+        [JsonProperty(PropertyName = "formaenvioTO")]
+        public FormaEnvioTO FormaEnvioTO { get; set; }
 
         [JsonProperty(PropertyName = "datosEnvioDetalleTOs")]
         public List<DatosEnvioDetalleTO> DatosEnvioDetalleList { get; set; }

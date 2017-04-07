@@ -16,12 +16,25 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         public double Puntos { get; set; }
 
         [JsonProperty(PropertyName = "cantidad")]
-        public int Cantidad { get; set; }
+        public double Cantidad { get; set; }
 
         [JsonProperty(PropertyName = "precio")]
         public double Precio { get; set; }
 
         [JsonProperty(PropertyName = "total")]
         public double Total { get; set; }
+
+        public override string ToString() {
+            return "VentaDetalleTO:{ " +
+             "\n Clave = " + Clave +
+             "\n Producto = " + Producto +
+             "\n AtributoProducto = " + AtributoProducto +
+             "\n Puntos = " + Puntos +
+             "\n Cantidad = " + Cantidad +
+             "\n Precio = " + Precio +
+             "\n Total = " + Total +
+             "\n}";
+        }
+    
     }
 }
