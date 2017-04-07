@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="WisenetBackOfficeApp.Views.OrderDetail"
+            xmlns:local="clr-namespace:WisenetBackOfficeApp.Views;assembly=WisenetBackOfficeApp">
+
+    <TabbedPage.Children>
+
+        <local:OrderFullDetailed Title="DETAIL" />
+
+
+        <ContentPage Title="FORMA PAGO">
+            <StackLayout>
+                <Label Text="Blue" />
+                <BoxView Color="Blue" VerticalOptions="FillAndExpand"/>
+            </StackLayout>
+        </ContentPage>
+
+        <ContentPage Title="FORMA ENVIO">
+            <StackLayout>
+                <Label Text="Blue" />
+                <BoxView Color="Fuchsia" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </ContentPage>
+
+
+
+    </TabbedPage.Children>
+    
+    
+</TabbedPage>
