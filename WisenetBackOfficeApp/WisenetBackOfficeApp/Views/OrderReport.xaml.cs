@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using WisenetBackOfficeApp.Helpers;
+using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Ordenes;
-using WisenetBackOfficeApp.ViewModels;
+using WisenetBackOfficeApp.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace WisenetBackOfficeApp.Views
-{
+namespace WisenetBackOfficeApp.Views {
 
-    
+    public partial class OrderReport : ContentPage {
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrderReport : ContentPage
-    {
-        public OrderReport()
-        {
+        
+        private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
+
+        public OrderReport() {
             InitializeComponent();
 
-            BindingContext = new OrderReportViewModel();
+            BindingContext = new VentaTO();
+
+            var _AppManager = AppManager.Instance;
+            DistributorTO _Distributor = _AppManager.GetDistributor();
+            ResponseVenta response = Task.Run(() => IWisenetWS.FindOrdersByDistributor(_Distributor.IdDistributor)).Result;
+
+            OrderList.ItemsSource = response.Ventas;
+
         }
     }
 }

@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using GalaSoft.MvvmLight.Command;
+using Newtonsoft.Json;
 using System;
+using System.Windows.Input;
+using WisenetBackOfficeApp.Views;
 
 namespace WisenetBackOfficeApp.Models.Ordenes {
 
@@ -37,5 +40,16 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
                 "\n TotalPuntos = " + TotalPuntos +
                 "\n}";
         }
+
+        public ICommand ViewDetailOrderCommand {
+            get {
+                return new RelayCommand(GoToDetailOrder);
+            }
+        }
+
+        private void GoToDetailOrder() {
+            App.Navigator.PushAsync(new OrderDetail(IdVenta));
+        }
+
     }
 }

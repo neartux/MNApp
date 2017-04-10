@@ -4,9 +4,11 @@
 			 x:Class="WisenetBackOfficeApp.Views.OrderReport"
 			 BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}">
 
-    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}" VerticalOptions="FillAndExpand">
+
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
         <ScrollView>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
 
                 <!--Inicio de encabezado-->
                 <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
@@ -26,9 +28,10 @@
 
                 <!--Inicio tabla de ordenes				-->
 
-                <StackLayout BackgroundColor="Black" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
 
-                    <ListView x:Name="OrderList" ItemsSource="{Binding OrderList}" HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
+                    <ListView x:Name="OrderList"   HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
+                        >
                         <ListView.SeparatorColor>
                             <OnPlatform x:TypeArguments="Color" Android="#606060" iOS="#606060" WinPhone="#606060"/>
                         </ListView.SeparatorColor>
@@ -42,6 +45,10 @@
                                     <StackLayout>
                                         <Grid>
 
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding ViewDetailOrderCommand}" NumberOfTapsRequired="1">
+                                                </TapGestureRecognizer>
+                                            </Grid.GestureRecognizers>
 
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="25" />
@@ -63,24 +70,77 @@
 
                                             <!--ID-->
 
-                                            <Label  Grid.Row="0"  Grid.Column="0" Text="Id:" Font="Bold, 10" VerticalOptions="Center" HorizontalOptions="Start"
-								                    TextColor="#F8C100" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="10,0,0,0"/>
+                                            <Label  Grid.Row="0"  Grid.Column="0" 
+								Text="Id:"
+								Font="Bold, 10" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#F8C100"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="Start"
+												Margin="10,0,0,0"
+												
+							/>
 
-                                            <Label  Grid.Row="0"  Grid.Column="1" Text="{Binding IdVenta}" Font="Bold, 13" VerticalOptions="Center" HorizontalOptions="Start"
-                                                    TextColor="#ffffff" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                                            <Label  Grid.Row="0"  Grid.Column="1" 
+								Text="{Binding IdVenta}"
+								Font="Bold, 13" 
+								VerticalOptions="Center"
+								HorizontalOptions="Start"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="Start"
+												
+							/>
+
+
+
+
+
+
+
+
 
                                             <!--Fecha-->
 
-                                            <Label  Grid.Row="0"  Grid.Column="3" Text="{Binding Fecha, StringFormat='{0:d MMMM, yyyy}'}" Font="Bold, 10" 
-								                    VerticalOptions="Center" HorizontalOptions="End" TextColor="#F8C100" VerticalTextAlignment="Center" 
-                                                    HorizontalTextAlignment="End" Margin="0,0,10,0"/>
-                                            
+                                            <Label  Grid.Row="0"  Grid.Column="3" 
+								Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy}'}"
+								Font="Bold, 10" 
+								VerticalOptions="Center"
+								HorizontalOptions="End"
+								TextColor="#F8C100"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="End"
+												Margin="0,0,10,0"
+												
+							/>
+
+
+
                                             <!--Total-->
 
-                                            <Label  Grid.Row="1"  Grid.Column="3"  Text="{Binding Total, StringFormat='${0:N}'}" Font="Bold, 13"  VerticalOptions="Center"
-								                    HorizontalOptions="End" TextColor="#ffffff" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="0,0,10,0"/>
 
-                                            
+
+                                            <Label  Grid.Row="1"  Grid.Column="3" 
+								Text="{Binding Total}"
+								Font="Bold, 13" 
+								VerticalOptions="Center"
+								HorizontalOptions="End"
+								TextColor="#ffffff"
+								VerticalTextAlignment="Center"
+								HorizontalTextAlignment="End"
+												Margin="0,0,10,0"
+												
+							/>
+
+
+
+
+
+                                            <!--Puntos-->
+
+
+
                                         </Grid>
 
                                     </StackLayout>
@@ -92,7 +152,6 @@
 
 
                     </ListView>
-                    
                 </StackLayout>
 
 
@@ -102,11 +161,13 @@
 
             </StackLayout>
 
-
+            
 
         </ScrollView>
 
+
     </ContentView>
+    
 
 
 </ContentPage>

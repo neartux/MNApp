@@ -167,7 +167,7 @@
                                         <Grid>
 
                                             <Grid.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding GoToCommandPersonalData}" NumberOfTapsRequired="1">
+                                                <TapGestureRecognizer Command="{Binding GoToCommandPersonalData}" CommandParameter="OrderDetail" NumberOfTapsRequired="1">
                                                 </TapGestureRecognizer>
                                             </Grid.GestureRecognizers>
 

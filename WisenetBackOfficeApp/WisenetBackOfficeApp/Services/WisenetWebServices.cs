@@ -159,6 +159,7 @@ namespace WisenetBackOfficeApp.Services
                 }
             }
             catch (Exception e) {
+                Debug.WriteLine("ERROR: " + e.Message);
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             }
