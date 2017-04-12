@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Ordenes;
@@ -15,13 +16,15 @@ namespace WisenetBackOfficeApp.Views {
         public OrderReport() {
             InitializeComponent();
 
-            BindingContext = new VentaTO();
+            VentaTO venta = new VentaTO();
 
             var _AppManager = AppManager.Instance;
-            DistributorTO _Distributor = _AppManager.GetDistributor();
-            ResponseVenta response = Task.Run(() => IWisenetWS.FindOrdersByDistributor(_Distributor.IdDistributor)).Result;
+            var _DistributorTO = _AppManager.GetDistributor();
+            ResponseVenta response = Task.Run(() => IWisenetWS.FindOrdersByDistributor(_DistributorTO.IdDistributor)).Result;
 
             OrderList.ItemsSource = response.Ventas;
+
+            BindingContext = venta;
 
         }
     }

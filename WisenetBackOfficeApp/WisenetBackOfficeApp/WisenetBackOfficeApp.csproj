@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\MenuItemDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="Helpers\AppManager.cs" />
+    <Compile Include="ViewModels\OrderDetailViewModel.cs" />
     <Compile Include="ViewModels\PersonalDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\ShippingDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\UpdatePersonalInformationViewModel.cs" />

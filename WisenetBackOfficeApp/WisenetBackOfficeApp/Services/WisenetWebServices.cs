@@ -23,14 +23,18 @@ namespace WisenetBackOfficeApp.Services
             ResponseDistributor responseVO = new ResponseDistributor();
             try {
                 string url = WebServicesKeys.URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION + idDistributor + Keys.SLASH + password;
+                Debug.WriteLine("URL = " + url);
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                Debug.WriteLine("RESPONSE = " + response);
                 if (response.IsSuccessStatusCode) {
 
                     var content = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseDistributor>(content);
+                    Debug.WriteLine("RESPONSE DISTRIBUTOR = " + responseVO.ToString());
                 }
             }
             catch (Exception e) {
+                Debug.WriteLine("ERROR = " + e.Message);
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             }

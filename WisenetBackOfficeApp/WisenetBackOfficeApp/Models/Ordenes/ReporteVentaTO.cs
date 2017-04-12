@@ -58,5 +58,9 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
 
         [JsonProperty(PropertyName = "datosEnvioDetalleTOs")]
         public List<DatosEnvioDetalleTO> DatosEnvioDetalleList { get; set; }
+
+        public override string ToString() {
+            return base.ToString();
+        }
     }
 }

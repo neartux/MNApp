@@ -29,6 +29,9 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         [JsonProperty(PropertyName = "puntos")]
         public Double TotalPuntos { get; set; }
 
+        [JsonProperty(PropertyName = "nombreDistribuidor")]
+        public string NombreDistribuidor { get; set; }
+
         public override string ToString() {
             return "VentaTO:{ " +
                 "\n IdVenta = " + IdVenta +
