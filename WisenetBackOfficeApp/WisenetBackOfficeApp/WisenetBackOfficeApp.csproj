@@ -38,6 +38,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Translations\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Behaviors\EmailValidatorBehavior.cs" />
     <Compile Include="Helpers\Behaviors\InitBehavior.cs" />
     <Compile Include="Helpers\Behaviors\MaxLengthValidatorBehavior.cs" />
@@ -79,6 +84,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IWisenetWebServices.cs" />
     <Compile Include="Services\WisenetWebServices.cs" />
+    <Compile Include="Translations\AppResources.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Translations\ILocalize.cs" />
+    <Compile Include="Translations\TranslateExtension.cs" />
     <Compile Include="ViewModels\BillingDataDistributorViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -160,6 +172,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Translations\AppResources.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Translations\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>

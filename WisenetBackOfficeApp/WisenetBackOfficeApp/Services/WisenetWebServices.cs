@@ -17,15 +17,17 @@ namespace WisenetBackOfficeApp.Services
 
         public WisenetWebServices() {
             client = new HttpClient();
+            
         }
 
         public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password) {
             ResponseDistributor responseVO = new ResponseDistributor();
-            try {
+            try
+            {
                 string url = WebServicesKeys.URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION + idDistributor + Keys.SLASH + password;
                 Debug.WriteLine("URL = " + url);
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
-                Debug.WriteLine("RESPONSE = " + response);
+                Debug.WriteLine("RESPONSE ++++++++++++ = " + response.StatusCode);
                 if (response.IsSuccessStatusCode) {
 
                     var content = await response.Content.ReadAsStringAsync();

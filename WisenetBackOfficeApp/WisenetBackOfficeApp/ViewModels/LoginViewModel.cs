@@ -5,6 +5,7 @@ using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Login;
 using WisenetBackOfficeApp.Pages;
 using WisenetBackOfficeApp.Services;
+using WisenetBackOfficeApp.Translations;
 using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp.ViewModels
@@ -32,7 +33,7 @@ namespace WisenetBackOfficeApp.ViewModels
         public Command DoLoginCommand { get; }
 
         private void DoLogin() {
-            IsLoading = true;
+            _isLoading = true;
 
             if (ValidateLoginForm()) {
                 ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password)).Result;
@@ -44,11 +45,11 @@ namespace WisenetBackOfficeApp.ViewModels
                     Application.Current.MainPage = new MasterPage();
                 }
                 else {
-                    Application.Current.MainPage.DisplayAlert("Warning", response.Message, "aceptar");
+                    Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
                 }
             }
 
-            IsLoading = false;
+            _isLoading = false;
         }
 
 
@@ -57,12 +58,12 @@ namespace WisenetBackOfficeApp.ViewModels
             int n;
             bool isNumeric = int.TryParse(_user.UserName, out n);
             if (_user.UserName == null || _user.UserName.Trim().Length.Equals(Keys.NUMBER_ZERO) || !isNumeric) {
-                Application.Current.MainPage.DisplayAlert("Info", "User name is required", "Aceptar");
+                Application.Current.MainPage.DisplayAlert(AppResources.LabelInfo, AppResources.LoginValidateMessageUserRequired, AppResources.ButtonLabelOk);
                 return false;
             }
 
             if (_user.Password == null || _user.Password.Trim().Length.Equals(Keys.NUMBER_ZERO)) {
-                Application.Current.MainPage.DisplayAlert("Info", "Password is required", "Aceptar");
+                Application.Current.MainPage.DisplayAlert(AppResources.LabelInfo, AppResources.LoginValidateMessagePasswordRequired, AppResources.ButtonLabelOk);
                 return false;
             }
             return true;
