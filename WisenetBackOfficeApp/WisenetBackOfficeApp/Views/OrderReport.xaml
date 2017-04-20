@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
 			 x:Class="WisenetBackOfficeApp.Views.OrderReport"
 			 BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}">
 
@@ -12,7 +13,7 @@
 
             <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="Black" Padding="15" Margin="0, 15, 0, 15">
                 <Label TextColor="White"
-				Text="ORDENES" 
+				Text="{i18n:Translate OrdersLabelTitle}" 
                 FontAttributes="Bold"
 				HorizontalOptions="CenterAndExpand"
 				VerticalOptions="Center" 

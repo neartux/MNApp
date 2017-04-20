@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
              x:Class="WisenetBackOfficeApp.Views.PersonalDataDistributor"
              BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}">
 
@@ -11,7 +12,7 @@
 
                 <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
                     <Label TextColor="#FFFFFF" 
-				Text="DATOS PERSONALES" 
+				Text="{i18n:Translate PersonalDataDistributorTitle}" 
 				HorizontalOptions="CenterAndExpand"
 				VerticalOptions="Center" 
 				VerticalTextAlignment="Center"
@@ -144,7 +145,7 @@
 
 
                         <Label  Grid.Row="1" Grid.ColumnSpan="3"
-								Text="Paquete de Distribuidor"
+								Text="{i18n:Translate PersonalDataDistributorLabelPackage}"
 								Font="9" 
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
@@ -173,7 +174,7 @@
 
 
                         <Label  Grid.Row="4"  Grid.ColumnSpan="3"
-								Text="Fecha de inscripción"
+								Text="{i18n:Translate PersonalDataDistributorLabelInscriptionDate}"
 								Font="9" 
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
@@ -201,7 +202,7 @@
 
 
                         <Label  Grid.Row="7"  Grid.ColumnSpan="3"
-								Text="Fecha de Nacimiento"
+								Text="{i18n:Translate PersonalDataDistributorLabelBirthDate}"
 								Font="9" 
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
@@ -230,7 +231,7 @@
 
 
                         <Label  Grid.Row="10"  Grid.ColumnSpan="3"
-								Text="Patrocinador"
+								Text="{i18n:Translate PersonalDataDistributorLabelSponsor}"
 								Font="9" 
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
@@ -260,7 +261,7 @@
 
 
                         <Label  Grid.Row="13"  Grid.ColumnSpan="3"
-								Text="Nombre Compañia"
+								Text="{i18n:Translate PersonalDataDistributorLabelCompanyName}"
 								Font="9" 
 								VerticalOptions="Center"
 								HorizontalOptions="Start"
@@ -271,28 +272,12 @@
 							/>
 
 
-
-
-
-
-
-
-
                     </Grid>
 
 
 
 
                 </StackLayout>
-
-
-
-
-
-
-
-
-
 
             </StackLayout>
 

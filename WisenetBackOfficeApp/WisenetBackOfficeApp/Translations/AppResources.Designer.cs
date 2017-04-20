@@ -195,5 +195,68 @@ namespace WisenetBackOfficeApp.Translations {
                 return ResourceManager.GetString("LoginValidateMessageUserRequired", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Orders.
+        /// </summary>
+        public static string OrdersLabelTitle {
+            get {
+                return ResourceManager.GetString("OrdersLabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a BirhtDate.
+        /// </summary>
+        public static string PersonalDataDistributorLabelBirthDate {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorLabelBirthDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Company Name.
+        /// </summary>
+        public static string PersonalDataDistributorLabelCompanyName {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorLabelCompanyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscription Date.
+        /// </summary>
+        public static string PersonalDataDistributorLabelInscriptionDate {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorLabelInscriptionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Distributor Package.
+        /// </summary>
+        public static string PersonalDataDistributorLabelPackage {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorLabelPackage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sponsor.
+        /// </summary>
+        public static string PersonalDataDistributorLabelSponsor {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorLabelSponsor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Personal Data.
+        /// </summary>
+        public static string PersonalDataDistributorTitle {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorTitle", resourceCulture);
+            }
+        }
     }
 }

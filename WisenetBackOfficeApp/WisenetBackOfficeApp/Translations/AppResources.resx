@@ -162,4 +162,25 @@
   <data name="LoginValidateMessageUserRequired" xml:space="preserve">
     <value>User is required</value>
   </data>
+  <data name="OrdersLabelTitle" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="PersonalDataDistributorLabelBirthDate" xml:space="preserve">
+    <value>BirhtDate</value>
+  </data>
+  <data name="PersonalDataDistributorLabelCompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="PersonalDataDistributorLabelInscriptionDate" xml:space="preserve">
+    <value>Inscription Date</value>
+  </data>
+  <data name="PersonalDataDistributorLabelPackage" xml:space="preserve">
+    <value>Distributor Package</value>
+  </data>
+  <data name="PersonalDataDistributorLabelSponsor" xml:space="preserve">
+    <value>Sponsor</value>
+  </data>
+  <data name="PersonalDataDistributorTitle" xml:space="preserve">
+    <value>Personal Data</value>
+  </data>
 </root>
