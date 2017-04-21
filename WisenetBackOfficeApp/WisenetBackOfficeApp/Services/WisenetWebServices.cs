@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Common;
@@ -21,6 +22,8 @@ namespace WisenetBackOfficeApp.Services
 
         public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password) {
             ResponseDistributor responseVO = new ResponseDistributor();
+            var cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(5));
             try
             {
                 string url = WebServicesKeys.URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION + idDistributor + Keys.SLASH + password;
@@ -31,12 +34,20 @@ namespace WisenetBackOfficeApp.Services
                     var content = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseDistributor>(content);
                 }
+                
+            }
+            catch (TaskCanceledException ex) {
+                Debug.WriteLine("TERMINO EL TIEMPO DE ESPERA DEL WEBSERVICE");
             }
             catch (Exception e) {
                 Debug.WriteLine("ERROR = " + e.Message);
+                Debug.WriteLine("ERROR = " + e.HelpLink);
+                Debug.WriteLine("ERROR = " + e.HResult);
+                Debug.WriteLine("ERROR = " + e.GetType().ToString());
+                Debug.WriteLine("ERROR = " + e.StackTrace);
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
-            }
+            } 
             return await Task.Run(() => responseVO);
         }
 
@@ -131,6 +142,7 @@ namespace WisenetBackOfficeApp.Services
             ResponseVentaDetalle responseVO = new ResponseVentaDetalle();
             try {
                 string url = WebServicesKeys.URL_FIND_ORDER_BY_ID + idVenta;
+                Debug.WriteLine(" = " + url);
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
                 if (response.IsSuccessStatusCode) {
                     var content = await response.Content.ReadAsStringAsync();
