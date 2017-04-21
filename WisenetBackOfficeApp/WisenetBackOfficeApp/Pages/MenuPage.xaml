@@ -32,7 +32,7 @@
 						VerticalOptions="Center"
 						HorizontalOptions="Start"
 						>
-                    <Label Text="{ Binding Distributor.NombreCompleto }"
+                    <Label x:Name="DistributorName"
 					FontSize="13"
 					VerticalOptions="CenterAndExpand"
 					TextColor="#ffffff"
@@ -41,7 +41,7 @@
 					FontAttributes="Bold"
 					/>
 
-                    <Label Text="FULL NATIONAL EXECUTIVE"
+                    <Label x:Name="PackageDistributor"
 					FontSize="12"
 					VerticalOptions="CenterAndExpand"
 					TextColor="#ffffff"
@@ -55,22 +55,14 @@
 
             </Grid>
 
-
-
         </StackLayout>
 
 
         <ListView ItemsSource="{Binding Menu}" HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
 
-
-
-
             <ListView.SeparatorColor>
                 <OnPlatform x:TypeArguments="Color" Android="#444444" iOS="{StaticResource BackgroundColorMenu}" WinPhone="#444444"/>
             </ListView.SeparatorColor>
-
-
-
 
             <ListView.ItemTemplate>
                 <DataTemplate>

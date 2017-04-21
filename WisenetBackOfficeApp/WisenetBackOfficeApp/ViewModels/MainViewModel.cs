@@ -1,11 +1,9 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Windows.Input;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Utils;
 using WisenetBackOfficeApp.Models.Distributor;
+using WisenetBackOfficeApp.Translations;
 
 namespace WisenetBackOfficeApp.ViewModels {
     class MainViewModel {
@@ -17,11 +15,10 @@ namespace WisenetBackOfficeApp.ViewModels {
             var _AppManager = AppManager.Instance;
             _Distributor = _AppManager.GetDistributor();
 
-            if(_Distributor.FechaRegistro > 0)
+            if (_Distributor.FechaRegistro > 0)
             {
                 FechaRegistro = DateUtil.UnixDateToDateTime(_Distributor.FechaRegistro);   
             }
-
         }
 
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
@@ -32,6 +29,7 @@ namespace WisenetBackOfficeApp.ViewModels {
             set { _Distributor = value; }
         }
 
+        public String prueba { get; set; }
         public DateTime FechaRegistro { get; set; }
 
         private void LoadMenu()
@@ -40,7 +38,7 @@ namespace WisenetBackOfficeApp.ViewModels {
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "ic_launcher",
-                Title = "Inicio",
+                Title = AppResources.MenuLabelHomePage,
                 PageName = "HomePage"
 
             });
@@ -48,7 +46,7 @@ namespace WisenetBackOfficeApp.ViewModels {
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "ic_genealogia",
-                Title = "Ordenes",
+                Title = AppResources.MenuLabelOrders,
                 PageName = "OrderReport"
 
             });
@@ -56,7 +54,7 @@ namespace WisenetBackOfficeApp.ViewModels {
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "ic_genealogia",
-                Title = "Genealogia",
+                Title = AppResources.MenuLabelGenealogy,
                 PageName = "HomePage"
 
             });
@@ -64,7 +62,7 @@ namespace WisenetBackOfficeApp.ViewModels {
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "ic_sesion",
-                Title = "Cerrar",
+                Title = AppResources.MenuLabelClose,
                 PageName = "CloseApp"
 
             });
@@ -72,31 +70,26 @@ namespace WisenetBackOfficeApp.ViewModels {
         }
 
 
-
-
-
-        private void LoadMenuDist()
-        {
-            Debug.WriteLine("Entrando a menu");
+        private void LoadMenuDist() {
 
             MenuDist = new ObservableCollection<MenuItemDataDistributorViewModel>();
             MenuDist.Add(new MenuItemDataDistributorViewModel()
             {
-                Title_d = "Datos Personales",
+                Title_d = AppResources.MenuLabelPersonalData,
                 Icon_d = "ic_account_circle",
                 PageName_d = "PersonalDataDistributor"
             });
 
             MenuDist.Add(new MenuItemDataDistributorViewModel()
             {
-                Title_d = "Datos Facturación",
+                Title_d = AppResources.MenuLabelBillingData,
                 Icon_d = "ic_document_a",
                 PageName_d = "BillingDataDistributor"
             });
 
             MenuDist.Add(new MenuItemDataDistributorViewModel()
             {
-                Title_d = "Datos Envío",
+                Title_d = AppResources.MenuLabelShippingData,
                 Icon_d = "ic_send",
                 PageName_d = "ShippingDataDistributor"
             });

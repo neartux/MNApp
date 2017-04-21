@@ -215,6 +215,69 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Billing Data.
+        /// </summary>
+        public static string MenuLabelBillingData {
+            get {
+                return ResourceManager.GetString("MenuLabelBillingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Close.
+        /// </summary>
+        public static string MenuLabelClose {
+            get {
+                return ResourceManager.GetString("MenuLabelClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Genealogy.
+        /// </summary>
+        public static string MenuLabelGenealogy {
+            get {
+                return ResourceManager.GetString("MenuLabelGenealogy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Home Page.
+        /// </summary>
+        public static string MenuLabelHomePage {
+            get {
+                return ResourceManager.GetString("MenuLabelHomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Orders.
+        /// </summary>
+        public static string MenuLabelOrders {
+            get {
+                return ResourceManager.GetString("MenuLabelOrders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Personal Data.
+        /// </summary>
+        public static string MenuLabelPersonalData {
+            get {
+                return ResourceManager.GetString("MenuLabelPersonalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Shipping Data.
+        /// </summary>
+        public static string MenuLabelShippingData {
+            get {
+                return ResourceManager.GetString("MenuLabelShippingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Orders.
         /// </summary>
         public static string OrdersLabelTitle {

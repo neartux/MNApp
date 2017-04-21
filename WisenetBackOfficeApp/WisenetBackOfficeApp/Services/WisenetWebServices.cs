@@ -16,8 +16,7 @@ namespace WisenetBackOfficeApp.Services
         HttpClient client;
 
         public WisenetWebServices() {
-            client = new HttpClient();
-            
+            client = new HttpClient();   
         }
 
         public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password) {
@@ -27,12 +26,10 @@ namespace WisenetBackOfficeApp.Services
                 string url = WebServicesKeys.URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION + idDistributor + Keys.SLASH + password;
                 Debug.WriteLine("URL = " + url);
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
-                Debug.WriteLine("RESPONSE ++++++++++++ = " + response.StatusCode);
                 if (response.IsSuccessStatusCode) {
 
                     var content = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseDistributor>(content);
-                    Debug.WriteLine("RESPONSE DISTRIBUTOR = " + responseVO.ToString());
                 }
             }
             catch (Exception e) {
@@ -43,9 +40,7 @@ namespace WisenetBackOfficeApp.Services
             return await Task.Run(() => responseVO);
         }
 
-        public async Task<ResponseTO> UpdateShippingInformation(DistributorTO distributorTO)
-        {
-            Debug.WriteLine("**********************************************************************");
+        public async Task<ResponseTO> UpdateShippingInformation(DistributorTO distributorTO) {
             ResponseTO responseVO = new ResponseTO();
             try
             {
@@ -54,27 +49,15 @@ namespace WisenetBackOfficeApp.Services
                 Debug.WriteLine("URL REST SERVICE = " + url);
 
                 var objJson = JsonConvert.SerializeObject(distributorTO);
-                Debug.WriteLine("2");
                 var content = new StringContent(objJson, Encoding.UTF8, Keys.CONTENT_TYPE_APPLICATION_JSON);
-                Debug.WriteLine("3");
 
                 HttpResponseMessage response = null;
 
                 response = await client.PutAsync(new Uri(string.Format(url, string.Empty)), content);
-                Debug.WriteLine("4");
-                if (response.IsSuccessStatusCode)
-                {
+                if (response.IsSuccessStatusCode) {
                     var contentResponse = await response.Content.ReadAsStringAsync();
-                    Debug.WriteLine("contentResponse = " + contentResponse);
                     responseVO = JsonConvert.DeserializeObject<ResponseTO>(contentResponse);
-                    Debug.WriteLine("OBJECT RESPONSE = " + responseVO);
-
                 }
-                else
-                {
-                    Debug.WriteLine("ERROR");
-                }
-                Debug.WriteLine("5");
             }
             catch (Exception e)
             {
@@ -89,7 +72,6 @@ namespace WisenetBackOfficeApp.Services
         public async Task<ResponseTO> UpdateBirthDateDistributor(long idDistributor, string birthDate)
         {
             ResponseTO responseTO = new ResponseTO();
-            Debug.WriteLine("**********************************************************************");
             Debug.WriteLine(" ", idDistributor, birthDate);
             try
             {
@@ -101,11 +83,7 @@ namespace WisenetBackOfficeApp.Services
                 postData.Add(new KeyValuePair<string, string>("idDistributor", idDistributor.ToString()));
                 postData.Add(new KeyValuePair<string, string>("birthDate", birthDate));
 
-
-                Debug.WriteLine("2");
-                //var content = new StringContent(objJson, Encoding.UTF8, Keys.CONTENT_TYPE_APPLICATION_JSON);
                 var content = new FormUrlEncodedContent(postData);
-                Debug.WriteLine("3");
 
                 HttpResponseMessage response = null;
 
@@ -118,11 +96,6 @@ namespace WisenetBackOfficeApp.Services
                     responseTO = JsonConvert.DeserializeObject<ResponseTO>(contentResponse);
 
                 }
-                else
-                {
-                    Debug.WriteLine("ERROR");
-                }
-                Debug.WriteLine("5");
             }
             catch (Exception e)
             {

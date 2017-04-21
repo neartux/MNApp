@@ -168,6 +168,27 @@
   <data name="LoginValidateMessageUserRequired" xml:space="preserve">
     <value>User is required</value>
   </data>
+  <data name="MenuLabelBillingData" xml:space="preserve">
+    <value>Billing Data</value>
+  </data>
+  <data name="MenuLabelClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="MenuLabelGenealogy" xml:space="preserve">
+    <value>Genealogy</value>
+  </data>
+  <data name="MenuLabelHomePage" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="MenuLabelOrders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="MenuLabelPersonalData" xml:space="preserve">
+    <value>Personal Data</value>
+  </data>
+  <data name="MenuLabelShippingData" xml:space="preserve">
+    <value>Shipping Data</value>
+  </data>
   <data name="OrdersLabelTitle" xml:space="preserve">
     <value>Orders</value>
   </data>
