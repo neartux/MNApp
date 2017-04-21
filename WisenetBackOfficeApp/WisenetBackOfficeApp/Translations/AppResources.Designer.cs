@@ -62,7 +62,7 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Adrress.
+        ///   Busca una cadena traducida similar a Address.
         /// </summary>
         public static string BillingDataDistributorLabelAdrress {
             get {
@@ -139,6 +139,24 @@ namespace WisenetBackOfficeApp.Translations {
         public static string ButtonLabelOk {
             get {
                 return ResourceManager.GetString("ButtonLabelOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registration Date.
+        /// </summary>
+        public static string HomeLabelRegistrationDate {
+            get {
+                return ResourceManager.GetString("HomeLabelRegistrationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sponsor.
+        /// </summary>
+        public static string HomeLabelSponsor {
+            get {
+                return ResourceManager.GetString("HomeLabelSponsor", resourceCulture);
             }
         }
         
@@ -251,11 +269,83 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Personal Data.
+        ///   Busca una cadena traducida similar a PERSONAL DATA.
         /// </summary>
         public static string PersonalDataDistributorTitle {
             get {
                 return ResourceManager.GetString("PersonalDataDistributorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Address.
+        /// </summary>
+        public static string ShippingInformationLabelAdrress {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelAdrress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a City.
+        /// </summary>
+        public static string ShippingInformationLabelCity {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        public static string ShippingInformationLabelEmail {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Last Name.
+        /// </summary>
+        public static string ShippingInformationLabelLastName {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name.
+        /// </summary>
+        public static string ShippingInformationLabelName {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Movil / Phone / Fax.
+        /// </summary>
+        public static string ShippingInformationLabelPhone {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a State - Country.
+        /// </summary>
+        public static string ShippingInformationLabelStateCountry {
+            get {
+                return ResourceManager.GetString("ShippingInformationLabelStateCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SHIPPING INFORMATION.
+        /// </summary>
+        public static string ShippingInformationTitle {
+            get {
+                return ResourceManager.GetString("ShippingInformationTitle", resourceCulture);
             }
         }
     }

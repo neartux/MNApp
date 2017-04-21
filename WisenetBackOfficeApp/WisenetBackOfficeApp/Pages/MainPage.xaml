@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WisenetBackOfficeApp.Helpers.Keys;assembly=WisenetBackOfficeApp"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
              x:Class="WisenetBackOfficeApp.Pages.MainPage"
              BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}"
 	         BindingContext="{Binding MenuDist, Source={StaticResource LocatorDist}}">
@@ -95,7 +96,7 @@
 							HorizontalTextAlignment="Center"
 						/>
 
-                            <Label Text="Fecha Registro" 
+                            <Label Text="{i18n:Translate HomeLabelRegistrationDate}" 
 							Font="13" 
 							VerticalOptions="Center"
 							HorizontalOptions="Center"
@@ -125,7 +126,7 @@
 							HorizontalTextAlignment="Center"
 						/>
 
-                            <Label Text="Sponsor" 
+                            <Label Text="{i18n:Translate HomeLabelSponsor}" 
 							Font="13" 
 							VerticalOptions="Center"
 							HorizontalOptions="Center"

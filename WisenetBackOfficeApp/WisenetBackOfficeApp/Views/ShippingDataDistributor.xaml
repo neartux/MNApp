@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
              x:Class="WisenetBackOfficeApp.Views.ShippingDataDistributor"
              BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}">
 
@@ -10,7 +11,7 @@
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
 
                 <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
-                    <Label TextColor="#FFFFFF" Text="DATOS DE ENVÍO" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  VerticalTextAlignment="Center"
+                    <Label TextColor="#FFFFFF" Text="{i18n:Translate ShippingInformationTitle}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  VerticalTextAlignment="Center"
 				           HorizontalTextAlignment="Center"	FontSize="16"/>
 
                 </StackLayout>
@@ -102,7 +103,7 @@
 								VerticalOptions="Center" HorizontalOptions="Start" TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
-                        <Label  Grid.Row="1" Grid.ColumnSpan="3" Text="Nombres" Font="9" VerticalOptions="Center" HorizontalOptions="Start"
+                        <Label  Grid.Row="1" Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelName}" Font="9" VerticalOptions="Center" HorizontalOptions="Start"
 								TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
@@ -110,7 +111,7 @@
 								HorizontalOptions="Start" TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
 
-                        <Label  Grid.Row="4"  Grid.ColumnSpan="3" Text="Apellidos." Font="9"  VerticalOptions="Center"
+                        <Label  Grid.Row="4"  Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelLastName}" Font="9"  VerticalOptions="Center"
 								HorizontalOptions="Start" TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
@@ -118,7 +119,7 @@
 								HorizontalOptions="Start" TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
 
-                        <Label  Grid.Row="7"  Grid.ColumnSpan="3" Text="Dirección" Font="9"  VerticalOptions="Center" HorizontalOptions="Start" 
+                        <Label  Grid.Row="7"  Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelAdrress}" Font="9"  VerticalOptions="Center" HorizontalOptions="Start" 
                                 TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
@@ -126,7 +127,7 @@
 								TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
 
-                        <Label  Grid.Row="10"  Grid.ColumnSpan="3" Text="Ciudad" Font="9" VerticalOptions="Center" HorizontalOptions="Start"
+                        <Label  Grid.Row="10"  Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelCity}" Font="9" VerticalOptions="Center" HorizontalOptions="Start"
 								TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
@@ -134,21 +135,21 @@
 								TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
-                        <Label  Grid.Row="13"  Grid.ColumnSpan="3" Text="Estado - País" Font="9"  VerticalOptions="Center"
+                        <Label  Grid.Row="13"  Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelStateCountry}" Font="9"  VerticalOptions="Center"
 								HorizontalOptions="Start" TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
                         <Label  Grid.Row="15"  Grid.ColumnSpan="3" Text="{ Binding Ubicaciones }" Font="13"  VerticalOptions="Center" HorizontalOptions="Start"
 								TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
-                        <Label  Grid.Row="16"  Grid.ColumnSpan="3" Text="Tel: Movil / Fijo / Fax" Font="9"  VerticalOptions="Center"
+                        <Label  Grid.Row="16"  Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelPhone}" Font="9"  VerticalOptions="Center"
 								HorizontalOptions="Start" TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
                         <Label  Grid.Row="18"  Grid.ColumnSpan="3" Text="{ Binding Distributor.EmailEnvio }" Font="13"  VerticalOptions="Center" HorizontalOptions="Start"
 								TextColor="#ffffff" VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
 
 
-                        <Label  Grid.Row="19"  Grid.ColumnSpan="3" Text="Correo electrónico" Font="9"  VerticalOptions="Center"
+                        <Label  Grid.Row="19"  Grid.ColumnSpan="3" Text="{i18n:Translate ShippingInformationLabelEmail}" Font="9"  VerticalOptions="Center"
 								HorizontalOptions="Start" TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
 
