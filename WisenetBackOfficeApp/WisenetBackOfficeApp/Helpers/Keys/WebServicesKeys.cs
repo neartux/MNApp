@@ -2,7 +2,7 @@
 {
     class WebServicesKeys {
 
-        public static string URL_HOST_WEB_SERVICE = "http://192.168.100.105:8080/webservicesTest/";
+        public static string URL_HOST_WEB_SERVICE = "http://192.168.100.108:8080/webservicesTest/";
         public static string URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION = URL_HOST_WEB_SERVICE + "distribuidor/validateDistributorAndFindInformation/";
         public static string URL_UPDATE_SHIPPING_INFORMATION = URL_HOST_WEB_SERVICE + "distribuidor/updateShippingInformationDistributor";
         public static string URL_FIND_COUNTRIES = URL_HOST_WEB_SERVICE + "distribuidor/findCountries";

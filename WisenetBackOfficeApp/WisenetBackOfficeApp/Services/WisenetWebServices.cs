@@ -6,45 +6,45 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WisenetBackOfficeApp.Helpers.Keys;
+using WisenetBackOfficeApp.Helpers.Keys; 
 using WisenetBackOfficeApp.Models.Common;
 using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Ordenes;
+using WisenetBackOfficeApp.Translations;
 
 namespace WisenetBackOfficeApp.Services
 {
     class WisenetWebServices : IWisenetWebServices {
         HttpClient client;
+        CancellationTokenSource cts;
 
         public WisenetWebServices() {
-            client = new HttpClient();   
+            // Inicia el cliente http
+            client = new HttpClient();
+            // Inicia evento para cancelar task, en dado caso no se conecte a webservice
+            cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(100));
         }
 
         public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password) {
             ResponseDistributor responseVO = new ResponseDistributor();
-            var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(5));
             try
             {
                 string url = WebServicesKeys.URL_VALIDATE_DISTRIBUTOR_AND_FIND_INFORMATION + idDistributor + Keys.SLASH + password;
                 Debug.WriteLine("URL = " + url);
-                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)), cts.Token);
                 if (response.IsSuccessStatusCode) {
 
                     var content = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseDistributor>(content);
                 }
                 
-            }
-            catch (TaskCanceledException ex) {
-                Debug.WriteLine("TERMINO EL TIEMPO DE ESPERA DEL WEBSERVICE");
-            }
-            catch (Exception e) {
+            } catch (TaskCanceledException ex) {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseVO.Success = false;
+                responseVO.Message = AppResources.WebserviceLabelTimeOut;
+            } catch (Exception e) {
                 Debug.WriteLine("ERROR = " + e.Message);
-                Debug.WriteLine("ERROR = " + e.HelpLink);
-                Debug.WriteLine("ERROR = " + e.HResult);
-                Debug.WriteLine("ERROR = " + e.GetType().ToString());
-                Debug.WriteLine("ERROR = " + e.StackTrace);
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             } 
@@ -64,14 +64,16 @@ namespace WisenetBackOfficeApp.Services
 
                 HttpResponseMessage response = null;
 
-                response = await client.PutAsync(new Uri(string.Format(url, string.Empty)), content);
+                response = await client.PutAsync(new Uri(string.Format(url, string.Empty)), content, cts.Token);
                 if (response.IsSuccessStatusCode) {
                     var contentResponse = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseTO>(contentResponse);
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (TaskCanceledException ex) {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseVO.Success = false;
+                responseVO.Message = AppResources.WebserviceLabelTimeOut;
+            } catch (Exception e) {
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
                 Debug.WriteLine("An error has ocurred " + e.Message);
@@ -98,7 +100,7 @@ namespace WisenetBackOfficeApp.Services
 
                 HttpResponseMessage response = null;
 
-                response = await client.PostAsync(new Uri(string.Format(url, string.Empty)), content); // PENDIENTE POR CAMBIO EN OBJETOS, SE VA A PROBAR NUEVAMENTE LOGIN PARA VER SI FUNCIONA EL NUEVO CAMBIO
+                response = await client.PostAsync(new Uri(string.Format(url, string.Empty)), content, cts.Token); // PENDIENTE POR CAMBIO EN OBJETOS, SE VA A PROBAR NUEVAMENTE LOGIN PARA VER SI FUNCIONA EL NUEVO CAMBIO
                 Debug.WriteLine("4");
                 if (response.IsSuccessStatusCode)
                 {
@@ -107,6 +109,12 @@ namespace WisenetBackOfficeApp.Services
                     responseTO = JsonConvert.DeserializeObject<ResponseTO>(contentResponse);
 
                 }
+            }
+            catch (TaskCanceledException ex)
+            {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseTO.Success = false;
+                responseTO.Message = AppResources.WebserviceLabelTimeOut;
             }
             catch (Exception e)
             {
@@ -124,14 +132,19 @@ namespace WisenetBackOfficeApp.Services
             try {
                 string url = WebServicesKeys.URL_FIND_ORDERS_BY_DISTRIBUTOR + idDistributor;
                 Debug.WriteLine("URL = " + url);
-                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)), cts.Token);
                 if (response.IsSuccessStatusCode) {
-                    Debug.WriteLine("----------------------------------------------------------------------------------------");
                     var content = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseVenta>(content);
-                    Debug.WriteLine("CONTENT = " + content);
                 }
-            } catch (Exception e) {
+            }
+            catch (TaskCanceledException ex)
+            {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseVO.Success = false;
+                responseVO.Message = AppResources.WebserviceLabelTimeOut;
+            }
+            catch (Exception e) {
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             }
@@ -143,11 +156,17 @@ namespace WisenetBackOfficeApp.Services
             try {
                 string url = WebServicesKeys.URL_FIND_ORDER_BY_ID + idVenta;
                 Debug.WriteLine(" = " + url);
-                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)), cts.Token);
                 if (response.IsSuccessStatusCode) {
                     var content = await response.Content.ReadAsStringAsync();
                     responseVO = JsonConvert.DeserializeObject<ResponseVentaDetalle>(content);
                 }
+            }
+            catch (TaskCanceledException ex)
+            {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseVO.Success = false;
+                responseVO.Message = AppResources.WebserviceLabelTimeOut;
             }
             catch (Exception e) {
                 Debug.WriteLine("ERROR: " + e.Message);
@@ -164,7 +183,7 @@ namespace WisenetBackOfficeApp.Services
             try
             {
                 Debug.WriteLine("1");
-                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)));
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)), cts.Token);
                 Debug.WriteLine("2");
                 if (response.IsSuccessStatusCode)
                 {

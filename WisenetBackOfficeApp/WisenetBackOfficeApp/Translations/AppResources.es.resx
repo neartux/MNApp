@@ -189,6 +189,39 @@
   <data name="MenuLabelShippingData" xml:space="preserve">
     <value>Datos Envío</value>
   </data>
+  <data name="OrderDetailLabelBuyDate" xml:space="preserve">
+    <value>Fecha Compra</value>
+  </data>
+  <data name="OrderDetailLabelCommisionDate" xml:space="preserve">
+    <value>Fecha Comisión</value>
+  </data>
+  <data name="OrderDetailLabelFastStart" xml:space="preserve">
+    <value>FastStart</value>
+  </data>
+  <data name="OrderDetailLabelOrder" xml:space="preserve">
+    <value>Orden</value>
+  </data>
+  <data name="OrderDetailLabelOrderType" xml:space="preserve">
+    <value>Tipo de Orden</value>
+  </data>
+  <data name="OrderDetailLabelPoints" xml:space="preserve">
+    <value>Puntos</value>
+  </data>
+  <data name="OrderDetailLabelShippingAndHandling" xml:space="preserve">
+    <value>Manejo y Envío</value>
+  </data>
+  <data name="OrderDetailLabelSubtotal" xml:space="preserve">
+    <value>SubTotal</value>
+  </data>
+  <data name="OrderDetailLabelTax" xml:space="preserve">
+    <value>Impuesto</value>
+  </data>
+  <data name="OrderDetailLabelTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="OrderDetailLabelVolume" xml:space="preserve">
+    <value>Volumen</value>
+  </data>
   <data name="OrdersLabelTitle" xml:space="preserve">
     <value>Ordenes</value>
   </data>
@@ -233,5 +266,8 @@
   </data>
   <data name="ShippingInformationTitle" xml:space="preserve">
     <value>DATOS DE ENVÍO</value>
+  </data>
+  <data name="WebserviceLabelTimeOut" xml:space="preserve">
+    <value>Verifique su conexión a internet o intente de nuevo</value>
   </data>
 </root>

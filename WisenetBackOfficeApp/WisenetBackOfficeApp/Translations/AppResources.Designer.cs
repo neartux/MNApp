@@ -278,6 +278,105 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Buy Date.
+        /// </summary>
+        public static string OrderDetailLabelBuyDate {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelBuyDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Commision Date.
+        /// </summary>
+        public static string OrderDetailLabelCommisionDate {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelCommisionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a FastStart.
+        /// </summary>
+        public static string OrderDetailLabelFastStart {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelFastStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order.
+        /// </summary>
+        public static string OrderDetailLabelOrder {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order Type.
+        /// </summary>
+        public static string OrderDetailLabelOrderType {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelOrderType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Points.
+        /// </summary>
+        public static string OrderDetailLabelPoints {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Shipping And Handling.
+        /// </summary>
+        public static string OrderDetailLabelShippingAndHandling {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShippingAndHandling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SubTotal.
+        /// </summary>
+        public static string OrderDetailLabelSubtotal {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelSubtotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tax.
+        /// </summary>
+        public static string OrderDetailLabelTax {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelTax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total.
+        /// </summary>
+        public static string OrderDetailLabelTotal {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Volume.
+        /// </summary>
+        public static string OrderDetailLabelVolume {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Orders.
         /// </summary>
         public static string OrdersLabelTitle {
@@ -409,6 +508,15 @@ namespace WisenetBackOfficeApp.Translations {
         public static string ShippingInformationTitle {
             get {
                 return ResourceManager.GetString("ShippingInformationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Check your internet connection or try again.
+        /// </summary>
+        public static string WebserviceLabelTimeOut {
+            get {
+                return ResourceManager.GetString("WebserviceLabelTimeOut", resourceCulture);
             }
         }
     }

@@ -27,9 +27,11 @@
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
 
                 <ListView x:Name="OrderList" RowHeight="80" BackgroundColor="Black">
+                    
                     <ListView.SeparatorColor>
                         <OnPlatform x:TypeArguments="Color" Android="#606060" iOS="#606060" WinPhone="#606060"/>
                     </ListView.SeparatorColor>
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -89,9 +91,13 @@
                                     </Grid>
 
                                 </StackLayout>
+                                
                             </ViewCell>
+                            
                         </DataTemplate>
+                        
                     </ListView.ItemTemplate>
+                    
                 </ListView>
 
             </StackLayout>

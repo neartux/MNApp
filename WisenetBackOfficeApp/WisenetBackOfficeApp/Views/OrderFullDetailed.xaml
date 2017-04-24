@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
 			 x:Class="WisenetBackOfficeApp.Views.OrderFullDetailed"
 			 xmlns:pages="clr-namespace:WisenetBackOfficeApp.Views;assembly=WisenetBackOfficeApp"
 			 BackgroundImage="bgBlackTexture.jpg">
@@ -16,7 +17,7 @@
 						AbsoluteLayout.LayoutFlags="WidthProportional"/>
 
                     <!--Inicio Zona izquierda-->
-                    <Label Text="Order" TextColor="#ffa834"
+                    <Label Text="{i18n:Translate OrderDetailLabelOrder}" TextColor="#ffa834"
 						   AbsoluteLayout.LayoutBounds="10,15,100,50"
 						   Font="Bold, 26"/>
 
@@ -27,22 +28,22 @@
 
                     <!--Incio Zona derecha-->
                     <!--Inicio SubZona de descripcion-->
-                    <Label Text="Fecha Compra" TextColor="#ffa834"
+                    <Label Text="{i18n:Translate OrderDetailLabelBuyDate}" TextColor="#ffa834"
 						   AbsoluteLayout.LayoutBounds=".65,15,90,25"
 						   AbsoluteLayout.LayoutFlags="XProportional"
 						   Font="11"/>
 
-                    <Label Text="Fecha Comision" TextColor="#ffa834"
+                    <Label Text="{i18n:Translate OrderDetailLabelCommisionDate}" TextColor="#ffa834"
 						   AbsoluteLayout.LayoutBounds=".65,35,90,25"
 						   AbsoluteLayout.LayoutFlags="XProportional"
 						   Font="11"/>
 
-                    <Label Text="Fastart" TextColor="#ffa834"
+                    <Label Text="{i18n:Translate OrderDetailLabelFastStart}" TextColor="#ffa834"
 						   AbsoluteLayout.LayoutBounds=".65,55,90,25"
 						   AbsoluteLayout.LayoutFlags="XProportional"
 						   Font="11"/>
 
-                    <Label Text="Tipo de Orden" TextColor="#ffa834"
+                    <Label Text="{i18n:Translate OrderDetailLabelOrderType}" TextColor="#ffa834"
 						   AbsoluteLayout.LayoutBounds=".65,75,90,25"
 						   AbsoluteLayout.LayoutFlags="XProportional"
 						   Font="11"/>
@@ -54,22 +55,22 @@
                     <AbsoluteLayout AbsoluteLayout.LayoutBounds=".90,15,90,110" AbsoluteLayout.LayoutFlags="XProportional" Padding="10,0,0,0">
 
                         <Label Text="{Binding ReporteVentaTO.FechaComision, StringFormat='{0:dd, MMMM yyyy}'}" TextColor="#929292"
-						       AbsoluteLayout.LayoutBounds="0,0,90,25"
+						       AbsoluteLayout.LayoutBounds="0,0,95,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="10"/>
 
                         <Label Text="{Binding ReporteVentaTO.FechaComision, StringFormat='{0:dd, MMMM yyyy}'}" TextColor="#929292"
-						       AbsoluteLayout.LayoutBounds="0,20,90,25"
+						       AbsoluteLayout.LayoutBounds="0,20,95,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="10"/>
 
                         <Label Text="{Binding ReporteVentaTO.FastStart}" TextColor="#929292"
-						       AbsoluteLayout.LayoutBounds="0,40,90,25"
+						       AbsoluteLayout.LayoutBounds="0,40,95,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="10"/>
 
                         <Label Text="{Binding ReporteVentaTO.TipoOrden}" TextColor="#929292"
-						       AbsoluteLayout.LayoutBounds="0,60,90,25"
+						       AbsoluteLayout.LayoutBounds="0,60,95,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="10"/>
                     </AbsoluteLayout>
@@ -88,8 +89,8 @@
 
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
 
-                    <ListView ItemsSource="{Binding ReporteVentaTO.VentaDetalleList}"  HasUnevenRows="true" BackgroundColor="{StaticResource BackgroundColorMenu}">
-                        >
+                    <ListView ItemsSource="{Binding ReporteVentaTO.VentaDetalleList}"  BackgroundColor="{StaticResource BackgroundColorMenu}">
+                        
                         <ListView.SeparatorColor>
                             <OnPlatform x:TypeArguments="Color" Android="#252e32" iOS="#252e32" WinPhone="#252e32"/>
                         </ListView.SeparatorColor>
@@ -104,16 +105,14 @@
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="25" />
                                                 <RowDefinition Height="*" />
-
-
                                             </Grid.RowDefinitions>
 
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="100"></ColumnDefinition>
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
-
                                             </Grid.ColumnDefinitions>
+                                            
                                             <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
 
                                             <!--descripcion-->
@@ -160,15 +159,15 @@
                                                 <Label Text="{Binding Total}" 
 										               TextColor="#444444"
 										               AbsoluteLayout.LayoutBounds=".8,0,1,20"
-										               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"			
+										               
 										               Font="14"
 										               HorizontalTextAlignment="End"
 										               Margin="0,0,10,0"/>
 
-                                                <Label Text="Puntos:" 
+                                                <Label Text="{i18n:Translate OrderDetailLabelPoints}" 
 										               TextColor="#4c7a34"
 										               AbsoluteLayout.LayoutBounds="0,20,1,20"
-										               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"			
+										               
 										               Font="10"
 										               Margin="0,0,50,0"
 										               HorizontalTextAlignment="End"/>
@@ -176,7 +175,7 @@
                                                 <Label Text="{Binding Puntos}" 
 										               TextColor="#4c7a34"
 										               AbsoluteLayout.LayoutBounds="0,20,1,20"
-										               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"			
+										               
 										               Font="10"
 										               HorizontalTextAlignment="End"
 										               Margin="0,0,10,0"/>
@@ -193,112 +192,100 @@
 
                         </ListView.ItemTemplate>
 
+                        <ListView.Footer>
+                            <!--INICIO ZONA DE SUBTOTALES-->
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
 
-                    </ListView>
-                </StackLayout>
+                                <AbsoluteLayout>
 
-
-                <!--Fin tabla de items-->
-
-
-
-
-
-
-                <!--INICIO ZONA DE SUBTOTALES-->
-
-
-
-
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-
-                    <AbsoluteLayout>
-
-                        <BoxView Color="#252e32" AbsoluteLayout.LayoutBounds="0,0,1,120" 
+                                    <BoxView Color="#252e32" AbsoluteLayout.LayoutBounds="0,0,1,120" 
 						         AbsoluteLayout.LayoutFlags="WidthProportional"/>
 
 
-                        <!--Incio Zona derecha subtotales-->
-                        <!--Inicio SubZona de descripcion-->
-                        <Label Text="Volumen" TextColor="#929292"
+                                    <!--Incio Zona derecha subtotales-->
+                                    <!--Inicio SubZona de descripcion-->
+                                    <Label Text="{i18n:Translate OrderDetailLabelVolume}" TextColor="#929292"
 						       AbsoluteLayout.LayoutBounds=".65,15,90,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="11"/>
 
-                        <Label Text="Subtotal" TextColor="#929292"
+                                    <Label Text="{i18n:Translate OrderDetailLabelSubtotal}" TextColor="#929292"
 						       AbsoluteLayout.LayoutBounds=".65,35,90,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="11"/>
 
-                        <Label Text="Manejo y Envío" TextColor="#929292"
+                                    <Label Text="{i18n:Translate OrderDetailLabelShippingAndHandling}" TextColor="#929292"
 						       AbsoluteLayout.LayoutBounds=".65,55,90,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="11"/>
 
-                        <Label Text="Impuesto" TextColor="#929292"
+                                    <Label Text="{i18n:Translate OrderDetailLabelTax}" TextColor="#929292"
 						       AbsoluteLayout.LayoutBounds=".65,75,90,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="11"/>
 
-                        <Label Text="Total" TextColor="#929292"
+                                    <Label Text="{i18n:Translate OrderDetailLabelTotal}" TextColor="#929292"
 						       AbsoluteLayout.LayoutBounds=".65,95,90,25"
 						       AbsoluteLayout.LayoutFlags="XProportional"
 						       Font="11"/>
 
-                        <!--Fin SubZona de descripcion-->
+                                    <!--Fin SubZona de descripcion-->
 
 
 
 
 
-                        <!--Inicio SubZona de Bindings-->
-                        <AbsoluteLayout AbsoluteLayout.LayoutBounds=".90,15,90,110" AbsoluteLayout.LayoutFlags="XProportional" Padding="10,0,0,0">
+                                    <!--Inicio SubZona de Bindings-->
+                                    <AbsoluteLayout AbsoluteLayout.LayoutBounds=".90,15,90,110" AbsoluteLayout.LayoutFlags="XProportional" Padding="10,0,0,0">
 
-                            <Label Text="{Binding ReporteVentaTO.Volumen}" TextColor="#929292"
+                                        <Label Text="{Binding ReporteVentaTO.Volumen}" TextColor="#929292"
 						           AbsoluteLayout.LayoutBounds="0,0,90,25"
 						           AbsoluteLayout.LayoutFlags="XProportional"
 						           Font="10"/>
 
-                            <Label Text="{Binding ReporteVentaTO.SubTotal, StringFormat='${0:N}'}" TextColor="#929292"
+                                        <Label Text="{Binding ReporteVentaTO.SubTotal, StringFormat='${0:N}'}" TextColor="#929292"
 						           AbsoluteLayout.LayoutBounds="0,20,90,25"
 						           AbsoluteLayout.LayoutFlags="XProportional"
 						           Font="10"/>
 
-                            <Label Text="{Binding ReporteVentaTO.GastoEnvio, StringFormat='${0:N}'}" TextColor="#929292"
+                                        <Label Text="{Binding ReporteVentaTO.GastoEnvio, StringFormat='${0:N}'}" TextColor="#929292"
 						           AbsoluteLayout.LayoutBounds="0,40,90,25"
 						           AbsoluteLayout.LayoutFlags="XProportional"
 						           Font="10"/>
 
-                            <Label Text="{Binding ReporteVentaTO.Impuesto, StringFormat='${0:N}'}" TextColor="#929292"
+                                        <Label Text="{Binding ReporteVentaTO.Impuesto, StringFormat='${0:N}'}" TextColor="#929292"
 						           AbsoluteLayout.LayoutBounds="0,60,90,25"
 						           AbsoluteLayout.LayoutFlags="XProportional"
 						           Font="10"/>
 
 
-                            <Label Text="{Binding ReporteVentaTO.Total, StringFormat='${0:N}'}" TextColor="#929292"
+                                        <Label Text="{Binding ReporteVentaTO.Total, StringFormat='${0:N}'}" TextColor="#929292"
 						           AbsoluteLayout.LayoutBounds="0,80,90,25"
 						           AbsoluteLayout.LayoutFlags="XProportional"
 						           Font="10"/>
-                            
-                        </AbsoluteLayout>
+
+                                    </AbsoluteLayout>
 
 
-                        <!--Fin SubZona de Bindings-->
+                                    <!--Fin SubZona de Bindings-->
 
-                        <!--Fin zona derecha-->
+                                    <!--Fin zona derecha-->
 
-                    </AbsoluteLayout>
+                                </AbsoluteLayout>
 
+                            </StackLayout>
+                            <!--FIN DE ZONA DE SUBTOTALES-->
+                        </ListView.Footer>
+
+
+                    </ListView>
+
+                    
+                    
                 </StackLayout>
-                <!--FIN DE ZONA DE SUBTOTALES-->
 
 
-
-
-
-
-
-
+                <!--Fin tabla de items-->
 
 
             </StackLayout>
