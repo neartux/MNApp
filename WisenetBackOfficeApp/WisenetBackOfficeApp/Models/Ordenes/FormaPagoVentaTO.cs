@@ -6,7 +6,7 @@ namespace WisenetBackOfficeApp.Models.Ordenes {
         [JsonProperty(PropertyName = "formapago")]
         public string FormaPago { get; set; }
 
-        [JsonProperty(PropertyName = "numeroTarjeta")]
+        [JsonProperty(PropertyName = "numeroTarjeta")] 
         public string NumeroTarjeta { get; set; }
 
         [JsonProperty(PropertyName = "fechaVencimiento")]

@@ -9,12 +9,14 @@
         <local:OrderFullDetailed Title="DETAIL" />
 
 
-        <ContentPage Title="FORMA PAGO">
+        <local:OrderPaymentDetails Title="FORMA PAGO" />
+        
+        <!--<ContentPage Title="FORMA PAGO">
             <StackLayout>
-                <Label Text="Blue" />
-                <BoxView Color="Blue" VerticalOptions="FillAndExpand"/>
+
+
             </StackLayout>
-        </ContentPage>
+        </ContentPage>-->
 
         <ContentPage Title="FORMA ENVIO">
             <StackLayout>

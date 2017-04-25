@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Views.OrderPaymentDetails"
+             xmlns:pages="clr-namespace:WisenetBackOfficeApp.Views;assembly=WisenetBackOfficeApp"
+			 BackgroundImage="bgBlackTexture.jpg">
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+        <ScrollView>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                <AbsoluteLayout>
+
+                    <BoxView Color="#252e32" AbsoluteLayout.LayoutBounds="0,0,1,110" 
+						AbsoluteLayout.LayoutFlags="WidthProportional"/>
+
+                    <Label Text="Detalles de Formas de Pago" TextColor="#ffa834"
+						   AbsoluteLayout.LayoutBounds="10,20,300,50"
+						   Font="Bold, 16"/>
+
+                    <Label Text="{ Binding GetTotalFormaPago }" TextColor="#929292"
+						   AbsoluteLayout.LayoutBounds="10,45,100,50"
+						   Font="14"/>
+                    
+             
+                    <AbsoluteLayout AbsoluteLayout.LayoutBounds=".90,15,90,110" AbsoluteLayout.LayoutFlags="XProportional" Padding="10,0,0,0">
+
+                       
+                    </AbsoluteLayout>
+
+
+
+                </AbsoluteLayout>
+
+
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
+
+                    <ListView ItemsSource="{Binding ReporteVentaTO.FormaPagoVentaList}" RowHeight="150"  BackgroundColor="{StaticResource BackgroundColorMenu}">
+
+                        <ListView.SeparatorColor>
+                            <OnPlatform x:TypeArguments="Color" Android="#252e32" iOS="#252e32" WinPhone="#252e32"/>
+                        </ListView.SeparatorColor>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Grid>
+
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
+
+
+                                            <Label  Grid.Row="0"  Grid.Column="0" 
+								                    Text="Forma Pago:"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+                                            <Label  Grid.Row="0"  Grid.Column="1" 
+								                    Text="{Binding FormaPago}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="1"  Grid.Column="0" 
+								                    Text="Número Tarjeta"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+                                            
+                                            <Label  Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="3"
+								                    Text="{Binding NumeroTarjeta}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
+								                    Text="Fecha de Expiracion"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="2"  Grid.Column="1" 
+								                    Text="{Binding FechaVencimiento}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="3"  Grid.Column="0" 
+								                    Text="Tarjetahabiente"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="3"  Grid.Column="1" 
+								                    Text="{Binding NombreTitular}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="4"  Grid.Column="0" 
+								                    Text="Referencia de pago"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="4"  Grid.Column="1" 
+								                    Text="{Binding Banco}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="5"  Grid.Column="0" 
+								                    Text="Autorizacion"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="5"  Grid.Column="1" 
+								                    Text="{Binding Autorizacion}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="6"  Grid.Column="0" 
+								                    Text="Monto"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                                            <Label  Grid.Row="6"  Grid.Column="1" 
+								                    Text="{Binding Cantidad}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+
+
+                                        </Grid>
+
+                                    </StackLayout>
+                                </ViewCell>
+
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+
+
+                    </ListView>
+
+
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentView>
+
+
+</ContentPage>
