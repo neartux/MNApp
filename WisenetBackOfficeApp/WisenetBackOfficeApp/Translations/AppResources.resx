@@ -144,6 +144,9 @@
   <data name="ButtonLabelOk" xml:space="preserve">
     <value>Ok</value>
   </data>
+  <data name="HomeLabelId" xml:space="preserve">
+    <value>ID</value>
+  </data>
   <data name="HomeLabelRegistrationDate" xml:space="preserve">
     <value>Registration Date</value>
   </data>
@@ -189,26 +192,77 @@
   <data name="MenuLabelShippingData" xml:space="preserve">
     <value>Shipping Data</value>
   </data>
+  <data name="OrderDetailLabelAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="OrderDetailLabelAuthorization" xml:space="preserve">
+    <value>Authorization:</value>
+  </data>
   <data name="OrderDetailLabelBuyDate" xml:space="preserve">
     <value>Buy Date</value>
   </data>
+  <data name="OrderDetailLabelCardHolderName" xml:space="preserve">
+    <value>Cardholder Name:</value>
+  </data>
   <data name="OrderDetailLabelCommisionDate" xml:space="preserve">
     <value>Commision Date</value>
+  </data>
+  <data name="OrderDetailLabelCreditCardNumber" xml:space="preserve">
+    <value>Credit Card Number:</value>
+  </data>
+  <data name="OrderDetailLabelExpirationDate" xml:space="preserve">
+    <value>Expiration Date:</value>
   </data>
   <data name="OrderDetailLabelFastStart" xml:space="preserve">
     <value>FastStart</value>
   </data>
   <data name="OrderDetailLabelOrder" xml:space="preserve">
-    <value>Order</value>
+    <value>ORDER ID</value>
   </data>
   <data name="OrderDetailLabelOrderType" xml:space="preserve">
     <value>Order Type</value>
+  </data>
+  <data name="OrderDetailLabelPaymentForm" xml:space="preserve">
+    <value>Payment Form:</value>
+  </data>
+  <data name="OrderDetailLabelPaymentReference" xml:space="preserve">
+    <value>Payment Reference:</value>
   </data>
   <data name="OrderDetailLabelPoints" xml:space="preserve">
     <value>Points</value>
   </data>
   <data name="OrderDetailLabelShippingAndHandling" xml:space="preserve">
     <value>Shipping And Handling</value>
+  </data>
+  <data name="OrderDetailLabelShipTo" xml:space="preserve">
+    <value>Ship To</value>
+  </data>
+  <data name="OrderDetailLabelShipToAddress" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="OrderDetailLabelShipToName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="OrderDetailLabelShipToOrderDate" xml:space="preserve">
+    <value>Order Date:</value>
+  </data>
+  <data name="OrderDetailLabelShipToShippingMethod" xml:space="preserve">
+    <value>Shipping Method:</value>
+  </data>
+  <data name="OrderDetailLabelShipToUserName" xml:space="preserve">
+    <value>User Name:</value>
+  </data>
+  <data name="OrderDetailLabelShipToWarehouse" xml:space="preserve">
+    <value>Warehouse:</value>
+  </data>
+  <data name="OrderDetailLabelSoldTo" xml:space="preserve">
+    <value>Sold To</value>
+  </data>
+  <data name="OrderDetailLabelSoldToAddress" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="OrderDetailLabelSoldToName" xml:space="preserve">
+    <value>Name:</value>
   </data>
   <data name="OrderDetailLabelSubtotal" xml:space="preserve">
     <value>SubTotal</value>

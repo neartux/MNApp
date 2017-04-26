@@ -144,6 +144,9 @@
   <data name="ButtonLabelOk" xml:space="preserve">
     <value>Aceptar</value>
   </data>
+  <data name="HomeLabelId" xml:space="preserve">
+    <value>ID</value>
+  </data>
   <data name="HomeLabelRegistrationDate" xml:space="preserve">
     <value>Fecha Registro</value>
   </data>
@@ -189,26 +192,77 @@
   <data name="MenuLabelShippingData" xml:space="preserve">
     <value>Datos Envío</value>
   </data>
+  <data name="OrderDetailLabelAmount" xml:space="preserve">
+    <value>Monto</value>
+  </data>
+  <data name="OrderDetailLabelAuthorization" xml:space="preserve">
+    <value>Autorización:</value>
+  </data>
   <data name="OrderDetailLabelBuyDate" xml:space="preserve">
     <value>Fecha Compra</value>
   </data>
+  <data name="OrderDetailLabelCardHolderName" xml:space="preserve">
+    <value>Tarjetahabiente:</value>
+  </data>
   <data name="OrderDetailLabelCommisionDate" xml:space="preserve">
     <value>Fecha Comisión</value>
+  </data>
+  <data name="OrderDetailLabelCreditCardNumber" xml:space="preserve">
+    <value>Número De La Tarjeta De Crédito:</value>
+  </data>
+  <data name="OrderDetailLabelExpirationDate" xml:space="preserve">
+    <value>Fecha De Expiración:</value>
   </data>
   <data name="OrderDetailLabelFastStart" xml:space="preserve">
     <value>FastStart</value>
   </data>
   <data name="OrderDetailLabelOrder" xml:space="preserve">
-    <value>Orden</value>
+    <value>ID ORDEN</value>
   </data>
   <data name="OrderDetailLabelOrderType" xml:space="preserve">
     <value>Tipo de Orden</value>
+  </data>
+  <data name="OrderDetailLabelPaymentForm" xml:space="preserve">
+    <value>Forma de Pago:</value>
+  </data>
+  <data name="OrderDetailLabelPaymentReference" xml:space="preserve">
+    <value>Referencia De Pago:</value>
   </data>
   <data name="OrderDetailLabelPoints" xml:space="preserve">
     <value>Puntos</value>
   </data>
   <data name="OrderDetailLabelShippingAndHandling" xml:space="preserve">
     <value>Manejo y Envío</value>
+  </data>
+  <data name="OrderDetailLabelShipTo" xml:space="preserve">
+    <value>ENVIAR A</value>
+  </data>
+  <data name="OrderDetailLabelShipToAddress" xml:space="preserve">
+    <value>Dirección:</value>
+  </data>
+  <data name="OrderDetailLabelShipToName" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="OrderDetailLabelShipToOrderDate" xml:space="preserve">
+    <value>Fecha De Orden:</value>
+  </data>
+  <data name="OrderDetailLabelShipToShippingMethod" xml:space="preserve">
+    <value>Método De Envio:</value>
+  </data>
+  <data name="OrderDetailLabelShipToUserName" xml:space="preserve">
+    <value>Nombre De Usuario:</value>
+  </data>
+  <data name="OrderDetailLabelShipToWarehouse" xml:space="preserve">
+    <value>Almacén:</value>
+  </data>
+  <data name="OrderDetailLabelSoldTo" xml:space="preserve">
+    <value>VENDIDO A</value>
+  </data>
+  <data name="OrderDetailLabelSoldToAddress" xml:space="preserve">
+    <value>Dirección:</value>
+  </data>
+  <data name="OrderDetailLabelSoldToName" xml:space="preserve">
+    <value>Nombre:</value>
   </data>
   <data name="OrderDetailLabelSubtotal" xml:space="preserve">
     <value>SubTotal</value>

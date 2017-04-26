@@ -15,18 +15,14 @@
                     <BoxView Color="#252e32" AbsoluteLayout.LayoutBounds="0,0,1,110" 
 						AbsoluteLayout.LayoutFlags="WidthProportional"/>
 
-                    <!--Inicio Zona izquierda-->
                     <Label Text="{i18n:Translate OrderDetailLabelOrder}" TextColor="#ffa834"
-						   AbsoluteLayout.LayoutBounds="10,15,100,50"
-						   Font="Bold, 26"/>
+						   AbsoluteLayout.LayoutBounds="10,15,130,50"
+						   Font="Bold, 24"/>
 
                     <Label Text="{Binding ReporteVentaTO.IdVenta}" TextColor="#929292"
 						   AbsoluteLayout.LayoutBounds="10,45,100,50"
 						   Font="14"/>
-                    <!--Fin Zona izquierda-->
-
-                    <!--Incio Zona derecha-->
-                    <!--Inicio SubZona de descripcion-->
+                    
                     <Label Text="{i18n:Translate OrderDetailLabelBuyDate}" TextColor="#ffa834"
 						   AbsoluteLayout.LayoutBounds=".65,15,90,25"
 						   AbsoluteLayout.LayoutFlags="XProportional"
@@ -47,10 +43,7 @@
 						   AbsoluteLayout.LayoutFlags="XProportional"
 						   Font="11"/>
 
-                    <!--Fin SubZona de descripcion-->
-
-
-                    <!--Inicio SubZona de Bindings-->
+                    
                     <AbsoluteLayout AbsoluteLayout.LayoutBounds=".90,15,90,110" AbsoluteLayout.LayoutFlags="XProportional" Padding="10,0,0,0">
 
                         <Label Text="{Binding ReporteVentaTO.FechaComision, StringFormat='{0:dd, MMMM yyyy}'}" TextColor="#929292"
@@ -74,10 +67,6 @@
 						       Font="10"/>
                     </AbsoluteLayout>
 
-
-                    <!--Fin SubZona de Bindings-->
-
-                    <!--Fin zona derecha-->
 
                 </AbsoluteLayout>
 
@@ -116,7 +105,7 @@
 
 
                                             <Label  Grid.Row="0"  Grid.Column="0" 
-								                    Text="Forma Pago:"
+								                    Text="{i18n:Translate OrderDetailLabelPaymentForm}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -135,7 +124,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="1"  Grid.Column="0" 
-								                    Text="Número Tarjeta"
+								                    Text="{i18n:Translate OrderDetailLabelCreditCardNumber}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -155,7 +144,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
-								                    Text="Fecha de Expiracion"
+								                    Text="{i18n:Translate OrderDetailLabelExpirationDate}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -175,7 +164,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="3"  Grid.Column="0" 
-								                    Text="Tarjetahabiente"
+								                    Text="{i18n:Translate OrderDetailLabelCardHolderName}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -195,7 +184,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="4"  Grid.Column="0" 
-								                    Text="Referencia de pago"
+								                    Text="{i18n:Translate OrderDetailLabelPaymentReference}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -215,7 +204,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="5"  Grid.Column="0" 
-								                    Text="Autorizacion"
+								                    Text="{i18n:Translate OrderDetailLabelAuthorization}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -235,7 +224,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="6"  Grid.Column="0" 
-								                    Text="Monto"
+								                    Text="{i18n:Translate OrderDetailLabelAmount}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -245,7 +234,7 @@
 												    Margin="10,0,0,0"/>
 
                                             <Label  Grid.Row="6"  Grid.Column="1" 
-								                    Text="{Binding Cantidad}"
+								                    Text="{Binding Cantidad, StringFormat='${0:N}'}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"

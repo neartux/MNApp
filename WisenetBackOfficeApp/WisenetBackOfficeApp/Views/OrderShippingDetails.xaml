@@ -17,8 +17,8 @@
 
                     <!--Inicio Zona izquierda-->
                     <Label Text="{i18n:Translate OrderDetailLabelOrder}" TextColor="#ffa834"
-						   AbsoluteLayout.LayoutBounds="10,15,100,50"
-						   Font="Bold, 26"/>
+						   AbsoluteLayout.LayoutBounds="10,15,130,50"
+						   Font="Bold, 24"/>
 
                     <Label Text="{Binding ReporteVentaTO.IdVenta}" TextColor="#929292"
 						   AbsoluteLayout.LayoutBounds="10,45,100,50"
@@ -94,6 +94,9 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
 
 
@@ -102,11 +105,22 @@
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
+                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="10" Grid.ColumnSpan="4"/>
 
 
-                            <Label  Grid.Row="0"  Grid.Column="0" 
-								                    Text="Nombre:"
+                            <Label  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"
+								                    Text="{i18n:Translate OrderDetailLabelSoldTo}"
+								                    Font="Bold, 16" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Center"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Center"
+												    Margin="10,0,0,0"/>
+                            
+                            
+                            <Label  Grid.Row="1"  Grid.Column="0" 
+								                    Text="{i18n:Translate OrderDetailLabelSoldToName}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -114,7 +128,7 @@
 								                    VerticalTextAlignment="Center"
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
-                            <Label  Grid.Row="0"  Grid.Column="1" 
+                            <Label  Grid.Row="1"  Grid.Column="1" 
 								                    Text="{ Binding ReporteVentaTO.FormaEnvioTO.Nombre }"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
@@ -124,8 +138,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                            <Label  Grid.Row="1"  Grid.Column="0" 
-								                    Text="Direccion"
+                            <Label  Grid.Row="2"  Grid.Column="0" 
+								                    Text="{i18n:Translate OrderDetailLabelSoldToAddress}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -134,7 +148,7 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                            <Label  Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="3"
+                            <Label  Grid.Row="2"  Grid.Column="1" Grid.ColumnSpan="3"
 								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Direccion}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
@@ -144,48 +158,18 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                            <Label  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
-								                    Text="Nombre"
-								                    Font="Bold, 12" 
+                            <Label  Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="2"
+								                    Text="{i18n:Translate OrderDetailLabelShipTo}"
+								                    Font="Bold, 16" 
 								                    VerticalOptions="Center"
-								                    HorizontalOptions="Start"
+								                    HorizontalOptions="Center"
 								                    TextColor="Black"
 								                    VerticalTextAlignment="Center"
-								                    HorizontalTextAlignment="Start"
+								                    HorizontalTextAlignment="Center"
 												    Margin="10,0,0,0"/>
 
-                            <Label  Grid.Row="2"  Grid.Column="1" 
-								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.NombreEnvio}"
-								                    Font="Bold, 12" 
-								                    VerticalOptions="Center"
-								                    HorizontalOptions="Start"
-								                    TextColor="Black"
-								                    VerticalTextAlignment="Center"
-								                    HorizontalTextAlignment="Start"
-												    Margin="10,0,0,0"/>
-
-                            <Label  Grid.Row="3"  Grid.Column="0" 
-								                    Text="Direccion"
-								                    Font="Bold, 12" 
-								                    VerticalOptions="Center"
-								                    HorizontalOptions="Start"
-								                    TextColor="Black"
-								                    VerticalTextAlignment="Center"
-								                    HorizontalTextAlignment="Start"
-												    Margin="10,0,0,0"/>
-
-                            <Label  Grid.Row="3"  Grid.Column="1" 
-								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.DireccionEnvio}"
-								                    Font="Bold, 12" 
-								                    VerticalOptions="Center"
-								                    HorizontalOptions="Start"
-								                    TextColor="Black"
-								                    VerticalTextAlignment="Center"
-								                    HorizontalTextAlignment="Start"
-												    Margin="10,0,0,0"/>
-
-                            <Label  Grid.Row="4"  Grid.Column="0" 
-								                    Text="Almacen"
+                            <Label  Grid.Row="4"  Grid.Column="0" Grid.ColumnSpan="3"
+								                    Text="{i18n:Translate OrderDetailLabelShipToName}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -195,7 +179,7 @@
 												    Margin="10,0,0,0"/>
 
                             <Label  Grid.Row="4"  Grid.Column="1" 
-								                    Text="{Binding {Binding ReporteVentaTO.FormaEnvioTO.Inventario}"
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.NombreEnvio}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -205,7 +189,7 @@
 												    Margin="10,0,0,0"/>
 
                             <Label  Grid.Row="5"  Grid.Column="0" 
-								                    Text="Nombre de usuario"
+								                    Text="{i18n:Translate OrderDetailLabelShipToAddress}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -215,7 +199,7 @@
 												    Margin="10,0,0,0"/>
 
                             <Label  Grid.Row="5"  Grid.Column="1" 
-								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Usuario}"
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.DireccionEnvio}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -225,7 +209,7 @@
 												    Margin="10,0,0,0"/>
 
                             <Label  Grid.Row="6"  Grid.Column="0" 
-								                    Text="Fecha de orden"
+								                    Text="{i18n:Translate OrderDetailLabelShipToWarehouse}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -235,7 +219,67 @@
 												    Margin="10,0,0,0"/>
 
                             <Label  Grid.Row="6"  Grid.Column="1" 
-								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.FechaOrden}"
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Inventario}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="7"  Grid.Column="0" 
+								                    Text="{i18n:Translate OrderDetailLabelShipToUserName}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="7"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Usuario}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="8"  Grid.Column="0" 
+								                    Text="{i18n:Translate OrderDetailLabelShipToOrderDate}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="8"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.FechaOrden, StringFormat='{0:dd, MMMM yyyy}'}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="9"  Grid.Column="0" 
+								                    Text="{i18n:Translate OrderDetailLabelShipToShippingMethod}"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="9"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Descripcion}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"

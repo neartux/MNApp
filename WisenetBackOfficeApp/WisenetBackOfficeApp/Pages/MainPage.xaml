@@ -49,7 +49,7 @@
                         <Label  
 					Grid.Row="0" 
 					Grid.Column="1"
-					Text="{ Binding Distributor.IdDistributor }"
+					Text="{ Binding Distributor.IdDistributor, StringFormat='ID {0}' }"
 					FontSize="15"
 					VerticalOptions="Center"
 					TextColor="#ffffff"

@@ -143,6 +143,15 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ID.
+        /// </summary>
+        public static string HomeLabelId {
+            get {
+                return ResourceManager.GetString("HomeLabelId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Registration Date.
         /// </summary>
         public static string HomeLabelRegistrationDate {
@@ -278,11 +287,38 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Amount.
+        /// </summary>
+        public static string OrderDetailLabelAmount {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Authorization:.
+        /// </summary>
+        public static string OrderDetailLabelAuthorization {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelAuthorization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Buy Date.
         /// </summary>
         public static string OrderDetailLabelBuyDate {
             get {
                 return ResourceManager.GetString("OrderDetailLabelBuyDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cardholder Name:.
+        /// </summary>
+        public static string OrderDetailLabelCardHolderName {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelCardHolderName", resourceCulture);
             }
         }
         
@@ -296,6 +332,24 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Credit Card Number:.
+        /// </summary>
+        public static string OrderDetailLabelCreditCardNumber {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelCreditCardNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Expiration Date:.
+        /// </summary>
+        public static string OrderDetailLabelExpirationDate {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelExpirationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a FastStart.
         /// </summary>
         public static string OrderDetailLabelFastStart {
@@ -305,7 +359,7 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Order.
+        ///   Busca una cadena traducida similar a ORDER ID.
         /// </summary>
         public static string OrderDetailLabelOrder {
             get {
@@ -319,6 +373,24 @@ namespace WisenetBackOfficeApp.Translations {
         public static string OrderDetailLabelOrderType {
             get {
                 return ResourceManager.GetString("OrderDetailLabelOrderType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Payment Form:.
+        /// </summary>
+        public static string OrderDetailLabelPaymentForm {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelPaymentForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Payment Reference:.
+        /// </summary>
+        public static string OrderDetailLabelPaymentReference {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelPaymentReference", resourceCulture);
             }
         }
         
@@ -337,6 +409,96 @@ namespace WisenetBackOfficeApp.Translations {
         public static string OrderDetailLabelShippingAndHandling {
             get {
                 return ResourceManager.GetString("OrderDetailLabelShippingAndHandling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ship To.
+        /// </summary>
+        public static string OrderDetailLabelShipTo {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Address:.
+        /// </summary>
+        public static string OrderDetailLabelShipToAddress {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipToAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name:.
+        /// </summary>
+        public static string OrderDetailLabelShipToName {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipToName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Order Date:.
+        /// </summary>
+        public static string OrderDetailLabelShipToOrderDate {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipToOrderDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Shipping Method:.
+        /// </summary>
+        public static string OrderDetailLabelShipToShippingMethod {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipToShippingMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User Name:.
+        /// </summary>
+        public static string OrderDetailLabelShipToUserName {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipToUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Warehouse:.
+        /// </summary>
+        public static string OrderDetailLabelShipToWarehouse {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelShipToWarehouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sold To.
+        /// </summary>
+        public static string OrderDetailLabelSoldTo {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelSoldTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Address:.
+        /// </summary>
+        public static string OrderDetailLabelSoldToAddress {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelSoldToAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Name:.
+        /// </summary>
+        public static string OrderDetailLabelSoldToName {
+            get {
+                return ResourceManager.GetString("OrderDetailLabelSoldToName", resourceCulture);
             }
         }
         

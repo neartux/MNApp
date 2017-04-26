@@ -18,8 +18,8 @@
 
                     <!--Inicio Zona izquierda-->
                     <Label Text="{i18n:Translate OrderDetailLabelOrder}" TextColor="#ffa834"
-						   AbsoluteLayout.LayoutBounds="10,15,100,50"
-						   Font="Bold, 26"/>
+						   AbsoluteLayout.LayoutBounds="10,15,130,50"
+						   Font="Bold, 24"/>
 
                     <Label Text="{Binding ReporteVentaTO.IdVenta}" TextColor="#929292"
 						   AbsoluteLayout.LayoutBounds="10,45,100,50"
@@ -89,7 +89,7 @@
 
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
 
-                    <ListView ItemsSource="{Binding ReporteVentaTO.VentaDetalleList}"  BackgroundColor="{StaticResource BackgroundColorMenu}">
+                    <ListView ItemsSource="{Binding ReporteVentaTO.VentaDetalleList}" RowHeight="80"  BackgroundColor="{StaticResource BackgroundColorMenu}">
                         
                         <ListView.SeparatorColor>
                             <OnPlatform x:TypeArguments="Color" Android="#252e32" iOS="#252e32" WinPhone="#252e32"/>
@@ -113,7 +113,7 @@
                                                 <ColumnDefinition Width="*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             
-                                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+                                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
 
                                             <!--descripcion-->
 
@@ -156,10 +156,10 @@
 
                                             <AbsoluteLayout Grid.Row="1"  Grid.Column="1">
 
-                                                <Label Text="{Binding Total}" 
+                                                <Label Text="{Binding Total, StringFormat='${0:N}'}" 
 										               TextColor="#444444"
 										               AbsoluteLayout.LayoutBounds=".8,0,1,20"
-										               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
+										               AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"  
 										               Font="14"
 										               HorizontalTextAlignment="End"
 										               Margin="0,0,10,0"/>
