@@ -23,7 +23,7 @@ namespace WisenetBackOfficeApp.Services
             client = new HttpClient();
             // Inicia evento para cancelar task, en dado caso no se conecte a webservice
             cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromSeconds(100));
+            cts.CancelAfter(TimeSpan.FromSeconds(500));
         }
 
         public async Task<ResponseDistributor> FindDatosDistribuidorById(long idDistributor, string password) {

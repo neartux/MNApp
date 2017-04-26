@@ -15,10 +15,6 @@ namespace WisenetBackOfficeApp.ViewModels
             ResponseVentaDetalle response = Task.Run(() => IWisenetWS.FindVentaById(_IdVenta)).Result;
             if (response.Success) {
                 _ReporteVentaTO = response.ReporteVenta;
-                Debug.WriteLine("*************************************************************************************************");
-                Debug.WriteLine("**" + _ReporteVentaTO.FormaPagoVentaList[0].NombreTitular + "**");
-                Debug.WriteLine("*************************************************************************************************");
-
             }
             else {
                 Application.Current.MainPage.DisplayAlert("Info", response.Message, "Aceptar");

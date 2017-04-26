@@ -10,22 +10,9 @@
 
 
         <local:OrderPaymentDetails Title="FORMA PAGO" />
-        
-        <!--<ContentPage Title="FORMA PAGO">
-            <StackLayout>
 
 
-            </StackLayout>
-        </ContentPage>-->
-
-        <ContentPage Title="FORMA ENVIO">
-            <StackLayout>
-                <Label Text="Blue" />
-                <BoxView Color="Fuchsia" VerticalOptions="FillAndExpand" />
-            </StackLayout>
-        </ContentPage>
-
-
+        <local:OrderShippingDetails Title="FORMA ENVIO" />
 
     </TabbedPage.Children>
     

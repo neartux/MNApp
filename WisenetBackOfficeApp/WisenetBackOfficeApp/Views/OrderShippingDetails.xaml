@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WisenetBackOfficeApp.Views.OrderPaymentDetails"
+             x:Class="WisenetBackOfficeApp.Views.OrderShippingDetails"
              xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
-			 BackgroundImage="bgBlackTexture.jpg">
+             BackgroundImage="bgBlackTexture.jpg">
 
     <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
         <ScrollView>
@@ -84,39 +84,29 @@
 
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
 
-                    <ListView ItemsSource="{Binding ReporteVentaTO.FormaPagoVentaList}" RowHeight="150"  BackgroundColor="{StaticResource BackgroundColorMenu}">
+                    <StackLayout>
+                        <Grid>
 
-                        <ListView.SeparatorColor>
-                            <OnPlatform x:TypeArguments="Color" Android="#252e32" iOS="#252e32" WinPhone="#252e32"/>
-                        </ListView.SeparatorColor>
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout>
-                                        <Grid>
-
-
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                            </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
 
 
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="150"></ColumnDefinition>
-                                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
+                            <BoxView BackgroundColor="#d6d6d6" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
 
 
-                                            <Label  Grid.Row="0"  Grid.Column="0" 
-								                    Text="Forma Pago:"
+                            <Label  Grid.Row="0"  Grid.Column="0" 
+								                    Text="Nombre:"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -124,8 +114,8 @@
 								                    VerticalTextAlignment="Center"
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
-                                            <Label  Grid.Row="0"  Grid.Column="1" 
-								                    Text="{Binding FormaPago}"
+                            <Label  Grid.Row="0"  Grid.Column="1" 
+								                    Text="{ Binding ReporteVentaTO.FormaEnvioTO.Nombre }"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -134,18 +124,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="1"  Grid.Column="0" 
-								                    Text="Número Tarjeta"
-								                    Font="Bold, 12" 
-								                    VerticalOptions="Center"
-								                    HorizontalOptions="Start"
-								                    TextColor="Black"
-								                    VerticalTextAlignment="Center"
-								                    HorizontalTextAlignment="Start"
-												    Margin="10,0,0,0"/>
-                                            
-                                            <Label  Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="3"
-								                    Text="{Binding NumeroTarjeta}"
+                            <Label  Grid.Row="1"  Grid.Column="0" 
+								                    Text="Direccion"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -154,8 +134,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
-								                    Text="Fecha de Expiracion"
+                            <Label  Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="3"
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Direccion}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -164,8 +144,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="2"  Grid.Column="1" 
-								                    Text="{Binding FechaVencimiento}"
+                            <Label  Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3"
+								                    Text="Nombre"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -174,8 +154,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="3"  Grid.Column="0" 
-								                    Text="Tarjetahabiente"
+                            <Label  Grid.Row="2"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.NombreEnvio}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -184,8 +164,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="3"  Grid.Column="1" 
-								                    Text="{Binding NombreTitular}"
+                            <Label  Grid.Row="3"  Grid.Column="0" 
+								                    Text="Direccion"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -194,8 +174,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="4"  Grid.Column="0" 
-								                    Text="Referencia de pago"
+                            <Label  Grid.Row="3"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.DireccionEnvio}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -204,8 +184,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="4"  Grid.Column="1" 
-								                    Text="{Binding Banco}"
+                            <Label  Grid.Row="4"  Grid.Column="0" 
+								                    Text="Almacen"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -214,8 +194,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="5"  Grid.Column="0" 
-								                    Text="Autorizacion"
+                            <Label  Grid.Row="4"  Grid.Column="1" 
+								                    Text="{Binding {Binding ReporteVentaTO.FormaEnvioTO.Inventario}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -224,8 +204,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="5"  Grid.Column="1" 
-								                    Text="{Binding Autorizacion}"
+                            <Label  Grid.Row="5"  Grid.Column="0" 
+								                    Text="Nombre de usuario"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -234,8 +214,8 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="6"  Grid.Column="0" 
-								                    Text="Monto"
+                            <Label  Grid.Row="5"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.Usuario}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -244,8 +224,18 @@
 								                    HorizontalTextAlignment="Start"
 												    Margin="10,0,0,0"/>
 
-                                            <Label  Grid.Row="6"  Grid.Column="1" 
-								                    Text="{Binding Cantidad}"
+                            <Label  Grid.Row="6"  Grid.Column="0" 
+								                    Text="Fecha de orden"
+								                    Font="Bold, 12" 
+								                    VerticalOptions="Center"
+								                    HorizontalOptions="Start"
+								                    TextColor="Black"
+								                    VerticalTextAlignment="Center"
+								                    HorizontalTextAlignment="Start"
+												    Margin="10,0,0,0"/>
+
+                            <Label  Grid.Row="6"  Grid.Column="1" 
+								                    Text="{Binding ReporteVentaTO.FormaEnvioTO.FechaOrden}"
 								                    Font="Bold, 12" 
 								                    VerticalOptions="Center"
 								                    HorizontalOptions="Start"
@@ -256,19 +246,9 @@
 
 
 
-                                        </Grid>
+                        </Grid>
 
-                                    </StackLayout>
-                                </ViewCell>
-
-                            </DataTemplate>
-
-                        </ListView.ItemTemplate>
-
-
-                    </ListView>
-
-
+                    </StackLayout>
 
                 </StackLayout>
 

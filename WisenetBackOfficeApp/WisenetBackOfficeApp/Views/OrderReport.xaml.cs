@@ -21,6 +21,9 @@ namespace WisenetBackOfficeApp.Views {
             var _AppManager = AppManager.Instance;
             var _DistributorTO = _AppManager.GetDistributor();
             ResponseVenta response = Task.Run(() => IWisenetWS.FindOrdersByDistributor(_DistributorTO.IdDistributor)).Result;
+            Debug.WriteLine("----------------------------------------------------------------------------------------------------------------------");
+            Debug.WriteLine("EL ID DEL DISTRIBUIDOR DE LISTA = "+ _DistributorTO.IdDistributor);
+            Debug.WriteLine("----------------------------------------------------------------------------------------------------------------------");
 
             OrderList.ItemsSource = response.Ventas;
 
