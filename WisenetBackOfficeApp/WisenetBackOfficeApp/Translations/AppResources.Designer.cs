@@ -622,6 +622,105 @@ namespace WisenetBackOfficeApp.Translations {
         /// <summary>
         ///   Busca una cadena traducida similar a Address.
         /// </summary>
+        public static string ShippingDataDistributorLabelAddress {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a City.
+        /// </summary>
+        public static string ShippingDataDistributorLabelCity {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Country.
+        /// </summary>
+        public static string ShippingDataDistributorLabelCountry {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        public static string ShippingDataDistributorLabelEmail {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fax.
+        /// </summary>
+        public static string ShippingDataDistributorLabelFax {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelFax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Last Names.
+        /// </summary>
+        public static string ShippingDataDistributorLabelLastNames {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelLastNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Movil.
+        /// </summary>
+        public static string ShippingDataDistributorLabelMovil {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelMovil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Names.
+        /// </summary>
+        public static string ShippingDataDistributorLabelNames {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Phone.
+        /// </summary>
+        public static string ShippingDataDistributorLabelPhone {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a State.
+        /// </summary>
+        public static string ShippingDataDistributorLabelState {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Zip Code.
+        /// </summary>
+        public static string ShippingDataDistributorLabelZipCode {
+            get {
+                return ResourceManager.GetString("ShippingDataDistributorLabelZipCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Address.
+        /// </summary>
         public static string ShippingInformationLabelAdrress {
             get {
                 return ResourceManager.GetString("ShippingInformationLabelAdrress", resourceCulture);

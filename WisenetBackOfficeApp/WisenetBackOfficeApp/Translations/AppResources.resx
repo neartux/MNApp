@@ -330,4 +330,37 @@
   <data name="PersonalDataDistributorBirthDateUpdated" xml:space="preserve">
     <value>Birthdate has been updated</value>
   </data>
+  <data name="ShippingDataDistributorLabelAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ShippingDataDistributorLabelCity" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="ShippingDataDistributorLabelCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="ShippingDataDistributorLabelEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ShippingDataDistributorLabelFax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="ShippingDataDistributorLabelLastNames" xml:space="preserve">
+    <value>Last Names</value>
+  </data>
+  <data name="ShippingDataDistributorLabelMovil" xml:space="preserve">
+    <value>Movil</value>
+  </data>
+  <data name="ShippingDataDistributorLabelNames" xml:space="preserve">
+    <value>Names</value>
+  </data>
+  <data name="ShippingDataDistributorLabelPhone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="ShippingDataDistributorLabelState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="ShippingDataDistributorLabelZipCode" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
 </root>

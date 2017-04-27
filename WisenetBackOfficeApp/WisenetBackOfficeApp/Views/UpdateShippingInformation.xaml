@@ -12,42 +12,45 @@
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
 
-                <Label Text="Nombres" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelNames}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.NombresEnvio }" TextColor="White"/>
 
-                <Label Text="Apellidos" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.ApellidosEnvio }" TextColor="White"/>                
-                
-                <Label Text="Direccion" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelLastNames}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.ApellidosEnvio }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelAddress}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.DireccionEnvio }" TextColor="White"/>
 
-                <Label Text="Codigo Postal" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelZipCode}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.CodigoPostalEnvio }" TextColor="White"/>
 
-                <Label Text="Movil" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelMovil}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.CelularEnvio }" TextColor="White"/>
 
-                <Label Text="Telefono" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelPhone}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.TelefonoEnvio }" TextColor="White"/>
 
-                <Label Text="Fax" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelFax}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.FaxEnvio }" TextColor="White"/>
 
-                <Label Text="Correo Electronico" TextColor="White"/>
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelEmail}" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.EmailEnvio }" TextColor="White"/>
 
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelCountry}" TextColor="White"/>
                 <controls:BindablePicker ItemsSource="{ Binding Countries }"
                                          DisplayMemberPath="Descripcion"
                                          SelectedValuePath="Id"
                                          SelectedValue="{Binding IdCountry, Mode=TwoWay}"
                                          TextColor="White"/>
 
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelState}" TextColor="White"/>
                 <controls:BindablePicker ItemsSource="{ Binding States }"
                                          DisplayMemberPath="Descripcion"
                                          SelectedValuePath="Id"
                                          SelectedValue="{Binding IdState, Mode=TwoWay}"
                                          TextColor="White"/>
 
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelCity}" TextColor="White"/>
                 <controls:BindablePicker ItemsSource="{ Binding Cities }"
                                          DisplayMemberPath="Descripcion"
                                          SelectedValuePath="Id"
