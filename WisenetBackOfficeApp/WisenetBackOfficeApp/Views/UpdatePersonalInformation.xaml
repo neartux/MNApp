@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="WisenetBackOfficeApp.Views.UpdatePersonalInformation"
+             BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp">
+
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+
+                <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
+                    <Label TextColor="#FFFFFF" 
+				Text="{i18n:Translate PersonalDataDistributorTitle}" 
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="Center" 
+				VerticalTextAlignment="Center"
+				HorizontalTextAlignment="Center"	
+				FontSize="16"
+					
+				/>
+
+                </StackLayout>
+
+
+
+                <Image HorizontalOptions="Center" Source="{StaticResource imageContact}"/>
+
+                <Label Text="{ Binding Distributor.Calificacion }"
+				FontSize="16"
+				VerticalOptions="Center"
+				TextColor="#ffffff"
+				FontAttributes="Bold"
+				HorizontalOptions="Center"
+				HorizontalTextAlignment="Center"
+			/>
+
+
+                <Label Text="{ Binding Distributor.NombreCompleto }"
+				FontSize="16"
+				VerticalOptions="Center"
+				TextColor="#ffffff"
+				FontAttributes="Bold"
+				HorizontalOptions="Center"
+				HorizontalTextAlignment="Center"
+			/>
+
+
+
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Grid Padding="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label  
+					Grid.Row="0" 
+					Grid.Column="1"
+					Text="{ Binding Distributor.IdDistributor }"
+					FontSize="15"
+					VerticalOptions="Center"
+					TextColor="#ffffff"
+					VerticalTextAlignment="Center"
+					HorizontalTextAlignment="Center"
+					FontAttributes="Bold"
+					BackgroundColor="#ff6624"
+				/>
+                    </Grid>
+                </StackLayout>
+
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Grid Padding="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Fecha de Nacimiento" TextColor="#008db1" Font="Bold, 12" Margin="0,100,0,0"
+                                   Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                            <DatePicker Date="{ Binding BirthDate, Mode=TwoWay}" TextColor="White" 
+                                        Grid.Row="1" Grid.Column="1" HorizontalOptions="EndAndExpand">
+                                <DatePicker.Format>dd, MMMM yyyy</DatePicker.Format>
+                            </DatePicker>
+
+                            <!--<Image Source="ic_editor.png" Grid.Row="1" Grid.Column="2"
+                                   HorizontalOptions="StartAndExpand"/>-->
+
+
+                        </Grid>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+
+        </ScrollView>
+    </ContentView>
+
+
+</ContentPage>

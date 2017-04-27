@@ -324,4 +324,10 @@
   <data name="WebserviceLabelTimeOut" xml:space="preserve">
     <value>Check your internet connection or try again</value>
   </data>
+  <data name="PersonalDataDistributorBirthDateRequired" xml:space="preserve">
+    <value>Birthdate is required</value>
+  </data>
+  <data name="PersonalDataDistributorBirthDateUpdated" xml:space="preserve">
+    <value>Birthdate has been updated</value>
+  </data>
 </root>

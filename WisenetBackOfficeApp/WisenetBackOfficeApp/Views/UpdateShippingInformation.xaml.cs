@@ -5,13 +5,12 @@ using Xamarin.Forms.Xaml;
 namespace WisenetBackOfficeApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PersonalDataDistributor : ContentPage
+    public partial class UpdateShippingInformation : ContentPage
     {
-        public PersonalDataDistributor()
+        public UpdateShippingInformation()
         {
             InitializeComponent();
-
-            BindingContext = new PersonalDataDistributorViewModel();
+            BindingContext = new UpdateShippinInformationViewModel();
         }
     }
 }

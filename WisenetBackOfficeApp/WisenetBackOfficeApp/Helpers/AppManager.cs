@@ -16,7 +16,6 @@ namespace WisenetBackOfficeApp.Helpers
 
         public void SetDistributor(DistributorTO Distributor)
         {
-            Debug.WriteLine(".... = "+ Distributor.ToString());
             _Distributor = Distributor;
         }
 

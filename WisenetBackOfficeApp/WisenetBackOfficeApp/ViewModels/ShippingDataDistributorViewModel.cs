@@ -1,6 +1,8 @@
 ﻿using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Distributor;
+using WisenetBackOfficeApp.Views;
+using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp.ViewModels
 {
@@ -12,8 +14,17 @@ namespace WisenetBackOfficeApp.ViewModels
         {
             var _AppManager = AppManager.Instance;
             _Distributor = _AppManager.GetDistributor();
+
+            UpdateShippingInformationCommand = new Command(() => DisplayUpdateShippingInformation());
         }
-    
+
+        public Command UpdateShippingInformationCommand { get; }
+
+        private void DisplayUpdateShippingInformation()
+        {
+            App.Navigator.PushAsync(new UpdateShippingInformation());
+        }
+
         public DistributorTO Distributor
         {
             get { return _Distributor; }

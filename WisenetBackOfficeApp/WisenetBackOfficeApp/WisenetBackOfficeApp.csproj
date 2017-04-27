@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Test\MainTest.cs" />
     <Compile Include="Translations\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +129,12 @@
     </Compile>
     <Compile Include="Views\ShippingDataDistributor.xaml.cs">
       <DependentUpon>ShippingDataDistributor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdatePersonalInformation.xaml.cs">
+      <DependentUpon>UpdatePersonalInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateShippingInformation.xaml.cs">
+      <DependentUpon>UpdateShippingInformation.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +266,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\OrderShippingDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UpdatePersonalInformation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UpdateShippingInformation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Views.UpdateShippingInformation"
+             BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
+             xmlns:controls="clr-namespace:WisenetBackOfficeApp.Helpers.Controls;assembly=WisenetBackOfficeApp">
+
+    <ContentView x:Name="contentView" Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+
+        <ScrollView>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                <Label Text="Direccion" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.DireccionEnvio }" TextColor="White"/>
+
+                <Label Text="Codigo Postal" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.CodigoPostalEnvio }" TextColor="White"/>
+
+                <Label Text="Movil" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.CelularEnvio }" TextColor="White"/>
+
+                <Label Text="Telefono" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.TelefonoEnvio }" TextColor="White"/>
+
+                <Label Text="Fax" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.FaxEnvio }" TextColor="White"/>
+
+                <Label Text="Correo Electronico" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.EmailEnvio }" TextColor="White"/>
+
+                <controls:BindablePicker ItemsSource="{ Binding Path=Countries }"
+                                         DisplayMemberPath="Descripcion"
+                                         SelectedValuePath="Id"
+                                         SelectedValue="{Binding IdCountry, Mode=TwoWay}"
+                                         TextColor="White"/>
+
+                <controls:BindablePicker ItemsSource="{ Binding States }"
+                                         DisplayMemberPath="Descripcion"
+                                         SelectedValuePath="Id"
+                                         SelectedValue="{Binding IdState, Mode=TwoWay}"
+                                         TextColor="White"/>
+
+                <controls:BindablePicker ItemsSource="{ Binding Cities }"
+                                         DisplayMemberPath="Descripcion"
+                                         SelectedValuePath="Id"
+                                         SelectedValue="{Binding Distributor.IdCiudadEnvio, Mode=TwoWay}"
+                                         TextColor="White"/>
+
+            </StackLayout>
+
+        </ScrollView>
+        
+    </ContentView>
+    
+</ContentPage>

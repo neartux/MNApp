@@ -548,6 +548,24 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Birthdate is required.
+        /// </summary>
+        public static string PersonalDataDistributorBirthDateRequired {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorBirthDateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Birthdate has been updated.
+        /// </summary>
+        public static string PersonalDataDistributorBirthDateUpdated {
+            get {
+                return ResourceManager.GetString("PersonalDataDistributorBirthDateUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a BirhtDate.
         /// </summary>
         public static string PersonalDataDistributorLabelBirthDate {

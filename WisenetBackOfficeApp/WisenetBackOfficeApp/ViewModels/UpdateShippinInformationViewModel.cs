@@ -11,20 +11,15 @@ namespace WisenetBackOfficeApp.ViewModels
 {
     class UpdateShippinInformationViewModel : ObservableObject
     {
-        private DistributorTO _distribuidorTO = new DistributorTO();
+        private DistributorTO _Distributor;
         private int _idCountry;
         private int _idState;
         private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
 
         public UpdateShippinInformationViewModel()
         {
-            _distribuidorTO.IdDistributor = 1001;
-            _distribuidorTO.Direccion = "C. 17 # 106 x 14 y 22";
-            _distribuidorTO.CodigoPostal = "97380";
-            _distribuidorTO.Telefono = "9993599516";
-            _distribuidorTO.Celular = "9993599516";
-            _distribuidorTO.Fax = "fax@faxito.com";
-            _distribuidorTO.Email = "near@hotmail.com";
+            var _AppManager = AppManager.Instance;
+            _Distributor = _AppManager.GetDistributor();
 
             Countries = new ObservableRangeCollection<CatalogoTO>(Task.Run(() => IWisenetWS.FindUbicaciones(WebServicesKeys.URL_FIND_COUNTRIES)).Result);
 
@@ -32,7 +27,7 @@ namespace WisenetBackOfficeApp.ViewModels
 
             Cities = new ObservableRangeCollection<CatalogoTO>();
 
-            ConfigureUbicacionesDistributor(4, 189, 230419);
+            ConfigureUbicacionesDistributor((int)_Distributor.IdPaisEnvio, (int)_Distributor.IdEstadoEnvio, _Distributor.IdCiudadEnvio);
 
             UpdateDataCommand = new Command(() => UpdateData());
         }
@@ -43,13 +38,10 @@ namespace WisenetBackOfficeApp.ViewModels
 
         public ObservableRangeCollection<CatalogoTO> Cities { get; set; }
 
-        public DistributorTO DistributorTO
+        public DistributorTO Distributor
         {
-            get { return _distribuidorTO; }
-            set
-            {
-                _distribuidorTO = value; SetProperty(ref _distribuidorTO, value);
-            }
+            get { return _Distributor; }
+            set { _Distributor = value; }
         }
 
         public Command UpdateDataCommand { get; }
@@ -66,7 +58,7 @@ namespace WisenetBackOfficeApp.ViewModels
             set { _idState = value; SetProperty(ref _idState, value); FindCitiesByState(_idState); }
         }
 
-        private void FindStatesByCountry(int idCountry)
+        private void FindStatesByCountry(long idCountry)
         {
             // Valida el id del pais y busca los estados
             if (idCountry > Keys.NUMBER_ZERO)
@@ -77,7 +69,7 @@ namespace WisenetBackOfficeApp.ViewModels
             }
         }
 
-        private void FindCitiesByState(int idState)
+        private void FindCitiesByState(long idState)
         {
             // Valida el id estado y busca las ciudades
             if (idState > Keys.NUMBER_ZERO)
@@ -88,11 +80,11 @@ namespace WisenetBackOfficeApp.ViewModels
 
         }
 
-        private void ConfigureUbicacionesDistributor(int idPais, int idEstado, int idCiudad)
+        private void ConfigureUbicacionesDistributor(int idPais, int idEstado, long idCiudad)
         {
             IdCountry = idPais;
             IdState = idEstado;
-            _distribuidorTO.IdCiudad = idCiudad;
+            //_Distributor.IdCiudadEnvio = idCiudad;
         }
 
         private void UpdateData()
@@ -100,7 +92,7 @@ namespace WisenetBackOfficeApp.ViewModels
             if (validateShippingInformation())
             {
                 Debug.WriteLine("La informacion del distribuidor es valida");
-                ResponseTO response = Task.Run(() => IWisenetWS.UpdateShippingInformation(DistributorTO)).Result;
+                ResponseTO response = Task.Run(() => IWisenetWS.UpdateShippingInformation(_Distributor)).Result;
                 Debug.WriteLine("LINEA DE RESPUESTA EN OBJECT = ", response.ToString());
                 if (response.Success)
                 {
@@ -116,25 +108,25 @@ namespace WisenetBackOfficeApp.ViewModels
 
         private bool validateShippingInformation()
         { // TODO este metodo debe ser sustituido mas adelante por los validadores, Behaviors Validators de Xamarin Forms, para darle una mejor presentacion
-            if (_distribuidorTO.Direccion == null || _distribuidorTO.Direccion.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            if (_Distributor.Direccion == null || _Distributor.Direccion.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
                 Application.Current.MainPage.DisplayAlert("Info", "La direccion es requerida", "Aceptar");
                 return false;
             }
 
-            if (_distribuidorTO.CodigoPostal == null || _distribuidorTO.CodigoPostal.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            if (_Distributor.CodigoPostal == null || _Distributor.CodigoPostal.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
                 Application.Current.MainPage.DisplayAlert("Info", "El codigo postal es requerido", "Aceptar");
                 return false;
             }
 
-            if (_distribuidorTO.IdCiudad <= 0)
+            if (_Distributor.IdCiudadEnvio <= 0)
             {
                 Application.Current.MainPage.DisplayAlert("Info", "Seleccione una ciudad", "Aceptar");
                 return false;
             }
 
-            if (_distribuidorTO.Email == null || _distribuidorTO.Email.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            if (_Distributor.Email == null || _Distributor.Email.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
                 Application.Current.MainPage.DisplayAlert("Info", "El email es requerido", "Aceptar");
                 return false;
