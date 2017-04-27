@@ -57,9 +57,8 @@ namespace WisenetBackOfficeApp.ViewModels
                 if (response.Success)
                 {
                     _birthDate = new DateTime(_birthDate.Year, _birthDate.Month, _birthDate.Day, _birthDate.Hour, _birthDate.Minute, _birthDate.Second, DateTimeKind.Local);
-                    //Application.Current.MainPage.DisplayAlert(AppResources.LabelInfo, AppResources.PersonalDataDistributorBirthDateUpdated, AppResources.ButtonLabelOk);                    
                     AppManager.Instance.GetDistributor().FechaNacimiento = DateUtil.DateTimeToUnixDate(_birthDate);
-                    App.Navigator.PushAsync(new PersonalDataDistributor());
+                    App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
 
                 }
                 else

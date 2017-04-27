@@ -1,10 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Common;
 using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Services;
+using WisenetBackOfficeApp.Translations;
+using WisenetBackOfficeApp.Views;
 using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp.ViewModels
@@ -14,6 +17,8 @@ namespace WisenetBackOfficeApp.ViewModels
         private DistributorTO _Distributor;
         private int _idCountry;
         private int _idState;
+        private bool loadState = false;
+        private bool loadCity = false;
         private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
 
         public UpdateShippinInformationViewModel()
@@ -27,7 +32,7 @@ namespace WisenetBackOfficeApp.ViewModels
 
             Cities = new ObservableRangeCollection<CatalogoTO>();
 
-            ConfigureUbicacionesDistributor((int)_Distributor.IdPaisEnvio, (int)_Distributor.IdEstadoEnvio, _Distributor.IdCiudadEnvio);
+            ConfigureUbicacionesDistributor((int)_Distributor.IdPaisEnvio, (int)_Distributor.IdEstadoEnvio, (int)_Distributor.IdCiudadEnvio);
 
             UpdateDataCommand = new Command(() => UpdateData());
         }
@@ -49,14 +54,37 @@ namespace WisenetBackOfficeApp.ViewModels
         public int IdCountry
         {
             get { return _idCountry; }
-            set { _idCountry = value; SetProperty(ref _idCountry, value); FindStatesByCountry(_idCountry); }
+            set {
+                _idCountry = value;
+                SetProperty(ref _idCountry, value);
+                if (loadState)
+                {
+                    FindStatesByCountry(_idCountry);
+                }
+                else
+                {
+                    loadState = true;
+                }
+            }
         }
 
         public int IdState
         {
             get { return _idState; }
-            set { _idState = value; SetProperty(ref _idState, value); FindCitiesByState(_idState); }
+            set {
+                _idState = value;
+                SetProperty(ref _idState, value);
+                if(loadCity)
+                {
+                    FindCitiesByState(_idState);
+                } else
+                {
+                    loadCity = true;
+                }
+            }
         }
+
+        public int IdCity { get; set; }
 
         private void FindStatesByCountry(long idCountry)
         {
@@ -80,11 +108,11 @@ namespace WisenetBackOfficeApp.ViewModels
 
         }
 
-        private void ConfigureUbicacionesDistributor(int idPais, int idEstado, long idCiudad)
+        private void ConfigureUbicacionesDistributor(int idPais, int idEstado, int idCiudad)
         {
             IdCountry = idPais;
             IdState = idEstado;
-            //_Distributor.IdCiudadEnvio = idCiudad;
+            IdCity = idCiudad;
         }
 
         private void UpdateData()
@@ -92,18 +120,41 @@ namespace WisenetBackOfficeApp.ViewModels
             if (validateShippingInformation())
             {
                 Debug.WriteLine("La informacion del distribuidor es valida");
+                configureDistributorUpdated();
                 ResponseTO response = Task.Run(() => IWisenetWS.UpdateShippingInformation(_Distributor)).Result;
                 Debug.WriteLine("LINEA DE RESPUESTA EN OBJECT = ", response.ToString());
                 if (response.Success)
                 {
-                    Application.Current.MainPage.DisplayAlert("Success", "Se ha actualizado la informacion", "Aceptar");
+                    AppManager.Instance.SetDistributor(_Distributor);
+                    App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
                 }
                 else
                 {
-                    Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
+                    Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
                 }
             }
+        }
 
+        private void configureDistributorUpdated()
+        {
+            _Distributor.IdCiudadEnvio = IdCity;
+            _Distributor.CiudadEnvio = FindDescriptionById(IdCity, new List<CatalogoTO>(Cities));
+            _Distributor.EstadoEnvio = FindDescriptionById(_idState, new List<CatalogoTO>(States));
+            _Distributor.PaisEnvio = FindDescriptionById(_idCountry, new List<CatalogoTO>(Countries));
+        }
+
+        private string FindDescriptionById(int _Id, List<CatalogoTO> list)
+        {
+            string _Description = "";
+            foreach(CatalogoTO _CatalogoTO in list)
+            {
+                if(_CatalogoTO.Id == _Id)
+                {
+                    _Description = _CatalogoTO.Descripcion;
+                    break;
+                }
+            }
+            return _Description;
         }
 
         private bool validateShippingInformation()
@@ -120,7 +171,7 @@ namespace WisenetBackOfficeApp.ViewModels
                 return false;
             }
 
-            if (_Distributor.IdCiudadEnvio <= 0)
+            if (IdCity <= 0)
             {
                 Application.Current.MainPage.DisplayAlert("Info", "Seleccione una ciudad", "Aceptar");
                 return false;

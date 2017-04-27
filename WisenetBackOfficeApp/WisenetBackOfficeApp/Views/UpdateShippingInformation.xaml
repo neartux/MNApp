@@ -12,6 +12,12 @@
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
 
+                <Label Text="Nombres" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.NombresEnvio }" TextColor="White"/>
+
+                <Label Text="Apellidos" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.ApellidosEnvio }" TextColor="White"/>                
+                
                 <Label Text="Direccion" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.DireccionEnvio }" TextColor="White"/>
 
@@ -30,7 +36,7 @@
                 <Label Text="Correo Electronico" TextColor="White"/>
                 <Entry Text="{ Binding Distributor.EmailEnvio }" TextColor="White"/>
 
-                <controls:BindablePicker ItemsSource="{ Binding Path=Countries }"
+                <controls:BindablePicker ItemsSource="{ Binding Countries }"
                                          DisplayMemberPath="Descripcion"
                                          SelectedValuePath="Id"
                                          SelectedValue="{Binding IdCountry, Mode=TwoWay}"
@@ -45,8 +51,10 @@
                 <controls:BindablePicker ItemsSource="{ Binding Cities }"
                                          DisplayMemberPath="Descripcion"
                                          SelectedValuePath="Id"
-                                         SelectedValue="{Binding Distributor.IdCiudadEnvio, Mode=TwoWay}"
+                                         SelectedValue="{Binding IdCity, Mode=TwoWay}"
                                          TextColor="White"/>
+
+                <Button Text="Guardar Informacion" Command="{ Binding UpdateDataCommand }"/> 
 
             </StackLayout>
 

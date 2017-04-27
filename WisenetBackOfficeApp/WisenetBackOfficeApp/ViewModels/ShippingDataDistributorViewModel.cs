@@ -44,14 +44,14 @@ namespace WisenetBackOfficeApp.ViewModels
             get
             {
                 var _Ubicaciones = "";
-                if(_Distributor.Celular.Length > Keys.NUMBER_ZERO) {
-                    _Ubicaciones = _Distributor.Celular;
+                if(_Distributor.CelularEnvio.Length > Keys.NUMBER_ZERO) {
+                    _Ubicaciones = _Distributor.CelularEnvio;
                 }
-                if(_Distributor.Telefono.Length > Keys.NUMBER_ZERO) {
-                    _Ubicaciones += Keys.SLASH + _Distributor.Telefono;
+                if(_Distributor.TelefonoEnvio.Length > Keys.NUMBER_ZERO) {
+                    _Ubicaciones += Keys.SLASH + _Distributor.TelefonoEnvio;
                 }
-                if(_Distributor.Fax.Length > Keys.NUMBER_ZERO) {
-                    _Ubicaciones += Keys.SLASH + _Distributor.Fax;
+                if(_Distributor.FaxEnvio.Length > Keys.NUMBER_ZERO) {
+                    _Ubicaciones += Keys.SLASH + _Distributor.FaxEnvio;
                 }
                 return _Ubicaciones;
             }
