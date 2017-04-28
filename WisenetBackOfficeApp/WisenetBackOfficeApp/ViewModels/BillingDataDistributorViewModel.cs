@@ -1,6 +1,8 @@
 ﻿using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Distributor;
+using WisenetBackOfficeApp.Views;
+using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp.ViewModels
 {
@@ -11,6 +13,8 @@ namespace WisenetBackOfficeApp.ViewModels
         {
             var _AppManager = AppManager.Instance;
             _Distributor = _AppManager.GetDistributor();
+
+            UpdateBillingInformationCommand = new Command(() => DisplayUpdateBillingInformation());
         }
 
         public DistributorTO Distributor
@@ -19,9 +23,16 @@ namespace WisenetBackOfficeApp.ViewModels
             set { _Distributor = value; }
         }
 
+        public Command UpdateBillingInformationCommand { get;  }
+
         public string EstadoPais
         {
             get { return _Distributor.Estado + Keys.DASH + _Distributor.Pais; }
+        }
+
+        private void DisplayUpdateBillingInformation()
+        {
+            App.Navigator.PushAsync(new UpdateBillingInformation());
         }
 
         public string Telefonos

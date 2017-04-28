@@ -12,7 +12,7 @@ namespace WisenetBackOfficeApp.ViewModels
 {
     class LoginViewModel : ObservableObject {
         User _user = new User();
-        bool _isLoading = false;
+        public bool isLoading = false;
         private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
 
 
@@ -26,14 +26,17 @@ namespace WisenetBackOfficeApp.ViewModels
         }
 
         public bool IsLoading {
-            get { return _isLoading; }
-            set { SetProperty(ref _isLoading, value); }
+            get { return isLoading; }
+            set
+            {
+                SetProperty(ref isLoading, value);
+            }
         }
 
         public Command DoLoginCommand { get; }
 
         private void DoLogin() {
-            _isLoading = true;
+            IsLoading = true;
 
             if (ValidateLoginForm()) {
                 ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password)).Result;
@@ -49,7 +52,7 @@ namespace WisenetBackOfficeApp.ViewModels
                 }
             }
 
-            _isLoading = false;
+            //IsLoading = false;
         }
 
 

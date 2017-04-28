@@ -6,28 +6,32 @@
              xmlns:local="clr-namespace:WisenetBackOfficeApp.Helpers.Behaviors;assembly=WisenetBackOfficeApp"
              BackgroundImage="fgv_bg.jpg">
 
-    <StackLayout Padding="0,70,0,0" Spacing="10">
-
-        <Image Source="fgv_logo.png" />
+    <ContentPage.Content>
 
         <StackLayout Padding="0,70,0,0" Spacing="10">
-            <Entry Text="{Binding User.UserName }" Placeholder="{i18n:Translate LoginLabelUser}" TextColor="White"/>
-        </StackLayout>
 
-        <StackLayout Padding="0,30,0,0" Spacing="10">
-            <Entry IsPassword="True" Text="{Binding User.Password}" Placeholder="{i18n:Translate LoginLabelPassword}" TextColor="White"/>
-        </StackLayout>
+            <Image Source="fgv_logo.png" />
 
-        <StackLayout Padding="0,50,0,0" Spacing="10">
-            <Button Text="{ i18n:Translate ButtonLabelLogin }" x:Name="ButtonLogin" Command="{Binding DoLoginCommand} "
+            <StackLayout Padding="0,70,0,0" Spacing="10">
+                <Entry Text="{Binding User.UserName }" Placeholder="{i18n:Translate LoginLabelUser}" TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout Padding="0,30,0,0" Spacing="10">
+                <Entry IsPassword="True" Text="{Binding User.Password}" Placeholder="{i18n:Translate LoginLabelPassword}" TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout Padding="0,50,0,0" Spacing="10">
+                <Button Text="{ i18n:Translate ButtonLabelLogin }" x:Name="ButtonLogin" Command="{Binding DoLoginCommand} "
             BackgroundColor="#000000" FontAttributes="Bold" HorizontalOptions="Center"
             TextColor="White"/>
+            </StackLayout>
+
+            <!--<StackLayout>-->
+            <ActivityIndicator IsRunning="{ Binding IsLoading}" IsVisible="{ Binding IsLoading}" Color="Blue"/>
+            <!--</StackLayout>-->
+
         </StackLayout>
 
-        <StackLayout>
-            <ActivityIndicator IsRunning="{ Binding IsLoading, Mode=TwoWay }"/>
-        </StackLayout>
-
-    </StackLayout>
+    </ContentPage.Content>
     
 </ContentPage>

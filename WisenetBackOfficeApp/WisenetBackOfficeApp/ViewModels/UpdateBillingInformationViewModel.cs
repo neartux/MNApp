@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
@@ -12,32 +16,26 @@ using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp.ViewModels
 {
-    class UpdateShippinInformationViewModel : ObservableObject
+    class UpdateBillingInformationViewModel : ObservableObject
     {
         private DistributorTO _Distributor;
-        private int _idCountry;
         private int _idState;
-        private bool loadState = false;
         private bool loadCity = false;
         private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
 
-        public UpdateShippinInformationViewModel()
+        public UpdateBillingInformationViewModel()
         {
             var _AppManager = AppManager.Instance;
             _Distributor = _AppManager.GetDistributor();
 
-            Countries = new ObservableRangeCollection<CatalogoTO>(Task.Run(() => IWisenetWS.FindUbicaciones(WebServicesKeys.URL_FIND_COUNTRIES)).Result);
-
-            States = new ObservableRangeCollection<CatalogoTO>();
+            States = new ObservableRangeCollection<CatalogoTO>(Task.Run(() => IWisenetWS.FindUbicaciones(WebServicesKeys.URL_FIND_STATES_BY_COUNTRY+ _Distributor.IdPais)).Result);
 
             Cities = new ObservableRangeCollection<CatalogoTO>();
 
-            ConfigureUbicacionesDistributor((int)_Distributor.IdPaisEnvio, (int)_Distributor.IdEstadoEnvio, (int)_Distributor.IdCiudadEnvio);
+            ConfigureUbicacionesDistributor((int)_Distributor.IdEstado, (int)_Distributor.IdCiudad);
 
             UpdateDataCommand = new Command(() => UpdateData());
         }
-
-        public ObservableRangeCollection<CatalogoTO> Countries { get; set; }
 
         public ObservableRangeCollection<CatalogoTO> States { get; set; }
 
@@ -51,33 +49,18 @@ namespace WisenetBackOfficeApp.ViewModels
 
         public Command UpdateDataCommand { get; }
 
-        public int IdCountry
-        {
-            get { return _idCountry; }
-            set {
-                _idCountry = value;
-                SetProperty(ref _idCountry, value);
-                if (loadState)
-                {
-                    FindStatesByCountry(_idCountry);
-                }
-                else
-                {
-                    loadState = true;
-                }
-            }
-        }
-
         public int IdState
         {
             get { return _idState; }
-            set {
+            set
+            {
                 _idState = value;
                 SetProperty(ref _idState, value);
-                if(loadCity)
+                if (loadCity)
                 {
                     FindCitiesByState(_idState);
-                } else
+                }
+                else
                 {
                     loadCity = true;
                 }
@@ -86,16 +69,7 @@ namespace WisenetBackOfficeApp.ViewModels
 
         public int IdCity { get; set; }
 
-        private void FindStatesByCountry(long idCountry)
-        {
-            // Valida el id del pais y busca los estados
-            if (idCountry > Keys.NUMBER_ZERO)
-            {
-                Cities.Clear();
-                States.Clear();
-                States.AddRange(Task.Run(() => IWisenetWS.FindUbicaciones(WebServicesKeys.URL_FIND_STATES_BY_COUNTRY + IdCountry)).Result);
-            }
-        }
+      
 
         private void FindCitiesByState(long idState)
         {
@@ -108,9 +82,8 @@ namespace WisenetBackOfficeApp.ViewModels
 
         }
 
-        private void ConfigureUbicacionesDistributor(int idPais, int idEstado, int idCiudad)
+        private void ConfigureUbicacionesDistributor(int idEstado, int idCiudad)
         {
-            IdCountry = idPais;
             IdState = idEstado;
             IdCity = idCiudad;
         }
@@ -120,15 +93,15 @@ namespace WisenetBackOfficeApp.ViewModels
             if (validateShippingInformation())
             {
                 Debug.WriteLine("La informacion del distribuidor es valida");
-                configureDistributorUpdated();
-                ResponseTO response = Task.Run(() => IWisenetWS.UpdateShippingInformation(_Distributor)).Result;
+                ConfigureDistributorUpdated();
+                ResponseTO response = Task.Run(() => IWisenetWS.UpdateBillingInformation(_Distributor)).Result;
                 Debug.WriteLine("LINEA DE RESPUESTA EN OBJECT = ", response.ToString());
                 if (response.Success)
                 {
                     AppManager.Instance.SetDistributor(_Distributor);
                     App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
                     App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
-                    App.Navigator.PushAsync(new ShippingDataDistributor());
+                    App.Navigator.PushAsync(new BillingDataDistributor());
                 }
                 else
                 {
@@ -137,20 +110,19 @@ namespace WisenetBackOfficeApp.ViewModels
             }
         }
 
-        private void configureDistributorUpdated()
+        private void ConfigureDistributorUpdated()
         {
-            _Distributor.IdCiudadEnvio = IdCity;
-            _Distributor.CiudadEnvio = FindDescriptionById(IdCity, new List<CatalogoTO>(Cities));
-            _Distributor.EstadoEnvio = FindDescriptionById(_idState, new List<CatalogoTO>(States));
-            _Distributor.PaisEnvio = FindDescriptionById(_idCountry, new List<CatalogoTO>(Countries));
+            _Distributor.IdCiudad = IdCity;
+            _Distributor.Ciudad = FindDescriptionById(IdCity, new List<CatalogoTO>(Cities));
+            _Distributor.Estado = FindDescriptionById(_idState, new List<CatalogoTO>(States));
         }
 
         private string FindDescriptionById(int _Id, List<CatalogoTO> list)
         {
             string _Description = "";
-            foreach(CatalogoTO _CatalogoTO in list)
+            foreach (CatalogoTO _CatalogoTO in list)
             {
-                if(_CatalogoTO.Id == _Id)
+                if (_CatalogoTO.Id == _Id)
                 {
                     _Description = _CatalogoTO.Descripcion;
                     break;
@@ -161,13 +133,13 @@ namespace WisenetBackOfficeApp.ViewModels
 
         private bool validateShippingInformation()
         { // TODO este metodo debe ser sustituido mas adelante por los validadores, Behaviors Validators de Xamarin Forms, para darle una mejor presentacion
-            if (_Distributor.DireccionEnvio == null || _Distributor.DireccionEnvio.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            if (_Distributor.Direccion == null || _Distributor.Direccion.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
                 Application.Current.MainPage.DisplayAlert("Info", "La direccion es requerida", "Aceptar");
                 return false;
             }
 
-            if (_Distributor.CodigoPostalEnvio == null || _Distributor.CodigoPostalEnvio.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            if (_Distributor.CodigoPostal == null || _Distributor.CodigoPostal.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
                 Application.Current.MainPage.DisplayAlert("Info", "El codigo postal es requerido", "Aceptar");
                 return false;
@@ -179,7 +151,7 @@ namespace WisenetBackOfficeApp.ViewModels
                 return false;
             }
 
-            if (_Distributor.EmailEnvio == null || _Distributor.EmailEnvio.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            if (_Distributor.Email == null || _Distributor.Email.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
                 Application.Current.MainPage.DisplayAlert("Info", "El email es requerido", "Aceptar");
                 return false;
@@ -187,5 +159,7 @@ namespace WisenetBackOfficeApp.ViewModels
 
             return true;
         }
+
+
     }
 }

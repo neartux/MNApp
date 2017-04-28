@@ -14,6 +14,8 @@ namespace WisenetBackOfficeApp.Services
 
         Task<ResponseTO> UpdateBirthDateDistributor(long idDistributor, string birthDate);
 
+        Task<ResponseTO> UpdateBillingInformation(DistributorTO distributorTO);
+
         Task<ResponseVenta> FindOrdersByDistributor(long idDistributor);
 
         Task<ResponseVentaDetalle> FindVentaById(long idVenta);

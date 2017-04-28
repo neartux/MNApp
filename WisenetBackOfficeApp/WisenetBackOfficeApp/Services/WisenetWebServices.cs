@@ -82,6 +82,43 @@ namespace WisenetBackOfficeApp.Services
             return await Task.Run(() => responseVO);
         }
 
+        public async Task<ResponseTO> UpdateBillingInformation(DistributorTO distributorTO)
+        {
+            ResponseTO responseVO = new ResponseTO();
+            try
+            {
+
+                string url = WebServicesKeys.URL_UPDATE_PERSONAL_INFORMATION;
+                Debug.WriteLine("URL REST SERVICE = " + url);
+
+                var objJson = JsonConvert.SerializeObject(distributorTO);
+                var content = new StringContent(objJson, Encoding.UTF8, Keys.CONTENT_TYPE_APPLICATION_JSON);
+
+                HttpResponseMessage response = null;
+
+                response = await client.PutAsync(new Uri(string.Format(url, string.Empty)), content, cts.Token);
+                if (response.IsSuccessStatusCode)
+                {
+                    var contentResponse = await response.Content.ReadAsStringAsync();
+                    responseVO = JsonConvert.DeserializeObject<ResponseTO>(contentResponse);
+                }
+            }
+            catch (TaskCanceledException ex)
+            {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseVO.Success = false;
+                responseVO.Message = AppResources.WebserviceLabelTimeOut;
+            }
+            catch (Exception e)
+            {
+                responseVO.Success = false;
+                responseVO.Message = e.Message;
+                Debug.WriteLine("An error has ocurred " + e.Message);
+            }
+
+            return await Task.Run(() => responseVO);
+        }
+
         public async Task<ResponseTO> UpdateBirthDateDistributor(long idDistributor, string birthDate)
         {
             ResponseTO responseTO = new ResponseTO();
@@ -178,22 +215,16 @@ namespace WisenetBackOfficeApp.Services
 
         public async Task<List<CatalogoTO>> FindUbicaciones(string url)
         {
-            Debug.WriteLine("Url de la peticion = " + url);
+            Debug.WriteLine("Url = " + url);
             var ubicaciones = new List<CatalogoTO>();
             try
             {
-                Debug.WriteLine("1");
                 var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)), cts.Token);
-                Debug.WriteLine("2");
                 if (response.IsSuccessStatusCode)
                 {
-                    Debug.WriteLine("3");
                     var content = await response.Content.ReadAsStringAsync();
-                    Debug.WriteLine("4");
                     ubicaciones = JsonConvert.DeserializeObject<List<CatalogoTO>>(content);
-                    Debug.WriteLine("5");
                 }
-                Debug.WriteLine("6");
             }
             catch (Exception e)
             {

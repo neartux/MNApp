@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WisenetBackOfficeApp.Views.UpdateBillingInformation"
+             BackgroundImage="{StaticResource BACKGROUND_BLACK_TEXTURE}"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
+             xmlns:controls="clr-namespace:WisenetBackOfficeApp.Helpers.Controls;assembly=WisenetBackOfficeApp">
+
+    <ContentView Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+
+        <ScrollView>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelCountry}" TextColor="White"/>
+                <Label Text="{ Binding Distributor.Pais }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelState}" TextColor="White"/>
+                <controls:BindablePicker ItemsSource="{ Binding States }"
+                                         DisplayMemberPath="Descripcion"
+                                         SelectedValuePath="Id"
+                                         SelectedValue="{Binding IdState, Mode=TwoWay}"
+                                         TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelCity}" TextColor="White"/>
+                <controls:BindablePicker ItemsSource="{ Binding Cities }"
+                                         DisplayMemberPath="Descripcion"
+                                         SelectedValuePath="Id"
+                                         SelectedValue="{Binding IdCity, Mode=TwoWay}"
+                                         TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelAddress}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.Direccion }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelZipCode}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.CodigoPostal }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelMovil}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.Celular }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelPhone}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.Telefono }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelFax}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.Fax }" TextColor="White"/>
+
+                <Label Text="{i18n:Translate ShippingDataDistributorLabelEmail}" TextColor="White"/>
+                <Entry Text="{ Binding Distributor.Email }" TextColor="White"/>
+
+
+                <Button Text="Guardar Informacion" Command="{ Binding UpdateDataCommand }"/>
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentView>
+
+</ContentPage>

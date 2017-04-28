@@ -63,6 +63,8 @@
                             <RowDefinition Height="20" />
                             <RowDefinition Height="20" />
                             <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
 
 
@@ -137,6 +139,12 @@
 
                         <Label  Grid.Row="16"  Grid.ColumnSpan="3" Text="{i18n:Translate BillingDataDistributorLabelEmail}" Font="9"  VerticalOptions="Center"
 								HorizontalOptions="Start" TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
+
+                        <Label Text="Editar Informacion" Grid.Row="21"  Grid.ColumnSpan="3" Font="Bold, 18" TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpdateBillingInformationCommand}" NumberOfTapsRequired="1"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
 
                     </Grid>
