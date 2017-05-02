@@ -363,4 +363,7 @@
   <data name="ShippingDataDistributorLabelZipCode" xml:space="preserve">
     <value>Código Postal</value>
   </data>
+  <data name="InternetLaberlVerifyConnection" xml:space="preserve">
+    <value>Verifica tu conexión a internet</value>
+  </data>
 </root>

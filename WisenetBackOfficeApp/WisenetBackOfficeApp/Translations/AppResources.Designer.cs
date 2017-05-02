@@ -170,6 +170,15 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Verify your internet connection.
+        /// </summary>
+        public static string InternetLaberlVerifyConnection {
+            get {
+                return ResourceManager.GetString("InternetLaberlVerifyConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Info.
         /// </summary>
         public static string LabelInfo {
