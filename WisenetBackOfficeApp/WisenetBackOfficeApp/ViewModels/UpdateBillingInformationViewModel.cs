@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -90,14 +91,16 @@ namespace WisenetBackOfficeApp.ViewModels
 
         private void UpdateData()
         {
-            if (validateShippingInformation())
+            if (ValidateShippingInformation())
             {
+                UserDialogs.Instance.ShowLoading();
                 Debug.WriteLine("La informacion del distribuidor es valida");
                 ConfigureDistributorUpdated();
                 ResponseTO response = Task.Run(() => IWisenetWS.UpdateBillingInformation(_Distributor)).Result;
                 Debug.WriteLine("LINEA DE RESPUESTA EN OBJECT = ", response.ToString());
                 if (response.Success)
                 {
+                    UserDialogs.Instance.HideLoading();
                     AppManager.Instance.SetDistributor(_Distributor);
                     App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
                     App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
@@ -105,6 +108,7 @@ namespace WisenetBackOfficeApp.ViewModels
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
                 }
             }
@@ -131,7 +135,7 @@ namespace WisenetBackOfficeApp.ViewModels
             return _Description;
         }
 
-        private bool validateShippingInformation()
+        private bool ValidateShippingInformation()
         { // TODO este metodo debe ser sustituido mas adelante por los validadores, Behaviors Validators de Xamarin Forms, para darle una mejor presentacion
             if (_Distributor.Direccion == null || _Distributor.Direccion.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {

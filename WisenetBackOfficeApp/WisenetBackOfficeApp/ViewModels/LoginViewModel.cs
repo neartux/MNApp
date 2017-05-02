@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Acr.UserDialogs;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
 using WisenetBackOfficeApp.Models.Distributor;
@@ -12,7 +15,6 @@ namespace WisenetBackOfficeApp.ViewModels
 {
     class LoginViewModel : ObservableObject {
         User _user = new User();
-        public bool isLoading = false;
         private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
 
 
@@ -25,34 +27,33 @@ namespace WisenetBackOfficeApp.ViewModels
             set { _user = value; }
         }
 
-        public bool IsLoading {
-            get { return isLoading; }
-            set
-            {
-                SetProperty(ref isLoading, value);
-            }
-        }
-
         public Command DoLoginCommand { get; }
 
-        private void DoLogin() {
-            IsLoading = true;
-
+        private async Task  DoLogin() {
             if (ValidateLoginForm()) {
-                ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password)).Result;
-                if (response.Success) {
+                Debug.WriteLine("1");
+                //UserDialogs.Instance.ShowLoading();
+                Debug.WriteLine("2");
 
+
+                ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password)).Result;
+                Debug.WriteLine("3");
+                if (response.Success) {
+                    Debug.WriteLine("4");
                     var _AppManager = AppManager.Instance;
                     _AppManager.SetDistributor(response.DistributorTO);
-
+                    Debug.WriteLine("5");
                     Application.Current.MainPage = new MasterPage();
+                    Debug.WriteLine("6");
                 }
                 else {
-                    Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
+                    Debug.WriteLine("7");
+                    await Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
                 }
+                Debug.WriteLine("8");
             }
+            Debug.WriteLine("9");
 
-            //IsLoading = false;
         }
 
 
