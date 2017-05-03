@@ -1,6 +1,4 @@
 ﻿using Acr.UserDialogs;
-using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using WisenetBackOfficeApp.Helpers;
 using WisenetBackOfficeApp.Helpers.Keys;
@@ -13,61 +11,79 @@ using Xamarin.Forms;
 
 namespace WisenetBackOfficeApp.ViewModels
 {
-    class LoginViewModel : ObservableObject {
+    class LoginViewModel : ObservableObject
+    {
         User _user = new User();
         private static readonly IWisenetWebServices IWisenetWS = new WisenetWebServices();
 
 
-        public LoginViewModel() {
+        public LoginViewModel()
+        {
             DoLoginCommand = new Command(() => DoLogin());
         }
 
-        public User User {
+        public User User
+        {
             get { return _user; }
             set { _user = value; }
         }
 
         public Command DoLoginCommand { get; }
 
-        private async Task  DoLogin() {
-            if (ValidateLoginForm()) {
-                Debug.WriteLine("1");
-                //UserDialogs.Instance.ShowLoading();
-                Debug.WriteLine("2");
+        private void DoLogin()
+        {
+           
+            Task.Run(() => {
+                if(ValidateLoginForm())
+                {
+                    Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading("Wait a moment, please"));
 
+                    ResponseDistributor response = IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password).Result;
 
-                ResponseDistributor response = Task.Run(() => IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password)).Result;
-                Debug.WriteLine("3");
-                if (response.Success) {
-                    Debug.WriteLine("4");
-                    var _AppManager = AppManager.Instance;
-                    _AppManager.SetDistributor(response.DistributorTO);
-                    Debug.WriteLine("5");
-                    Application.Current.MainPage = new MasterPage();
-                    Debug.WriteLine("6");
+                    if (response.Success)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            var _AppManager = AppManager.Instance;
+                            _AppManager.SetDistributor(response.DistributorTO);
+
+                            UserDialogs.Instance.HideLoading();
+                            Application.Current.MainPage = new MasterPage();
+                            return;
+                        });
+                    }
+                    else
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            UserDialogs.Instance.HideLoading();
+                            UserDialogs.Instance.ErrorToast(response.Message);
+                            return;
+                        });
+
+                    }
                 }
-                else {
-                    Debug.WriteLine("7");
-                    await Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
-                }
-                Debug.WriteLine("8");
-            }
-            Debug.WriteLine("9");
+
+                
+            });
 
         }
 
 
 
-        private bool ValidateLoginForm() {
+        private bool ValidateLoginForm()
+        {
             int n;
             bool isNumeric = int.TryParse(_user.UserName, out n);
-            if (_user.UserName == null || _user.UserName.Trim().Length.Equals(Keys.NUMBER_ZERO) || !isNumeric) {
-                Application.Current.MainPage.DisplayAlert(AppResources.LabelInfo, AppResources.LoginValidateMessageUserRequired, AppResources.ButtonLabelOk);
+            if (_user.UserName == null || _user.UserName.Trim().Length.Equals(Keys.NUMBER_ZERO) || !isNumeric)
+            {
+                UserDialogs.Instance.WarnToast(AppResources.LoginValidateMessageUserRequired);
                 return false;
             }
 
-            if (_user.Password == null || _user.Password.Trim().Length.Equals(Keys.NUMBER_ZERO)) {
-                Application.Current.MainPage.DisplayAlert(AppResources.LabelInfo, AppResources.LoginValidateMessagePasswordRequired, AppResources.ButtonLabelOk);
+            if (_user.Password == null || _user.Password.Trim().Length.Equals(Keys.NUMBER_ZERO))
+            {
+                UserDialogs.Instance.WarnToast(AppResources.LoginValidateMessagePasswordRequired);
                 return false;
             }
             return true;
