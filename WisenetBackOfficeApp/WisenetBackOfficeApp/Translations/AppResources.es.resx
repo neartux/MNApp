@@ -372,4 +372,16 @@
   <data name="LabelUpdateData" xml:space="preserve">
     <value>Editar Información</value>
   </data>
+  <data name="BillingDataDistributorAddressRequired" xml:space="preserve">
+    <value>La dirección es requerida</value>
+  </data>
+  <data name="BillingDataDistributorCityRequired" xml:space="preserve">
+    <value>Seleccione una ciudad</value>
+  </data>
+  <data name="BillingDataDistributorEmailRequired" xml:space="preserve">
+    <value>Email es requerido</value>
+  </data>
+  <data name="BillingDataDistributorZipCodeRequired" xml:space="preserve">
+    <value>El código postal es requerido</value>
+  </data>
 </root>

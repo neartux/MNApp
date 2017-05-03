@@ -19,13 +19,13 @@
 
                 </StackLayout>
 
-                <StackLayout Margin="10,100,10,0">
+                <StackLayout Margin="10,30,10,0">
                     <Grid>
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="30"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="40"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="30"/>
@@ -129,7 +129,8 @@
 
 
                         <Button Text="Guardar Informacion" Command="{ Binding UpdateDataCommand }"
-                            Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
+                                Margin="0,70,0,0"/>
 
 
                     </Grid>

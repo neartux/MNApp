@@ -62,6 +62,33 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Address is required.
+        /// </summary>
+        public static string BillingDataDistributorAddressRequired {
+            get {
+                return ResourceManager.GetString("BillingDataDistributorAddressRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a City is required.
+        /// </summary>
+        public static string BillingDataDistributorCityRequired {
+            get {
+                return ResourceManager.GetString("BillingDataDistributorCityRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Email is required.
+        /// </summary>
+        public static string BillingDataDistributorEmailRequired {
+            get {
+                return ResourceManager.GetString("BillingDataDistributorEmailRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Address.
         /// </summary>
         public static string BillingDataDistributorLabelAdrress {
@@ -121,6 +148,15 @@ namespace WisenetBackOfficeApp.Translations {
         public static string BillingDataDistributorTitle {
             get {
                 return ResourceManager.GetString("BillingDataDistributorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Zip Code is required.
+        /// </summary>
+        public static string BillingDataDistributorZipCodeRequired {
+            get {
+                return ResourceManager.GetString("BillingDataDistributorZipCodeRequired", resourceCulture);
             }
         }
         

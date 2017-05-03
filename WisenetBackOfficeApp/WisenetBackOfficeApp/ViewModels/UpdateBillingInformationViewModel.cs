@@ -91,29 +91,41 @@ namespace WisenetBackOfficeApp.ViewModels
 
         private void UpdateData()
         {
-            if (ValidateShippingInformation())
+            Task.Run(() =>
             {
-                UserDialogs.Instance.ShowLoading();
-                Debug.WriteLine("La informacion del distribuidor es valida");
-                ConfigureDistributorUpdated();
-                ResponseTO response = Task.Run(() => IWisenetWS.UpdateBillingInformation(_Distributor)).Result;
-                Debug.WriteLine("LINEA DE RESPUESTA EN OBJECT = ", response.ToString());
-                if (response.Success)
+                if (ValidateShippingInformation())
                 {
-                    UserDialogs.Instance.HideLoading();
-                    AppManager.Instance.SetDistributor(_Distributor);
-                    App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
-                    App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
-                    App.Navigator.PushAsync(new BillingDataDistributor());
-                }
-                else
-                {
-                    UserDialogs.Instance.HideLoading();
-                    Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
-                }
-            }
-        }
+                    Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading(AppResources.LabelWaitAMomentPlease));
+                    ConfigureDistributorUpdated();
+                    ResponseTO response = Task.Run(() => IWisenetWS.UpdateBillingInformation(_Distributor)).Result;
 
+                    if (response.Success)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            UserDialogs.Instance.HideLoading();
+                            AppManager.Instance.SetDistributor(_Distributor);
+                            App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
+                            App.Navigator.Navigation.RemovePage(App.Navigator.Navigation.NavigationStack[App.Navigator.Navigation.NavigationStack.Count - 1]);
+                            App.Navigator.PushAsync(new BillingDataDistributor());
+                            return;
+                        });
+                        
+                    }
+                    else
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            UserDialogs.Instance.HideLoading();
+                            Application.Current.MainPage.DisplayAlert(AppResources.LabelWarning, response.Message, AppResources.ButtonLabelOk);
+                        });
+                        return;
+                    }
+                }
+            });
+            
+        }
+            
         private void ConfigureDistributorUpdated()
         {
             _Distributor.IdCiudad = IdCity;
@@ -139,25 +151,25 @@ namespace WisenetBackOfficeApp.ViewModels
         { // TODO este metodo debe ser sustituido mas adelante por los validadores, Behaviors Validators de Xamarin Forms, para darle una mejor presentacion
             if (_Distributor.Direccion == null || _Distributor.Direccion.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
-                Application.Current.MainPage.DisplayAlert("Info", "La direccion es requerida", "Aceptar");
+                UserDialogs.Instance.WarnToast(AppResources.BillingDataDistributorAddressRequired);
                 return false;
             }
 
             if (_Distributor.CodigoPostal == null || _Distributor.CodigoPostal.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
-                Application.Current.MainPage.DisplayAlert("Info", "El codigo postal es requerido", "Aceptar");
+                UserDialogs.Instance.WarnToast(AppResources.BillingDataDistributorZipCodeRequired);
                 return false;
             }
 
             if (IdCity <= 0)
             {
-                Application.Current.MainPage.DisplayAlert("Info", "Seleccione una ciudad", "Aceptar");
+                UserDialogs.Instance.WarnToast(AppResources.BillingDataDistributorCityRequired);
                 return false;
             }
 
             if (_Distributor.Email == null || _Distributor.Email.Trim().Length.Equals(Keys.NUMBER_ZERO))
             {
-                Application.Current.MainPage.DisplayAlert("Info", "El email es requerido", "Aceptar");
+                UserDialogs.Instance.WarnToast(AppResources.BillingDataDistributorEmailRequired);
                 return false;
             }
 
