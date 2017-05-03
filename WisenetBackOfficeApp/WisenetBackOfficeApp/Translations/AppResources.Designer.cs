@@ -188,6 +188,24 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Edit Information.
+        /// </summary>
+        public static string LabelUpdateData {
+            get {
+                return ResourceManager.GetString("LabelUpdateData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Wait a moment please.
+        /// </summary>
+        public static string LabelWaitAMomentPlease {
+            get {
+                return ResourceManager.GetString("LabelWaitAMomentPlease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Warning.
         /// </summary>
         public static string LabelWarning {

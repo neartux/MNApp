@@ -20,13 +20,10 @@ namespace WisenetBackOfficeApp.ViewModels
             }
         }
 
-        private void GoToPersoalData()
-        {
-            Debug.WriteLine("PageName_d = " + PageName_d);
+        private void GoToPersoalData() {
             switch (PageName_d)
             {
                 case "PersonalDataDistributor":
-                    Debug.WriteLine("Aqui en datos personales distributor");
                     App.Navigator.PushAsync(new PersonalDataDistributor());
                     break;
 

@@ -155,7 +155,7 @@
 								HorizontalOptions="Start" TextColor="#ffc581" VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
 
 
-                        <Label Text="Editar Informacion" Grid.Row="21"  Grid.ColumnSpan="3" Font="Bold, 18" TextColor="White">
+                        <Label Text="{i18n:Translate LabelUpdateData}" Grid.Row="21"  Grid.ColumnSpan="3" Font="Bold, 18" TextColor="White">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding UpdateShippingInformationCommand}" NumberOfTapsRequired="1"/>
                             </Label.GestureRecognizers>

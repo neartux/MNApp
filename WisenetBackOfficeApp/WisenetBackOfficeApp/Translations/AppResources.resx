@@ -366,4 +366,10 @@
   <data name="InternetLaberlVerifyConnection" xml:space="preserve">
     <value>Verify your internet connection</value>
   </data>
+  <data name="LabelWaitAMomentPlease" xml:space="preserve">
+    <value>Wait a moment please</value>
+  </data>
+  <data name="LabelUpdateData" xml:space="preserve">
+    <value>Edit Information</value>
+  </data>
 </root>

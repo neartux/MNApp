@@ -6,49 +6,131 @@
              xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
              xmlns:controls="clr-namespace:WisenetBackOfficeApp.Helpers.Controls;assembly=WisenetBackOfficeApp">
 
-    <ContentView Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}">
+    <ContentView Padding="0,0,0,0" ControlTemplate="{StaticResource BarOrange}" Margin="10, 10, 10, 10">
 
         <ScrollView>
 
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                
+                <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="#444444" Padding="5">
+                    <Label TextColor="#FFFFFF" Text="Editar Datos Facturacion" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  VerticalTextAlignment="Center"
+				           HorizontalTextAlignment="Center"	FontSize="16"/>
 
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelCountry}" TextColor="White"/>
-                <Label Text="{ Binding Distributor.Pais }" TextColor="White"/>
+                </StackLayout>
 
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelState}" TextColor="White"/>
-                <controls:BindablePicker ItemsSource="{ Binding States }"
-                                         DisplayMemberPath="Descripcion"
-                                         SelectedValuePath="Id"
-                                         SelectedValue="{Binding IdState, Mode=TwoWay}"
-                                         TextColor="White"/>
+                <Grid>
 
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelCity}" TextColor="White"/>
-                <controls:BindablePicker ItemsSource="{ Binding Cities }"
-                                         DisplayMemberPath="Descripcion"
-                                         SelectedValuePath="Id"
-                                         SelectedValue="{Binding IdCity, Mode=TwoWay}"
-                                         TextColor="White"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelAddress}" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.Direccion }" TextColor="White"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelZipCode}" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.CodigoPostal }" TextColor="White"/>
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelAddress}" 
+                           Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           TextColor="#4a5052"/>
+                    <controls:CustomControlThemeBlackEntry  
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        TextColor="#ffa834"
+                        FontSize="14"
+                        Text="{ Binding Distributor.Direccion }"/>
+                    
 
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelMovil}" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.Celular }" TextColor="White"/>
-
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelPhone}" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.Telefono }" TextColor="White"/>
-
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelFax}" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.Fax }" TextColor="White"/>
-
-                <Label Text="{i18n:Translate ShippingDataDistributorLabelEmail}" TextColor="White"/>
-                <Entry Text="{ Binding Distributor.Email }" TextColor="White"/>
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelZipCode}" 
+                           Grid.Row="2" Grid.Column="0"
+                           TextColor="#4a5052"/>
+                    <controls:CustomControlThemeBlackEntry  
+                        Grid.Row="3" Grid.Column="0"
+                        TextColor="#ffa834"
+                        FontSize="14"
+                        Text="{ Binding Distributor.CodigoPostal }"/>
 
 
-                <Button Text="Guardar Informacion" Command="{ Binding UpdateDataCommand }"/>
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelCountry}" 
+                           Grid.Row="2" Grid.Column="1"
+                           TextColor="#4a5052"/>
+                    <Label Text="{ Binding Distributor.Pais }"
+                           TextColor="#929292"
+                           Grid.Row="3" Grid.Column="1"/>
+
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelState}" 
+                           Grid.Row="4" Grid.Column="0"
+                           TextColor="#4a5052"/>
+                    <controls:BindablePicker ItemsSource="{ Binding States }"
+                                             Grid.Row="5" Grid.Column="0"
+                                             DisplayMemberPath="Descripcion"
+                                             SelectedValuePath="Id"
+                                             SelectedValue="{Binding IdState, Mode=TwoWay}"
+                                             TextColor="#929292"/>
+
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelCity}" 
+                           Grid.Row="4" Grid.Column="1"
+                           TextColor="#4a5052"/>
+                    <controls:BindablePicker ItemsSource="{ Binding Cities }"
+                                             Grid.Row="5" Grid.Column="1"
+                                             DisplayMemberPath="Descripcion"
+                                             SelectedValuePath="Id"
+                                             SelectedValue="{Binding IdCity, Mode=TwoWay}"
+                                             TextColor="#929292"/>
+
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelMovil}" 
+                           Grid.Row="6" Grid.Column="0"
+                           TextColor="#4a5052"/>
+                    <controls:CustomControlThemeBlackEntry  
+                        Grid.Row="7" Grid.Column="0"
+                        TextColor="#ffa834"
+                        FontSize="14"
+                        Text="{ Binding Distributor.Celular }"/>
+
+                    
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelPhone}" 
+                           Grid.Row="6" Grid.Column="1"
+                           TextColor="#4a5052"/>
+                    <controls:CustomControlThemeBlackEntry  
+                        Grid.Row="7" Grid.Column="1"
+                        TextColor="#ffa834"
+                        FontSize="14"
+                        Text="{ Binding Distributor.Telefono }"/>
+
+
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelFax}" 
+                           Grid.Row="8" Grid.Column="0"
+                           TextColor="#4a5052"/>
+                    <controls:CustomControlThemeBlackEntry  
+                        Grid.Row="9" Grid.Column="0"
+                        TextColor="#ffa834"
+                        FontSize="14"
+                        Text="{ Binding Distributor.Fax }"/>
+
+                    <Label Text="{i18n:Translate ShippingDataDistributorLabelEmail}" 
+                           Grid.Row="8" Grid.Column="1"
+                           TextColor="#4a5052"/>
+                    <controls:CustomControlThemeBlackEntry  
+                        Grid.Row="9" Grid.Column="1"
+                        TextColor="#ffa834"
+                        FontSize="14"
+                        Text="{ Binding Distributor.Email }"/>
+
+
+                    <Button Text="Guardar Informacion" Command="{ Binding UpdateDataCommand }"
+                            Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    
+                    
+                </Grid>
+
 
             </StackLayout>
 

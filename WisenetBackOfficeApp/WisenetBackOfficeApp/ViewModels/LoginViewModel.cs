@@ -36,7 +36,7 @@ namespace WisenetBackOfficeApp.ViewModels
             Task.Run(() => {
                 if(ValidateLoginForm())
                 {
-                    Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading("Wait a moment, please"));
+                    Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.ShowLoading(AppResources.LabelWaitAMomentPlease));
 
                     ResponseDistributor response = IWisenetWS.FindDatosDistribuidorById(long.Parse(_user.UserName), User.Password).Result;
 
