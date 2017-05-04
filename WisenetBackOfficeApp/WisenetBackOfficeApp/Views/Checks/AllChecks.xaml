@@ -1,5 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:WisenetBackOfficeApp.Translations;assembly=WisenetBackOfficeApp"
              x:Class="WisenetBackOfficeApp.Views.Checks.AllChecks">
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="Black" Padding="15" Margin="0, 15, 0, 15">
+                <Label TextColor="White"
+				Text="TODOS" 
+                FontAttributes="Bold"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="Center" 
+				VerticalTextAlignment="Center"
+				HorizontalTextAlignment="Center"	
+				FontSize="18"
+				/>
+
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,0,0,0" BackgroundColor="Black">
+
+                <ListView ItemsSource="{ Binding CheckList }" RowHeight="80" BackgroundColor="Black">
+
+                    <ListView.SeparatorColor>
+                        <OnPlatform x:TypeArguments="Color" Android="#606060" iOS="#606060" WinPhone="#606060"/>
+                    </ListView.SeparatorColor>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+
+                                    <Grid>
+
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ViewDetailOrderCommand}" NumberOfTapsRequired="1">
+                                            </TapGestureRecognizer>
+                                        </Grid.GestureRecognizers>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="20" />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
+
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="150"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="checkgray.png" Grid.Row="0"  Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"
+                                               Grid.RowSpan="3"/>
+
+                                        <StackLayout  Grid.Row="0"  Grid.Column="1" BackgroundColor="#008db1"
+                                                      WidthRequest="80" HorizontalOptions="Start"
+                                                      Padding="2">
+
+                                            <Label  Text="{ Binding TipoComision }" Font="Bold, 16"  TextColor="Black" 
+                                                    FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Start"
+                                                    />
+
+                                        </StackLayout>
+
+                                        <Label Text="{ Binding NombreDistribuidor }" Grid.Row="1" Grid.Column="1" Font="Bold, 16"  VerticalOptions="Center"
+								                HorizontalOptions="Start" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+
+                                        <Label  Grid.Row="2"  Grid.Column="1" Text="{Binding FechaCierreComision, StringFormat='{0:dd, MMMM yyyy}'}" Font="Bold, 13"  VerticalOptions="Center"
+								                HorizontalOptions="Start" TextColor="#F8C100" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+
+
+
+                                        <Label  Grid.Row="0"  Grid.Column="3" Text="{Binding FechaCheque, StringFormat='{0:dd, MMMM yyyy}'}" Font="Bold, 10"  VerticalOptions="Center"
+								                HorizontalOptions="End" TextColor="#828282" VerticalTextAlignment="Center" HorizontalTextAlignment="End"
+                                                Margin="0,0,10,0"/>
+
+                                        <Label  Grid.Row="1" Grid.RowSpan="2"  Grid.Column="3" Text="{Binding Monto, StringFormat='${0:N}'}" Font="Bold, 24"  VerticalOptions="Center"
+								                HorizontalOptions="End" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="End"
+                                                Margin="0,0,10,0"/>
+
+
+                                    </Grid>
+
+                                </StackLayout>
+
+                            </ViewCell>
+
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+            </StackLayout>
+
+
+
+        </StackLayout>
+
+
+
+    </ContentPage.Content>
+    
+    
 </ContentPage>

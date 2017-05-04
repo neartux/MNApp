@@ -23,7 +23,8 @@ namespace WisenetBackOfficeApp.ViewModels
             var _AppManager = AppManager.Instance;
             var _DistributorTO = _AppManager.GetDistributor();
             ResponseCheque response = Task.Run(() => IWisenetWS.FindChecksByDistributor(_DistributorTO.IdDistributor, Keys.COMISION_TYPE_ALL)).Result;
-            if(response.Success)
+            Debug.WriteLine("RESPUESTA CHEQUE = " +response.Success);
+            if (response.Success)
             {
                 Debug.WriteLine("---------------");
                 CheckList = response.Checks;
