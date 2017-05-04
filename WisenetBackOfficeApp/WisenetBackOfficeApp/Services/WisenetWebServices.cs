@@ -6,7 +6,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WisenetBackOfficeApp.Helpers.Keys; 
+using WisenetBackOfficeApp.Helpers.Keys;
+using WisenetBackOfficeApp.Models.Checks;
 using WisenetBackOfficeApp.Models.Common;
 using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Ordenes;
@@ -207,6 +208,36 @@ namespace WisenetBackOfficeApp.Services
             }
             catch (Exception e) {
                 Debug.WriteLine("ERROR: " + e.Message);
+                responseVO.Success = false;
+                responseVO.Message = e.Message;
+            }
+            return await Task.Run(() => responseVO);
+        }
+
+        public async Task<ResponseCheque> FindChecksByDistributor(long _IdDistributor, string _TypeCheck)
+        {
+
+            ResponseCheque responseVO = new ResponseCheque();
+
+            try
+            {
+                string url = WebServicesKeys.URL_FIND_ALL_CHECKS + _IdDistributor + Keys.SLASH + _TypeCheck;
+                Debug.WriteLine("URL = " + url);
+                var response = await client.GetAsync(new Uri(string.Format(url, string.Empty)), cts.Token);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    responseVO = JsonConvert.DeserializeObject<ResponseCheque>(content);
+                }
+            }
+            catch (TaskCanceledException ex)
+            {
+                Debug.WriteLine("ERROR: " + ex.Message);
+                responseVO.Success = false;
+                responseVO.Message = AppResources.WebserviceLabelTimeOut;
+            }
+            catch (Exception e)
+            {
                 responseVO.Success = false;
                 responseVO.Message = e.Message;
             }

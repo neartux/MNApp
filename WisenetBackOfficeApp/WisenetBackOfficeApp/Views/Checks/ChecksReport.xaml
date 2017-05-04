@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:WisenetBackOfficeApp.Views.Checks;assembly=WisenetBackOfficeApp"
+            x:Class="WisenetBackOfficeApp.Views.Checks.ChecksReport">
+
+    <TabbedPage.Children>
+
+        <local:AllChecks Title="All Checks" />
+
+
+        <local:AllChecks Title="Commissions" />
+
+
+        <local:AllChecks Title="FastStart" />
+
+    </TabbedPage.Children>
+    
+    
+</TabbedPage>

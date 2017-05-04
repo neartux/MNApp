@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using WisenetBackOfficeApp.Models.Checks;
 using WisenetBackOfficeApp.Models.Common;
 using WisenetBackOfficeApp.Models.Distributor;
 using WisenetBackOfficeApp.Models.Ordenes;
@@ -19,6 +20,8 @@ namespace WisenetBackOfficeApp.Services
         Task<ResponseVenta> FindOrdersByDistributor(long idDistributor);
 
         Task<ResponseVentaDetalle> FindVentaById(long idVenta);
+
+        Task<ResponseCheque> FindChecksByDistributor(long _IdDistributor, string _TypeCheck);
 
         Task<List<CatalogoTO>> FindUbicaciones(string url);
     }

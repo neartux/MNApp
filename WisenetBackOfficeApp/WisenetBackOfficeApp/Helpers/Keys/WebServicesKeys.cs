@@ -12,5 +12,6 @@
         public static string URL_UPDATE_BIRTH_DATE = URL_HOST_WEB_SERVICE + "distribuidor/updateBirthDay";
         public static string URL_FIND_ORDERS_BY_DISTRIBUTOR = URL_HOST_WEB_SERVICE + "distribuidor/findOrderListByDistributor/";
         public static string URL_FIND_ORDER_BY_ID = URL_HOST_WEB_SERVICE + "distribuidor/findVentaCompletaById/";
+        public static string URL_FIND_ALL_CHECKS = URL_HOST_WEB_SERVICE + "distribuidor/findChecksByDistributor/";
     }
 }

@@ -296,6 +296,15 @@ namespace WisenetBackOfficeApp.Translations {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Checks.
+        /// </summary>
+        public static string MenuLabelChecks {
+            get {
+                return ResourceManager.GetString("MenuLabelChecks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Close.
         /// </summary>
         public static string MenuLabelClose {

@@ -25,13 +25,13 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="30"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="40"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="30"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
@@ -54,7 +54,9 @@
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelZipCode}" 
                            Grid.Row="2" Grid.Column="0"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:CustomControlThemeBlackEntry  
                         Grid.Row="3" Grid.Column="0"
                         TextColor="#ffa834"
@@ -64,34 +66,45 @@
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelCountry}" 
                            Grid.Row="2" Grid.Column="1"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <Label Text="{ Binding Distributor.Pais }"
-                           TextColor="#929292"
-                           Grid.Row="3" Grid.Column="1"/>
+                           TextColor="#ffa834"
+                           Grid.Row="3" Grid.Column="1"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelState}" 
                            Grid.Row="4" Grid.Column="0"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:BindablePicker ItemsSource="{ Binding States }"
                                              Grid.Row="5" Grid.Column="0"
                                              DisplayMemberPath="Descripcion"
                                              SelectedValuePath="Id"
                                              SelectedValue="{Binding IdState, Mode=TwoWay}"
-                                             TextColor="#929292"/>
+                                             TextColor="#ffa834"
+                                             />
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelCity}" 
                            Grid.Row="4" Grid.Column="1"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:BindablePicker ItemsSource="{ Binding Cities }"
                                              Grid.Row="5" Grid.Column="1"
                                              DisplayMemberPath="Descripcion"
                                              SelectedValuePath="Id"
                                              SelectedValue="{Binding IdCity, Mode=TwoWay}"
-                                             TextColor="#929292"/>
+                                             TextColor="#ffa834"/>
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelMovil}" 
                            Grid.Row="6" Grid.Column="0"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:CustomControlThemeBlackEntry  
                         Grid.Row="7" Grid.Column="0"
                         TextColor="#ffa834"
@@ -101,7 +114,9 @@
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelPhone}" 
                            Grid.Row="6" Grid.Column="1"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:CustomControlThemeBlackEntry  
                         Grid.Row="7" Grid.Column="1"
                         TextColor="#ffa834"
@@ -111,7 +126,9 @@
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelFax}" 
                            Grid.Row="8" Grid.Column="0"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:CustomControlThemeBlackEntry  
                         Grid.Row="9" Grid.Column="0"
                         TextColor="#ffa834"
@@ -120,7 +137,9 @@
 
                         <Label Text="{i18n:Translate ShippingDataDistributorLabelEmail}" 
                            Grid.Row="8" Grid.Column="1"
-                           TextColor="#4a5052"/>
+                           TextColor="#4a5052"
+                               VerticalOptions="EndAndExpand"
+                               VerticalTextAlignment="End"/>
                         <controls:CustomControlThemeBlackEntry  
                         Grid.Row="9" Grid.Column="1"
                         TextColor="#ffa834"
@@ -130,7 +149,7 @@
 
                         <Button Text="Guardar Informacion" Command="{ Binding UpdateDataCommand }"
                             Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
-                                Margin="0,70,0,0"/>
+                                Margin="0,70,10,0"/>
 
 
                     </Grid>

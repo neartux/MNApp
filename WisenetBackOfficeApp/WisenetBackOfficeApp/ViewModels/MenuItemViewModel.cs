@@ -34,6 +34,10 @@ namespace WisenetBackOfficeApp.ViewModels
                     App.Navigator.PushAsync(new Views.OrderReport());
                     break;
 
+                case "Checks":
+                    App.Navigator.PushAsync(new Views.Checks.ChecksReport());
+                    break;
+
                 default:
                     Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
                     break;

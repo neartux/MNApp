@@ -384,4 +384,7 @@
   <data name="BillingDataDistributorZipCodeRequired" xml:space="preserve">
     <value>El código postal es requerido</value>
   </data>
+  <data name="MenuLabelChecks" xml:space="preserve">
+    <value>Cheques</value>
+  </data>
 </root>

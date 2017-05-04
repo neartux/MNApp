@@ -39,6 +39,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Controls\CustomControlThemeBlackEntry.cs" />
+    <Compile Include="Models\Checks\ChequeTO.cs" />
+    <Compile Include="Models\Checks\ResponseCheque.cs" />
     <Compile Include="Translations\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +95,7 @@
     <Compile Include="Translations\ILocalize.cs" />
     <Compile Include="Translations\TranslateExtension.cs" />
     <Compile Include="ViewModels\BillingDataDistributorViewModel.cs" />
+    <Compile Include="ViewModels\ChecksViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemDataDistributorViewModel.cs" />
@@ -106,6 +109,15 @@
     <Compile Include="ViewModels\UpdateShippinInformationViewModel.cs" />
     <Compile Include="Views\BillingDataDistributor.xaml.cs">
       <DependentUpon>BillingDataDistributor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checks\AllChecks.xaml.cs">
+      <DependentUpon>AllChecks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checks\ChecksReport.xaml.cs">
+      <DependentUpon>ChecksReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Checks\ComissionChecks.xaml.cs">
+      <DependentUpon>ComissionChecks.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -298,6 +310,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\UpdateBillingInformation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Checks\ChecksReport.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Checks\AllChecks.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Checks\ComissionChecks.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

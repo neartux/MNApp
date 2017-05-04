@@ -61,6 +61,14 @@ namespace WisenetBackOfficeApp.ViewModels {
 
             Menu.Add(new MenuItemViewModel()
             {
+                Icon = "ic_genealogia",
+                Title = AppResources.MenuLabelChecks,
+                PageName = "Checks"
+
+            });
+
+            Menu.Add(new MenuItemViewModel()
+            {
                 Icon = "ic_sesion",
                 Title = AppResources.MenuLabelClose,
                 PageName = "CloseApp"
